@@ -5,9 +5,9 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="styleLogin.css">
 </head>
-<body>
+<body class="bg">
 <div class="form-wrapper">
   
   <form action="#" method="post">

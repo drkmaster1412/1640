@@ -1,45 +1,45 @@
 <?php
-require_once('dbcon.php');
+// require_once('dbcon.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>User Registration | PHP</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Mono:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:ital,wght@0,200;0,300;0,500;0,800;1,300&family=Volkhov:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+<img src="./img/bg.png">
 
-<div>
-	<?php
-	
-	?>	
-</div>
 
-<div>
+<div class="form-wrapper">
+
 	<form action="#" method="post">
 		<div class="container">
 			<h3>Registration</h3>
-			<p>Fill up the form with correct values.</p>
+			<!-- <p>Fill up the form with correct values.</p> -->
             <div class="form-items">
-		    <input type="text" name="C_name" id="" placeholder="Name"></input>
+		    <input type="text" name="C_name" id="name" placeholder="Name"></input>
             </div>  
             <div class="form-items">
-		    <input type="date" name="C_birth" id="" placeholder="Date of Birth"></input>
+		    <input type="date" name="C_birth" id="date" placeholder="Date of Birth"></input>
             </div>  
             <div class="form-items">
-		    <input type="number" name="C_phone" id = "" placeholder="Phone Number"></input>
+		    <input type="number" name="C_phone" id = "phone" placeholder="Phone Number"></input>
             </div>  
             <div class="form-items">
-		    <input type="text" name="mail" id="" placeholder="Email"></input>
+		    <input type="text" name="mail" id="mail" placeholder="Email"></input>
             </div>   
             <div class="form-items">
-		    <input type="password" name="pass" id = "" placeholder="Password"></input>
+		    <input type="password" name="pass" id = "pass" placeholder="Password"></input>
             </div>
             <div class="form-items">
-		    <input type="password" name="cpass" id= "" placeholder="Confirm Password"></input>
+		    <input type="password" name="cpass" id= "password" placeholder="Confirm Password"></input>
             </div> 
             <div class="button-panel">
-		    <input type="submit" class="button" title="Sign up" name="btnsignup" value="signup"></input>
+		    <input type="submit" class="button" title="Sign up" name="btnsignup" value="Sign Up"></input>
             </div>
             </form>
 			</div>
@@ -50,7 +50,7 @@ require_once('dbcon.php');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script type="text/javascript">
-
+</body>
 <?php
 $err="";
 $Customer_Name="";

@@ -5,9 +5,13 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="styleLogin.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Mono:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:ital,wght@0,200;0,300;0,500;0,800;1,300&family=Volkhov:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="bg">
+	<img src="./img/bg.png">
 <div class="form-wrapper">
   
   <form action="#" method="post">
@@ -65,8 +69,7 @@ if(isset($_POST["btnlogin"]))
 }
 ?>
   <div class="reminder">
-    <p>Not a member? <a href=" <?php echo $urllogin."/".$signup;?>">Sign up now</a></p>
-    <p><a href="#">Forgot password?</a></p>
+    <p class="member">Not a member? <a href=" <?php echo $urllogin."/".$signup;?>" class="signUp">Sign up now</a></p>
   </div>
   
 </div>

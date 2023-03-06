@@ -1,15 +1,30 @@
-<h1 class="text-center">About US</h1>
-<div class="row">
-    <div class="col col-md-12">
-        <div class="text-center">
-        The Bt shop is a new firm that was founded in Vietnam in 2021. We've decided to go with board games as our most powerful product to process.
-We have the necessary personnel to plan and develop new board games, as well as to implement them for use by people all over the world. We want that individuals spend quality time with their friends or family, playing Monopoly or UNO with them, and growing closer to one another rather than spending time alone with their phones.
+<!DOCTYPE html>
+<!---Coding By CoderGirl!--->
+<html lang="en">
+
+<head>
+    <title>About Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+
+<body>
+    <div class="about font-Ubuntu">
+        <div class="text">
+            <h1 class="center-parent">About Us</h1>
+            <p class="justify">The University of Greenwich is a public university located in London and Kent, United Kingdom. Previous names include Woolwich Polytechnic and Thames Polytechnic.</p>
+            <p class="justify"> The university's main campus is at the Old Royal Naval College, which along with its Avery Hill campus, is located in the Royal Borough of Greenwich. Greenwich also has a satellite campus in Medway, Kent, as part of a shared campus. The university's range of subjects includes architecture, business, computing, mathematics, education, engineering, humanities, maritime studies, natural sciences, pharmacy and social sciences. Greenwich's alumni include two Nobel laureates: Abiy Ahmed and Charles K. Kao. It received a Silver rating in the UK government's Teaching Excellence Framework.</p>
+        </div>
+        <br>
+        <div class="text">
+            <h4>Location</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.635247161829!2d-0.008104084577951637!3d51.48320922029315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760285263b1459%3A0x182423076697c5c8!2zVHLGsOG7nW5nIEjhuqNpIHF1w6JuIEhvw6BuZyBnaWEgY8Wp!5e0!3m2!1svi!2s!4v1678096759518!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-</div>
-<div class="row mt-2">
-    <div class="col col-md-12">
-        <div class="text-left">Location:</div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62901.23599424656!2d105.78168226942059!3d9.822857725081278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a05f23f51a7a71%3A0x3ee1e426e38fa80a!2zVHguIE5nw6MgQuG6o3ksIEjhuq11IEdpYW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1639191704070!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-</div>
+</body>
+
+</html>

@@ -69,7 +69,8 @@ if(isset($_POST["btnlogin"]))
 }
 ?>
   <div class="reminder">
-    <p class="member">Not a member? <a href=" <?php echo $urllogin."/".$signup;?>" class="signUp">Sign up now</a></p>
+ <!-- href=" <?php echo $urllogin."/".$signup;?>" đường dẫn trong nút signUp-->
+    <p class="member">Not a member? <a href="http://localhost:8012/1640/login/signup.php" class="signUp">Sign up now</a></p>
   </div>
   
 </div>

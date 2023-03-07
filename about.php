@@ -44,6 +44,8 @@
 
         </div>
     </section>
+    
+    <?php echo file_get_contents("footer.php"); ?>
 
 </body>
 

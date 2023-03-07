@@ -23,6 +23,8 @@ section{
     min-height: 90vh;
     width: 85vw;
     margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .map{
     padding-top: 70px;

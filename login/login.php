@@ -69,7 +69,7 @@ if(isset($_POST["btnlogin"]))
 }
 ?>
   <div class="reminder">
-    <p class="member">Not a member? <a href=" <?php echo $urllogin."/".$signup;?>" class="signUp">Sign up now</a></p>
+  <p class="member">Not a member? <a href="http://localhost:8012/1640/login/signup.php" class="signUp">Sign up now</a></p>
 	<p class="member">Forgot Your password?<a href=" <?php echo $urllogin."/password_reset.php";?>" class="signUp">Forgot password</a></p>
 	<p class="member">Did not Recived a verify email? <a href=" <?php echo $urllogin."/resendemail_verification.php";?>" class="signUp">Resend verify email</a></p>
   </div>

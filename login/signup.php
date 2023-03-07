@@ -11,14 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Mono:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:ital,wght@0,200;0,300;0,500;0,800;1,300&family=Volkhov:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-<img src="./img/bg.png">
-
+<!-- <img src="./img/bg.png"> -->
+<h3>Registration</h3>
 
 <div class="form-wrapper">
 
 	<form action="#" method="post">
 		<div class="container">
-			<h3>Registration</h3>
 			<!-- <p>Fill up the form with correct values.</p> -->
             <div class="form-items">
 		    <input type="text" name="C_name" id="name" placeholder="Name"></input>

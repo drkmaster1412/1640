@@ -129,37 +129,4 @@
       transform: rotate(-45deg);
   }
 
-  .about {
-      height: 100vh;
-      width: 100%;
-      padding: 20px;
-      padding-top: 20px;
-      background: #ffffff;
-  }
-
-  .text {
-      width: 100%;
-      color: #00bcd4;
-  }
-
-  .text p {
-      font-size: 17px;
-  }
-
-  .text h1 {
-      font-size: 50px;
-      padding-bottom: 20px;
-  }
-
-  .text h4 {
-    font-size: 25px;
-    padding-bottom: 10px;
-  }
-
-  .center-parent {
-      text-align: center;
-  }
-
-  .justify {
-      text-align: justify;
-  }
+  

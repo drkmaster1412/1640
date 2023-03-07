@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
 .font-Ubuntu {
+    color:#00bcd4;
     font-family: Ubuntu;
   }
   
@@ -12,6 +13,8 @@
     text-align: left;
     font: 16px sans-serif;
     padding: 55px 50px;
+    position: absolute; 
+    bottom:0;
 }
 
 .footer-distributed .footer-left,

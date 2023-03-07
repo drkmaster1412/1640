@@ -1,19 +1,43 @@
-<header id="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="../?page=homepage.php" class="navbar-brand">
-            <h3 class="px-5">
-                <i class="fas fa-shopping-basket"></i> Bt Shop
-            </h3>
-        </a>
-        <button class="navbar-toggler"
-            type="button"
-                data-toggle="collapse"
-                data-target = "#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!DOCTYPE html>
+<html lang="en">
 
-      
+<head>
+    <meta name="viewpost" content="width=device-width, initial-scale = 1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+
+<body>
+    <input type="checkbox" id="toggle">
+    <nav class="font-Ubuntu">
+
+        <a class="logo" href="homepage.php">
+            <img src="image/Logo.png" align="center" width="50%" height="auto" alt="logo">
+        </a>
+
+        <label class="navbar-toggler" for="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-link" href="homepage.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Idea</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Privacy</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

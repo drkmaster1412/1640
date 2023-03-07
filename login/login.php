@@ -11,14 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Mono:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:ital,wght@0,200;0,300;0,500;0,800;1,300&family=Volkhov:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="bg">
-	<img src="./img/bg.png">
+	<!-- <img src="./img/bg.png"> -->
+	<h3>Login here</h3>
+
 <div class="form-wrapper">
   
   <form action="#" method="post">
-    <h3>Login here</h3>
 	
     <div class="form-item">
-		<input type="text" name="mail" required="required" placeholder="Email" autofocus required></input>
+		<input type="text" name="email" required="required" placeholder="Email" autofocus required></input>
     </div>
     
     <div class="form-item">
@@ -37,7 +38,7 @@ if(isset($_POST["btnlogin"]))
 	$password=$_POST["pass"];
 
 	$md5password= md5($password);
-	$sql="select * from users where mail='".$username."' AND pass='".$md5password."'";
+	$sql="select * from users where email='".$username."' AND pass='".$md5password."'";
 
 	$result=mysqli_query($conn,$sql);
 

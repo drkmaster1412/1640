@@ -11,7 +11,9 @@ require_once('dbcon.php');
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Mono:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:ital,wght@0,200;0,300;0,500;0,800;1,300&family=Volkhov:wght@700&display=swap" rel="stylesheet">
     <title>User Registration | PHP</title>
 </head>
-
+<body>
+<!-- <img src="./img/bg.png"> -->
+<h3>Registration</h3>
 
 <img src="./img/bg.png">
 

@@ -110,15 +110,17 @@ require_once('dbcon.php');
     if (isset($_POST["btnsignup"])) {
 
         //Check email exist or not
-        $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
-        $check_email_query_run = mysqli_query($conn, $check_email_query);
-        if (mysqli_num_rows($check_email_query_run) > 0) {
-            $_SESSION['status'] = "Email id already exist";
-            header("Location: signup.php");
-        } else {
             $Username = isset($_POST["C_name"]) ? $_POST["C_name"] : "";
             $Phone = isset($_POST["C_phone"]) ? $_POST["C_phone"] : "";
+
             $email = isset($_POST["email"]) ? $_POST["email"] : "";
+            $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
+            $check_email_query_run = mysqli_query($conn, $check_email_query);
+            if (mysqli_num_rows($check_email_query_run) > 0) {
+                $_SESSION['status'] = "Email id already exist";
+                header("Location: signup.php");
+                }
+                else{
             $pass = md5($_POST["pass"]);
             $cpass = md5($_POST["cpass"]);
             if ($Username == "") {
@@ -138,8 +140,8 @@ require_once('dbcon.php');
             }
             if (empty($err)) {
                 $Cus_id = rand(1000, 999999);
-                $verify_token = md5(rand());
-                $sql = "Select * from users where Phone ='$Phone'";
+                $verify_token = md5(rand(1,99999));
+                $sql = "SELECT Phone FROM users WHERE Phone ='$Phone' LIMIT 1";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) == 0) {
                     $sql = "INSERT into users (Customer_ID,Username,Phone,email,pass,verify_token) values('$Cus_id','$Username','$Phone','$email','$pass', $verify_token)";
@@ -160,5 +162,4 @@ require_once('dbcon.php');
             }
         }
     }
-
     ?>

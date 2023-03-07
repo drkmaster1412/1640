@@ -1,6 +1,6 @@
 
 <?php session_start(); ?>
-<?php //include('dbcon.php');
+<?php include_once('dbcon.php');
 ?>
 
 <html>
@@ -37,7 +37,7 @@ if(isset($_POST["btnlogin"]))
 	$password=$_POST["pass"];
 
 	$md5password= md5($password);
-	$sql="select * from customer where mail='".$username."' AND pass='".$md5password."'";
+	$sql="select * from users where mail='".$username."' AND pass='".$md5password."'";
 
 	$result=mysqli_query($conn,$sql);
 
@@ -47,7 +47,7 @@ if(isset($_POST["btnlogin"]))
 	{	
 		$_SESSION["user"]=$username;
 		
-		$_SESSION["name"]=$row["Customer_Name"];
+		$_SESSION["name"]=$row["Username"];
 		header("location:$urluser?page=$home");
 	}
 
@@ -56,7 +56,7 @@ if(isset($_POST["btnlogin"]))
 
 		$_SESSION["user"]=$username;
 		$_SESSION["type"]=$row["usertype"];
-		$_SESSION["name"]=$row["Customer_Name"];
+		$_SESSION["name"]=$row["Username"];
 		header("location:$urladmin");
 	}
 
@@ -70,6 +70,8 @@ if(isset($_POST["btnlogin"]))
 ?>
   <div class="reminder">
     <p class="member">Not a member? <a href=" <?php echo $urllogin."/".$signup;?>" class="signUp">Sign up now</a></p>
+	<p class="member">Forgot Your password?<a href=" <?php echo $urllogin."/password_reset.php";?>" class="signUp">Forgot password</a></p>
+	<p class="member">Did not Recived a verify email? <a href=" <?php echo $urllogin."/resendemail_verification.php";?>" class="signUp">Resend verify email</a></p>
   </div>
   
 </div>

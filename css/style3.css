@@ -15,6 +15,7 @@ body{
     display: grid;
     background-color: #ffffff;
     align-content: center;
+    height: 100%;
     min-height: 100vh;
 }
 section{
@@ -24,11 +25,10 @@ section{
     width: 85vw;
     margin: 0 auto;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 300px;
 }
 .map{
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 20px;
     background: center/cover no-repeat;
 }
 .content{
@@ -37,11 +37,12 @@ section{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 300px;
 }
 .content h2{
-    padding: 10px;
+    padding-top: 20px;
     text-transform: uppercase;
-    color: #00bcd4;
+    color: #141a35;
     font-size: 36px;
     letter-spacing: 6px;
     opacity: 0.9;
@@ -55,7 +56,7 @@ section{
 }
 .content p{
     padding-bottom: 15px;
-    color: #00bcd4;
+    color: #141a35;
     font-weight: 300;
     opacity: 0.7;
     width: 80%;
@@ -67,7 +68,7 @@ section{
     margin: 15px 0;
 }
 .links li{
-    border: 0.5px solid #777;
+    border: 0.5px solid #141a35;
     list-style: none;
     border-radius: 5px;
     padding: 10px 15px;
@@ -76,14 +77,14 @@ section{
 }
 .links li a{
     text-transform: uppercase;
-    color: #777;
+    color: #141a35;
     text-decoration: none;
 }
 .links li:hover{
-    border-color: #06d6a0;
+    border-color: #00bcd4;
 }
 .links li:hover a{
-    color :#06d6a0;
+    color :#00bcd4;
 }
 .vertical-line{
     height: 30px;

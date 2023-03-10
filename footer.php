@@ -20,8 +20,6 @@
             <p class="footer-links">
                 <a href="homepage.php" class="link-1">Home</a>
 
-                <a href="about.php">About</a>
-
                 <a href="#">Contact Us</a>
 
                 <a href="#">Privacy Policy</a>
@@ -42,19 +40,19 @@
                 <p> Phone: +44 20 8331 8000</p>
             </div>
 
-            <!-- <div>
+            <div>
             <i class="fa fa-envelope"></i>
-            <p><a href="mailto:support@company.com">support@company.com</a></p>
-        </div> -->
+            <p><a>public.relations@gre.ac.uk</a></p>
+        </div>
 
         </div>
 
-        <div class="footer-right font-Ubuntu">
+        <!-- <div class="footer-right font-Ubuntu">
 
             <p class="footer-company-about">
                 <span>About the ***</span>
 
-            </p>
+            </p> -->
 
             <!-- <div class="footer-icons">
 

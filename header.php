@@ -31,9 +31,6 @@
                 <a class="nav-link">Idea</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link">Privacy</a>
             </li>
         </ul>

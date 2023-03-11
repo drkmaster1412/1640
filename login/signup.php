@@ -56,6 +56,8 @@ require_once('dbcon.php');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script type="text/javascript">
+    
+    
     <?php
 
     use PHPMailer\PHPMailer\PHPMailer;
@@ -101,28 +103,15 @@ require_once('dbcon.php');
 
 
 
-
-    $err = "";
-    $Username = "";
-    $Phone = "";
-    $email = "";
-    $pass = "";
-    $cpass = "";
-
     if (isset($_POST["btnsignup"])) {
 
-        //Check email exist or not
-            $Username = isset($_POST["C_name"]) ? $_POST["C_name"] : "";
-            $Phone = isset($_POST["C_phone"]) ? $_POST["C_phone"] : "";
+            $err = "";
 
-            $email = isset($_POST["email"]) ? $_POST["email"] : "";
-            $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
-            $check_email_query_run = mysqli_query($conn, $check_email_query);
-            if (mysqli_num_rows($check_email_query_run) > 0) {
-                $_SESSION['status'] = "Email id already exist";
-                header("Location: signup.php");
-                }
-                else{
+            $Username = $_POST["C_name"];
+            $Phone = $_POST["C_phone"];
+
+            $email = $_POST["email"];
+
             $pass = md5($_POST["pass"]);
             $cpass = md5($_POST["cpass"]);
             if ($Username == "") {
@@ -143,10 +132,15 @@ require_once('dbcon.php');
             if (empty($err)) {
                 $Cus_id = rand(1000, 999999);
                 $verify_token = md5(rand(1,99999));
-                $sql = "SELECT Phone FROM users WHERE Phone ='$Phone' LIMIT 1";
-                $result = mysqli_query($conn, $sql);
-                if (mysqli_num_rows($result) == 0) {
-                    $sql = "INSERT into users (Customer_ID,Username,Phone,email,pass,verify_token) values('$Cus_id','$Username','$Phone','$email','$pass', $verify_token)";
+                 $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
+                $check_email_query_run = mysqli_query($conn, $check_email_query);
+                if (mysqli_num_rows($check_email_query_run) > 0) {
+                    $err .= "<li>Your phone have been used before please use different phone number</li>";
+                    header("Location: signup.php");
+                }
+                else{
+
+                    $sql = "INSERT INTO users (Customer_ID,Username,Phone,email,pass,verify_token) VALUES ('$Cus_id','$Username','$Phone','$email','$pass', $verify_token)";
                     $sql_run = mysqli_query($conn, $sql);
 
                     if ($sql_run) {
@@ -163,5 +157,4 @@ require_once('dbcon.php');
                 $err .= "<li>Your phone have been used before please use different phone number</li>";
             }
         }
-    }
     ?>

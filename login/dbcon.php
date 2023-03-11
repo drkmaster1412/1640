@@ -9,7 +9,7 @@ $amanage = "accountmanage.php";
 
 
 
-$host = "localhost";
+$host = "localhost:3307";
 $username="root";
 $password="";
 $db= "1640";

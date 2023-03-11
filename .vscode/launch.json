@@ -9,8 +9,7 @@
             "type": "php",
             "request": "launch",
             "port": [
-                9003,
-                9000
+                9003
             ]
         },
     ]

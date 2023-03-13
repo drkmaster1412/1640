@@ -28,7 +28,7 @@
                 <a class="nav-link" href="homepage.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Idea</a>
+                <a class="nav-link" href="cmt/COMMENT/post.php">Post</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.php">About</a>

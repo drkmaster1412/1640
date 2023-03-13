@@ -9,6 +9,8 @@
     $logout = "logout.php";
     $amanage = "accountmanage.php";
     $search = "search.php";
+        $post = "cmt/COMMENT/post.php";
+
      session_start();
     include('./theme.php');
 ?>

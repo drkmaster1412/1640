@@ -1,19 +1,22 @@
+
 <h3>Update post</h3>
 <hr>
 
 <?php
+
 
 if(isset($_POST["btnSubmit"])){
     $p_id=$_POST["p_id"];
     $p_name=$_POST["p_name"];
     $p_text=$_POST["p_text"];
     $p_image=$_FILES['p_image'];
+    $p_uni_no=$_POST["p_uni_no"];
 
         if($p_image['name']!=""){
         copy($p_image['tmp_name'],"../image/".$p_image['name']);
 
             $filepic = $p_image['name'];
-        $sql="update poster set p_name='$p_name', p_text='$p_text',p_image='$filepic'  where p_id='$p_id'";
+        $sql="update poster set p_name='$p_name', p_text='$p_text',p_image='$filepic', p_uni_no='$p_uni_no' where p_id='$p_id'";
        mysqli_query($conn, $sql);
         header("Location: $urladmin?page=$post");   
         }        
@@ -26,6 +29,7 @@ if(isset($_POST["btnSubmit"])){
             $p_id= $row['p_id'];
             $p_name= $row['p_name'];
             $p_text= $row['p_text'];
+            $p_uni_no= $row['p_uni_no'];
             }
         }
     }
@@ -53,7 +57,10 @@ if(isset($_POST["btnSubmit"])){
         <input type="file" class="form-control-file" name="p_image" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
 
-
+        <div class="form-group col-sm-7">
+          <label for="">No</label>
+          <input type="text" name="p_uni_no" id="" class="form-control" placeholder="" value ="<?php echo $p_uni_no ?>" aria-describedby="helpId">
+        </div>
 
     <div class="form-row col-md-7">
         <div class="from-group col md-12">

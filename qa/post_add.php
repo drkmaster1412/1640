@@ -8,12 +8,16 @@ $p_id="";
 $p_name="";
 $p_text="";
 $p_image="";
+$p_uni_no="";
+
 
 if(isset($_POST["btnSubmit"])){
     $p_id=isset($_POST["p_id"])?$_POST["p_id"]:"";
     $p_name=isset($_POST["p_name"])?$_POST["p_name"]:"";
     $p_text=isset($_POST["p_text"])?$_POST["p_text"]:"";
     $p_image=isset($_POST["p_image"])?$_POST["p_image"]:"";
+    $p_uni_no=isset($_POST["p_uni_no"])?$_POST["p_uni_no"]:"";
+
 
     if($p_id==""){
         $err .="<li> Enter post ID";
@@ -27,13 +31,16 @@ if(isset($_POST["btnSubmit"])){
     if($p_image==""){
         $err .="<li> Choose images";
     }
+    if($p_uni_no==""){
+        $err .="<li> Enter post no";
+    }
 
     if(empty($err)){
         $sql ="Select * from poster where p_id = '$p_id' ";
         $result = mysqli_query($conn,$sql);
         if(mysqli_num_rows($result)==0){
 
-            $sql="insert into poster(p_id, p_name, p_image, p_text) value('$p_id', '$p_name', '$p_image', '$p_text')";
+            $sql="insert into poster(p_id, p_name, p_image, p_text, p_uni_no) value('$p_id', '$p_name', '$p_image', '$p_text' , '$p_uni_no')";
             mysqli_query($conn,$sql);
             header("Location: $urladmin?page=$post");           
         }else{
@@ -69,6 +76,11 @@ if(isset($_POST["btnSubmit"])){
         <div class="form-group col-sm-7">
         <label for="">Images</label>
         <input type="file" class="form-control-file" name="p_image" id="" placeholder="" aria-describedby="fileHelpId">
+        </div>
+
+        <div class="form-group col-sm-7">
+          <label for="">No</label>
+          <input type="text" name="p_uni_no" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
     <div class="form-row col-md-7">

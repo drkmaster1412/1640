@@ -79,7 +79,7 @@ else{
             <div class="row ml-0 mr-0">
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="box-img-100">
-                        <img src="Images/Post/<?php echo $fetch_post['p_image']; ?>"
+                        <img src="../image/<?php echo $fetch_post['p_image']; ?>"
                             class="card-img-top justify-content-center" alt="...">
                     </div>
                     <div class="card-body">

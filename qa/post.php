@@ -11,6 +11,8 @@
             <th>Name</th>
             <th>Images</th>
             <th>Description</th>
+            <th>No</th>
+
             <th></th>
         </tr>
     </thead>
@@ -25,6 +27,8 @@
                 <td><?php echo $row['p_name'] ?></td>
                 <td><img src="../image/<?php echo $row['p_image']; ?>" style= width:50px; height:50px"></td>
                 <td><?php echo $row['p_text'] ?></td>
+                <td><?php echo $row['p_uni_no'] ?></td>
+
                 <td>
                     <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
                     <span class="material-icons" >drive_file_rename_outline</span>             

@@ -2,7 +2,7 @@
     $urladmin ="http://localhost/1640/qa/";
     $urluser = "http://localhost/1640/";
     $home = "home.php";
-    $category = "category.php";
+    $categories = "category.php";
     $categoryEdit = "category_edit.php"; 
     $categoryDelete = "category_delete.php"; 
     $post = "post.php";

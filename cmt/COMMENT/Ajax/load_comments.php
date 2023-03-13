@@ -42,7 +42,7 @@ else{
                         <div class="comment-area">
                             <div class="comment-area-user">
                                 <div class="comment-img-box">
-                                    <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100"
+                                    <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100"
                                         alt="Images Not Found">
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ else{
                                     ?>
 
                                     <div class="comment-img-box-2" data-ppp="123">
-                                        <img src="Images/User/<?php echo $user_info['u_image']; ?>" class="img-set-100"
+                                        <img src="/1640/image/<?php echo $user_info['u_image']; ?>" class="img-set-100"
                                             alt="Image Not Found">
                                     </div>
                                     <div class="main-comment-area">

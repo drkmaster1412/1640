@@ -1,6 +1,6 @@
 
 <?php session_start(); ?>
-<?php //include('dbcon.php');
+<?php include_once('dbcon.php');
 ?>
 
 <html>
@@ -38,40 +38,54 @@ if(isset($_POST["btnlogin"]))
 	$password=$_POST["pass"];
 
 	$md5password= md5($password);
-	$sql="select * from users where email='".$username."' AND pass='".$md5password."'";
+	$sql="SELECT * FROM users WHERE email='$username' AND pass='$md5password'";
 
-	$result=mysqli_query($conn,$sql);
+	$result = mysqli_query($conn,$sql);
 
-	while($row=mysqli_fetch_array($result)){
-
-	if($row["usertype"]=="user")
-	{	
-		$_SESSION["user"]=$username;
-		
-		$_SESSION["name"]=$row["Customer_Name"];
-		header("location:$urluser?page=$home");
-	}
-
-	elseif($row["usertype"]=="admin")
+	if($result)
 	{
-
-		$_SESSION["user"]=$username;
-		$_SESSION["type"]=$row["usertype"];
-		$_SESSION["name"]=$row["Customer_Name"];
-		header("location:$urladmin");
+		header("location:$urluser?page=$home");
+		exit(0);
 	}
-
 	else
 	{
 		echo "<script>alert('Email or password error');</script>";
+		header("location: login.php");
+		exit(0);
 	}
 
+
+// 	while($row=mysqli_fetch_array($result)){
+
+// 	if($row["usertype"]=="user")
+// 	{	
+// 		$_SESSION["user"]=$username;
+		
+// 		$_SESSION["name"]=$row["Username"];
+// 		header("location:$urluser?page=$home");
+// 	}
+
+// 	elseif($row["usertype"]=="admin")
+// 	{
+
+// 		$_SESSION["user"]=$username;
+// 		$_SESSION["type"]=$row["usertype"];
+// 		$_SESSION["name"]=$row["Username"];
+// 		header("location:$urladmin");
+// 	}
+
+// 	else
+// 	{
+// 		echo "<script>alert('Email or password error');</script>";
+// 	}
+// }
 }
-}
+
 ?>
   <div class="reminder">
- <!-- href=" <?php echo $urllogin."/".$signup;?>" đường dẫn trong nút signUp-->
-    <p class="member">Not a member? <a href="http://localhost:8012/1640/login/signup.php" class="signUp">Sign up now</a></p>
+  <p class="member">Not a member? <a href="http://localhost/1640/login/signup.php" class="signUp">Sign up now</a></p>
+	<p class="member">Forgot Your password?<a href=" <?php echo $urllogin."/password_reset.php";?>" class="signUp">Forgot password</a></p>
+	<p class="member">Did not Recived a verify email? <a href=" <?php echo $urllogin."/resendemail_verification.php";?>" class="signUp">Resend verify email</a></p>
   </div>
   
 </div>

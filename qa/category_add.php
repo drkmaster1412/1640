@@ -1,4 +1,3 @@
-
 <?php
 $err="";
 $id="";
@@ -25,13 +24,14 @@ if(isset($_POST["btnSubmit"])){
     }
 }
 ?>
+
 <h3>Add New Category</h3>
 <hr>
 <ul style = "color:red">
     <?php    echo $err;    ?>
 </ul>
 <form method="post">
-    <div class="form-row" >
+    <div class="form-row">
         <div class="from-group col-md-7">
             <label for="InputID">ID</label>
             <input type= "text" class="form-control" name="inputID" placeholder="ID" value="<?php echo "". isset($id)?$id:"";?>">
@@ -40,12 +40,12 @@ if(isset($_POST["btnSubmit"])){
     <div class="form-row">
         <div class="from-group col-md-7">
             <label for="InputName">Name</label>
-            <input type= "text" class="form-control" name="inputName" placeholder="Name" value="<?php echo "". isset($name)?$name:"";?>">
+            <input type= "text" class="form-control" name="inputName" placeholder="Name" value="<?php echo "". isset($name)?$name:"";?>"></br>
         </div>
     </div>
-    <div class="form-row">
-        <div class="from-group col-md-12">
-            <input type ="submit" class= "btn btn-success" name="btnSubmit" value="Submit">
+    <div class="form-row col-md-7">
+        <div class="from-group col md-12">
+            <input type ="submit" class= "btn btn-primary" name="btnSubmit" value="Submit">
             <input type ="button" class= "btn btn-primary" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page='.$category; ?>'"/>
         </div>
     </div>

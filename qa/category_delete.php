@@ -1,5 +1,6 @@
 <?php
-    $sql = "delete from category where cat_id = '".$_GET['id']."'";
+    $sql = "delete from category where Cat_ID = ".$_GET['id'];
     $result = mysqli_query($conn,$sql);
     header("Location: $urladmin?page=$category");
 ?>
+

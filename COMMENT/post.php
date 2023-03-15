@@ -41,7 +41,9 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="form-inline ml-auto">
                     <div class="user-area">
-                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
+                        <!-- <img src="../image/<?php echo $sel_user_img['p_image']; ?>" alt="User Image"> -->
+                        <img src="../image/<?php echo $row['p_image']; ?>" class="img-responsive" style="width:200px" height="250px" alt="Image">
+
                     </div>
                     <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
                 </form>
@@ -55,7 +57,7 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
                 <?php if($select_post){ foreach($select_post as $select_post_data){ ?>
                 <div class="col-sm-6 mt-2 mb-2">
                     <div class="card">
-                        <img src="Images/Post/<?php echo $select_post_data['p_image']; ?>" class="card-img-top" alt="...">
+                        <img src="/1640/image/<?php echo $select_post_data['p_image']; ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $select_post_data['p_name']; ?></h5>
                             <p class="card-text"><?php echo substr($select_post_data['p_text'], 0, 200).'&nbsp;.......'; ?></p>

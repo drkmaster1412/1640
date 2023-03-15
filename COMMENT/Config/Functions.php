@@ -22,6 +22,9 @@ class Functions{
 
     }
 
+    
+
+    
     public function validate($string){
         $string_vali = mysqli_real_escape_string($this->conn, trim(strip_tags($string)));
         $string_vali = urldecode($string_vali);

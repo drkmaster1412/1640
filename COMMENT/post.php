@@ -2,11 +2,11 @@
 
 session_start();
 
-require_once 'Config/Functions.php';
+require_once './Config/Functions.php';
 $Fun_call = new Functions();
 
 if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
-    header('Location:index.php');
+    header('Location:../login/login.php');
 }
 
 $select_post = $Fun_call->select_order('poster','p_id');

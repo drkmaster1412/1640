@@ -12,8 +12,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style3.css">
-    <link rel="stylesheet" href="css/footer.css">    
+    <link rel="stylesheet" href="css/style3.css"> 
 
 </head>
 

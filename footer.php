@@ -20,6 +20,9 @@
             <p class="footer-links">
                 <a href="homepage.php" class="link-1">Home</a>
 
+                <a href="about.php">About</a>
+
+
                 <a href="#">Contact Us</a>
 
                 <a href="#">Privacy Policy</a>
@@ -39,7 +42,6 @@
                 <i class="fa fa-phone"></i>
                 <p> Phone: +44 20 8331 8000</p>
             </div>
-
             <div>
             <i class="fa fa-envelope"></i>
             <p><a>public.relations@gre.ac.uk</a></p>
@@ -48,12 +50,17 @@
         </div>
 
         <!-- <div class="footer-right font-Ubuntu">
+=======
+            <!-- <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div> -->
 
+        </div>
+
+        <div class="footer-right font-Ubuntu">
             <p class="footer-company-about">
                 <span>About the ***</span>
-
-            </p> -->
-
             <!-- <div class="footer-icons">
 
         <a href="#"><i class="fa fa-facebook"></i></a>

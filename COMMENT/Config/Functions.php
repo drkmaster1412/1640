@@ -2,7 +2,7 @@
 
 class Functions{
 
-    private $DBHOST = 'localhost:3307';
+    private $DBHOST = 'localhost';
     private $DBUSER = 'root';
     private $DBPASS = '';
     private $DBNAME = 'btwev';

@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="form-inline ml-auto">
                     <div class="user-area">
-                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
+                        <img src="../Images/User/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
                     </div>
                     <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
                 </form>
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="row ml-0 mr-0">
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="box-img-100">
-                        <img src="Images/Post/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
+                        <img src="../Images/Post/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $fetch_post['p_name']; ?></h5>
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div class="comment-area">
                                 <div class="comment-area-user">
                                     <div class="comment-img-box">
-                                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100" alt="">
+                                        <img src="../Images/User/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100" alt="">
                                     </div>
                                 </div>
                                 <div class="comment-area-text">

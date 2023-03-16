@@ -33,7 +33,7 @@ section{
     background: center/cover no-repeat;
 }
 .content{
-    background: #ffffff;
+    /* background: #ffffff; */
     display: flex;
     justify-content: center;
     flex-direction: column;

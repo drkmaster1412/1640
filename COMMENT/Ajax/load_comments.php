@@ -3,8 +3,6 @@
 session_start();
 
 require_once '../Config/Functions.php';
-$con=mysqli_connect('localhost:3307','root','','btwev');
-$res=mysqli_query($con,"select * from mcomments");
 $Fun_call = new Functions();
 global $post_no;
 
@@ -76,31 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h6 class="mb-0"><b><?php echo $user_info['u_name']; ?></b> <span class="cm-date"><?php echo $fetch_cdata['mc_date']; ?></span></h6>
                         <span class="comment-text"><?php echo $fetch_cdata['mc_text']; ?></span>
                     </div>
-                    <?php
-                    if (mysqli_num_rows($res) > 0) {
-                        while ($row = mysqli_fetch_assoc($res)) {
-
-                            $likeClass = "far";
-                            if (isset($_COOKIE['like_' . $row['mc_id']])) {
-                                $likeClass = "fas";
-                            }
-
-                            $dislikeClass = "far";
-                            if (isset($_COOKIE['dislike_' . $row['mc_id']])) {
-                                $dislikeClass = "fas";
-                            }
-                    ?>
-                            <span class="pull-right">
-                                <i class="<?php echo $likeClass ?> fa-thumbs-up" onclick="setLikeDislike('like','<?php echo $row['mc_id'] ?>')" id="like_<?php echo $row['mc_id'] ?>"></i>
-                                <div id="like"><?php echo $row['like_count'] ?></div>
-                                &nbsp;&nbsp;<i class="<?php echo $dislikeClass ?> fa-thumbs-down" onclick="setLikeDislike('dislike','<?php echo $row['mc_id'] ?>')" id=" dislike_<?php echo $row['mc_id'] ?>"></i>
-                                <div id="dislike"><?php echo $row['dislike_count'] ?></div>
-                            </span>
-                    <?php }
-                    } else {
-                        echo "No data found";
-                    }
-                    ?>
                     <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Replay</div>
                 </div>
             </div>

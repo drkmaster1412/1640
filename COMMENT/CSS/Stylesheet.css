@@ -167,3 +167,23 @@
 .b{
     background-color: black !important;
 }
+
+.panel .panel-footer i.glyphicon-thumbs-up { color: #1abc9c; }
+.panel .panel-footer i.glyphicon-thumbs-down { color: #e74c3c; padding-left: 5px; }
+
+.pull-right {
+    float: right !important;
+    padding-right: 15px;
+    padding-left: 0;
+    border-right: 5px solid #eee;
+    border-left: 0;
+    text-align: right
+}
+
+.glyphicon-thumbs-up:before {
+    content: "\e125"
+}
+
+.glyphicon-thumbs-down:before {
+    content: "\e126"
+}

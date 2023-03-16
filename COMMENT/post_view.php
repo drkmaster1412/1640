@@ -3,6 +3,7 @@
 session_start();
 
 require_once './Config/Functions.php';
+include
 $Fun_call = new Functions();
 global $post_no;
 
@@ -32,7 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     header('Location:post.php');
 }
 
-
+$get_uni_no = $_GET["post_uni_no"];
+$con=mysqli_connect('localhost:3307','root','','btwev');
+$res=mysqli_query($con,"select * from poster where p_uni_no = '$get_uni_no'");
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="form-inline ml-auto">
                     <div class="user-area">
-                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
+                        <img src="./Images/User/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
                     </div>
                     <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
                 </form>
@@ -73,11 +76,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <div class="row ml-0 mr-0">
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="box-img-100">
-                        <img src="Images/Post/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
+                        <img src="../image/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $fetch_post['p_name']; ?></h5>
-                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>
+                        <p class="card-text"><?php echo $fetch_post['p_text'];; ?></p>
+                        
+                        <?php
+                        if (mysqli_num_rows($res) > 0) {
+                            while ($row = mysqli_fetch_assoc($res)) {
+
+                                $likeClass = "far";
+                                if (isset($_COOKIE['like_' . $row['p_id']])) {
+                                    $likeClass = "fas";
+                                }
+
+                                $dislikeClass = "far";
+                                if (isset($_COOKIE['dislike_' . $row['p_id']])) {
+                                    $dislikeClass = "fas";
+                                }
+                        ?>
+                                <span class="pull-right">
+                                    <i class="<?php echo $likeClass ?> fa-thumbs-up" onclick="setLikeDislike('like','<?php echo $row['p_id'] ?>')" id="like_<?php echo $row['p_id'] ?>"></i>
+                                    <div id="like"><?php echo $row['like_count'] ?></div>
+                                    &nbsp;&nbsp;<i class="<?php echo $dislikeClass ?> fa-thumbs-down" onclick="setLikeDislike('dislike','<?php echo $row['p_id'] ?>')" " id=" dislike_<?php echo $row['p_id'] ?>"></i>
+                                    <div id="dislike"><?php echo $row['dislike_count'] ?></div>
+                                </span>
+                        <?php }
+                        } else {
+                            echo "No data found";
+                        }
+                        ?>
                     </div>
                     <hr>
 
@@ -87,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div class="comment-area">
                                 <div class="comment-area-user">
                                     <div class="comment-img-box">
-                                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100" alt="">
+                                        <img src="./Images/User/<?php echo $sel_user_img['u_img']; ?>" class="img-set-100" alt="">
                                     </div>
                                 </div>
                                 <div class="comment-area-text">
@@ -115,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"> </script>
-
+        <script src="./js/jquery-1.11.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
 
@@ -234,6 +264,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                 });
 
+                function setLikeDislike(type, id) {
+                    jQuery.ajax({
+                        url: 'setLikeDislike.php',
+                        type: 'post',
+                        data: 'type=' + type + '&id=' + id,
+                        success: function(result) {
+                            result = jQuery.parseJSON(result);
+                            if (result.opertion == 'like') {
+                                jQuery('#like_' + id).removeClass('far');
+                                jQuery('#like_' + id).addClass('fas');
+                                jQuery('#dislike_' + id).addClass('far');
+                                jQuery('#dislike_' + id).removeClass('fas');
+                            }
+                            if (result.opertion == 'unlike') {
+                                jQuery('#like_' + id).addClass('far');
+                                jQuery('#like_' + id).removeClass('fas');
+                            }
+
+                            if (result.opertion == 'dislike') {
+                                jQuery('#dislike_' + id).removeClass('far');
+                                jQuery('#dislike_' + id).addClass('fas');
+                                jQuery('#like_' + id).addClass('far');
+                                jQuery('#like_' + id).removeClass('fas');
+                            }
+                            if (result.opertion == 'undislike') {
+                                jQuery('#dislike_' + id).addClass('far');
+                                jQuery('#dislike_' + id).removeClass('fas');
+                            }
+
+                            jQuery('#post' + id + ' #like').html(result.like_count);
+                            jQuery('#post' + id + ' #dislike').html(result.dislike_count);
+                        }
+
+                    });
+                }
             });
         </script>
 

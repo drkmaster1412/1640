@@ -2,6 +2,7 @@
 
 session_start();
 
+
 require_once './Config/Functions.php';
 $Fun_call = new Functions();
 

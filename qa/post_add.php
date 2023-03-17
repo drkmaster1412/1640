@@ -9,6 +9,8 @@ $p_name="";
 $p_text="";
 $p_image="";
 $p_uni_no="";
+$p_file="";
+$p_cat="";
 
 
 if(isset($_POST["btnSubmit"])){
@@ -17,7 +19,7 @@ if(isset($_POST["btnSubmit"])){
     $p_text=isset($_POST["p_text"])?$_POST["p_text"]:"";
     $p_image=isset($_POST["p_image"])?$_POST["p_image"]:"";
     $p_uni_no=isset($_POST["p_uni_no"])?$_POST["p_uni_no"]:"";
-
+    $p_id=isset($_POST["p_cat"])?$_POST["p_cat"]:"";
 
     if($p_id==""){
         $err .="<li> Enter post ID";
@@ -40,7 +42,7 @@ if(isset($_POST["btnSubmit"])){
         $result = mysqli_query($conn,$sql);
         if(mysqli_num_rows($result)==0){
 
-            $sql="insert into poster(p_id, p_name, p_image, p_text, p_uni_no) value('$p_id', '$p_name', '$p_image', '$p_text' , '$p_uni_no')";
+            $sql="insert into poster(p_id, p_name, p_image, p_text, p_uni_no, p_file, p_cat) value('$p_id', '$p_name', '$p_image', '$p_text' , '$p_uni_no'  , '$p_file' , '$p_cat')";
             mysqli_query($conn,$sql);
             header("Location: $urladmin?page=$post");           
         }else{
@@ -82,6 +84,44 @@ if(isset($_POST["btnSubmit"])){
           <label for="">No</label>
           <input type="text" name="p_uni_no" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
+
+        <form method="POST" action="upload.php" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <!-- <input type="submit" value="Upload"> -->
+        </form>
+
+        <div class="form-group col-sm-7">
+          <label for="">Post-cate</label>
+          <select class="form-control" name="cat_id" id="">
+              <?php
+              $sql = "select *from categories";
+              $results = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($results)) {
+            ?>
+            <option value = "<?php echo $row ['cat_id'] ?>"><?php echo $row['cat_name']?></option>
+            <?php
+              }
+              ?>
+              </select>
+            </div>
+
+                    <?php
+
+                    $files = scandir("upload");
+                    for ($a = 2; $a < count($files); $a++)
+                    {
+                        ?>
+                        <p>
+                            <?php echo $files[$a]; ?>
+
+                            <a href="upload/<?php echo $files[$a]; ?>" download="<?php echo $files[$a]; ?>">
+                                Download
+                            </a>
+
+                        </p>
+                        <?php
+                    }
+                    ?>
 
     <div class="form-row col-md-7">
         <div class="from-group col md-12">

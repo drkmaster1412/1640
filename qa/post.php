@@ -12,6 +12,8 @@
             <th>Images</th>
             <th>Description</th>
             <th>No</th>
+            <th>File</th>
+            <th>Cat</th>
 
             <th></th>
         </tr>
@@ -28,6 +30,8 @@
                 <td><img src="../image/<?php echo $row['p_image']; ?>" style= width:50px; height:50px"></td>
                 <td><?php echo $row['p_text'] ?></td>
                 <td><?php echo $row['p_uni_no'] ?></td>
+                <td><?php echo $row['p_file'] ?></td>
+                <td><?php  echo $row['p_cat'] ?></td>
 
                 <td>
                     <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">

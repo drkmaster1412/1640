@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'btwev')
+or die ("Can not connect database".mysqli_connect_error());
 
 require_once 'Config/Functions.php';
 $Fun_call = new Functions();
@@ -10,6 +12,7 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
 }
 
 $select_post = $Fun_call->select_order('poster','p_id');
+
 
 $field['verify_token'] = $_SESSION['user_uni_no'];
 $sel_user_img = $Fun_call->select_assoc('users',$field);
@@ -59,7 +62,16 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
                     <div class="card">
                         <img src="/1640/image/<?php echo $select_post_data['p_image']; ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $select_post_data['p_name']; ?></h5>
+                            <h5 class="card-title"><?php echo $select_post_data['p_name']; ?> # 
+                            <?php       
+                            $cat_id = $select_post_data['p_cat'];
+                            $catName = "SELECT cat_name FROM categories WHERE cat_id= '$cat_id'";
+                            $catName_run = $conn ->query($catName );
+                            while ($row = mysqli_fetch_array($catName_run)){
+                                echo $row['cat_name'] ;
+                            }
+
+                                  ?></h5>
                             <p class="card-text"><?php echo substr($select_post_data['p_text'], 0, 200).'&nbsp;.......'; ?></p>
                             <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>" class="btn btn-sm btn-primary">Read More</a>
                         </div>

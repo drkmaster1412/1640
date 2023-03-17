@@ -12,6 +12,8 @@ if(isset($_POST["btnSubmit"])){
     $p_image=$_FILES['p_image'];
     $p_uni_no=$_POST["p_uni_no"];
 
+
+
         if($p_image['name']!=""){
         copy($p_image['tmp_name'],"../image/".$p_image['name']);
 
@@ -61,6 +63,21 @@ if(isset($_POST["btnSubmit"])){
           <label for="">No</label>
           <input type="text" name="p_uni_no" id="" class="form-control" placeholder="" value ="<?php echo $p_uni_no ?>" aria-describedby="helpId">
         </div>
+
+        <div class="form-group col-sm-7">
+        <label for="">Category</label>
+        <select class="form-control" name="cat_id" id="">
+              <?php
+              $sql = "select *from categories";
+              $results = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($results)) {
+              ?>
+            <option value = "<?php echo $row ['cat_id'] ?>"><?php echo $row['cat_name']?></option>
+            <?php
+              }
+            ?>
+        </select>
+    </div>
 
     <div class="form-row col-md-7">
         <div class="from-group col md-12">

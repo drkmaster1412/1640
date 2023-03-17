@@ -50,6 +50,17 @@ else{
                                 <textarea class="form-control" id="usercommentreplay" cols="30" rows="3"
                                     placeholder="Share Your Story"></textarea>
                             </div>
+                            <!-- <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="formSwitchDefault" name="anonymous">
+                                    <label class="form-check-label" for="formSwitchDefault"> Anonymous comments</label>
+                            </div> -->
+
+                            <form  method="post">
+                                An danh?
+                                <input type="checkbox" name="formWheelchair" value="Yes" />
+                                <input type="submit" name="formSubmit" value="Submit" />
+                            </form>
+
                             <div class="comment-area-btn">
                                 <button type="submit" class="btn btn-sm btn-primary comment-btn">Add Replay</button>
                                 <button type="button" id="close_rep" class="btn btn-sm btn-danger comment-btn mt-1">Close</button>
@@ -77,8 +88,25 @@ else{
                                             alt="Image Not Found">
                                     </div>
                                     <div class="main-comment-area">
-                                        <h6 class="mb-0"><b><?php echo $user_info['u_name']; ?></b> <span
-                                                class="cm-date"><?php echo $fetch_cdata['mc_date']; ?></span></h6>
+                                        
+
+                                        <h6 class="mb-0"><b><?php 
+                                    echo ($user_info['u_name']);
+                                        // if(isset($_POST['formWheelchair']) && 
+                                        // $_POST['formWheelchair'] == 'Yes') 
+                                        // {
+                                        //     echo bin2hex($user_info['u_name']);
+                                        // }
+                                        // else
+                                        //     echo ($user_info['u_name']); 
+                                        
+                                        // switch (isset($_POST['anonymous'])){
+                                        //     case 'Yes': echo bin2hex($user_info['u_name']);
+                                        //     case 'No': echo ($user_info['u_name']);
+                                        // }
+                                        ?></b> 
+                                        	 
+                                        <span class="cm-date"><?php echo $fetch_cdata['mc_date']; ?></span></h6>
                                         <span class="comment-text"><?php echo $fetch_cdata['mc_text']; ?></span>
                                     </div>
                                     <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Replay</div>
@@ -107,7 +135,7 @@ else{
                                     ?>
 
                                     <div class="comment-img-box-2">
-                                        <img src="Images/User/<?php echo $user_info_rep['u_image']; ?>"
+                                        <img src="/1640/image/<?php echo $user_info_rep['u_image']; ?>"
                                             class="img-set-100" alt="Image Not Found">
                                     </div>
                                     <div class="main-comment-area">

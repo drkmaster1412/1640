@@ -57,8 +57,8 @@
             <div class="bottom_text">
                 <span class="copyright_text"><a href="#">University of Greenwich</a>© 2023</span>
                 <span class="policy_terms">
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Terms & condition</a>
+                    <a href="./privacy_policy.php">Privacy policy</a>
+                    <a href="./user_agreement.php">Terms & condition</a>
                 </span>
             </div>
         </div>

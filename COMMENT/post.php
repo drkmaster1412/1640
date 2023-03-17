@@ -27,30 +27,10 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/Stylesheet.css">
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 <body>
-    
-    <div class="container mt-2 mb-2">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><b>COMMENT SYSTEM</b></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline ml-auto">
-                    <div class="user-area">
-                        <!-- <img src="../image/<?php echo $sel_user_img['p_image']; ?>" alt="User Image"> -->
-                        <img src="../image/<?php echo $row['p_image']; ?>" class="img-responsive" style="width:200px" height="250px" alt="Image">
-
-                    </div>
-                    <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
-                </form>
-            </div>
-        </nav>
-    </div>
+    <?php include('../header.php'); ?>
 
     <div class="cintainer-fluid">
         <div class="container">

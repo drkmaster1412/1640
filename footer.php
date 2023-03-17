@@ -1,73 +1,69 @@
-<html lang="en">
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
 
 <head>
-    <meta name="viewpost" content="width=device-width, initial-scale = 1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <!--<title> Responsive Footer | CodingLab </title>-->
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <footer class="footer-distributed">
+    <footer>
+        <div class="content font-Ubuntu">
+            <div class="top">
+                <div class="logo-details">
+                    <a class="logo" href="homepage.php">
+                        <img src="image/Logo.png" href="homepage.php" width="15%" height="auto" alt="logo">
+                        <br>
+                    </a>
+                </div>
 
-        <div class="footer-left font-Ubuntu">
-
-            <a class="logo" href="homepage.php">
-                <img src="image/Logo.png" href="homepage.php" width="45%" height="auto" alt="logo">
-            </a>
-
-            <p class="footer-links">
-                <a href="homepage.php" class="link-1">Home</a>
-
-                <a href="about.php">About</a>
-
-                <a href="#">Contact Us</a>
-
-                <a href="#">Privacy Policy</a>
-            </p>
-
-            <p class="footer-company-name">University of Greenwich © 2023</p>
-        </div>
-
-        <div class="footer-center font-Ubuntu">
-
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p>Address: <span>Old Royal Naval College, Park Row,</span> London SE10 9LS, United Kingdom</p>
             </div>
-
-            <div>
-                <i class="fa fa-phone"></i>
-                <p> Phone: +44 20 8331 8000</p>
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">Company</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Services</li>
+                    <li><a href="#">App </a></li>
+                    <li><a href="#">Web </a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Account</li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">My account</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Courses</li>
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+                <ul class="box media-icons">
+                    <li href="#"><i class="fab fa-facebook-f"></i></li>
+                    <li href="#"><i class="fab fa-twitter"></i></li>
+                    <li href="#"><i class="fab fa-instagram"></i></li>
+                    <li href="#"><i class="fab fa-linkedin-in"></i></li>
+                </ul>
             </div>
-
-            <!-- <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="mailto:support@company.com">support@company.com</a></p>
-        </div> -->
-
         </div>
-
-        <div class="footer-right font-Ubuntu">
-
-            <p class="footer-company-about">
-                <span>About the ***</span>
-
-            </p>
-
-            <!-- <div class="footer-icons">
-
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-github"></i></a>
-
-    </div> -->
-
+        <div class="bottom-details font-Ubuntu">
+            <div class="bottom_text">
+                <span class="copyright_text"><a href="#">University of Greenwich</a>© 2023</span>
+                <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                </span>
+            </div>
         </div>
-
     </footer>
+
 </body>
 
 </html>

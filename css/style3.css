@@ -15,6 +15,7 @@ body{
     display: grid;
     background-color: #ffffff;
     align-content: center;
+    height: 100%;
     min-height: 100vh;
 }
 section{
@@ -23,23 +24,30 @@ section{
     min-height: 90vh;
     width: 85vw;
     margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 .map{
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background: center/cover no-repeat;
 }
 .content{
-    background: #ffffff;
+    /* background: #ffffff; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 .content h2{
-    padding: 10px;
+    padding-top: 20px;
     text-transform: uppercase;
-    color: #00bcd4;
+    color: #141a35;
+}
+.content h2{
+    text-transform: uppercase;
+    color: #141a35;
     font-size: 36px;
     letter-spacing: 6px;
     opacity: 0.9;
@@ -53,8 +61,8 @@ section{
 }
 .content p{
     padding-bottom: 15px;
-    color: #00bcd4;
-    font-weight: 300;
+    color: #141a35;
+    font-weight: 200;
     opacity: 0.7;
     width: 80%;
     text-align: justify;
@@ -65,6 +73,7 @@ section{
     margin: 15px 0;
 }
 .links li{
+    border: 0.5px solid #141a35;
     border: 0.5px solid #777;
     list-style: none;
     border-radius: 5px;
@@ -74,14 +83,22 @@ section{
 }
 .links li a{
     text-transform: uppercase;
+    color: #141a35;
+    text-decoration: none;
+}
+.links li:hover{
+    border-color: #00bcd4;
+}
+.links li:hover a{
+    color :#141a35;
     color: #777;
     text-decoration: none;
 }
 .links li:hover{
-    border-color: #06d6a0;
+    border-color: #00bcd4;
 }
 .links li:hover a{
-    color :#06d6a0;
+    color :#00bcd4;
 }
 .vertical-line{
     height: 30px;
@@ -105,6 +122,7 @@ section{
         height: 100vh;
     }
     .content h2{
+        color: #141a35;
         font-size: 20px;
         margin-top: 50px;
     }
@@ -112,6 +130,7 @@ section{
         margin: 20px 0;
     }
     .content p{
+        color: #141a35;
         font-size: 14px;
     }
     .links li a{

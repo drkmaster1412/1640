@@ -3,6 +3,8 @@
 session_start();
 
 require_once '../Config/Functions.php';
+$con=mysqli_connect('localhost','root','','btwev');
+$res=mysqli_query($con,"select * from mcomments");
 $Fun_call = new Functions();
 global $post_no;
 

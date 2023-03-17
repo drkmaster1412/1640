@@ -14,7 +14,7 @@
     <nav class="font-Ubuntu">
 
         <a class="logo" href="homepage.php">
-            <img src="image/Logo.png" align="center" width="50%" height="auto" alt="logo">
+            <img src="image/Logo.png" align="center" width="40%" height="auto" alt="logo">
         </a>
 
         <label class="navbar-toggler" for="toggle">
@@ -29,9 +29,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="cmt/COMMENT/post.php">Post</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Privacy</a>

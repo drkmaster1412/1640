@@ -76,7 +76,7 @@ $res=mysqli_query($con,"select * from poster where p_uni_no = '$get_uni_no'");
             <div class="row ml-0 mr-0">
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="box-img-100">
-                        <img src="../image/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
+                        <img src="Images/Post/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $fetch_post['p_name']; ?></h5>
@@ -116,7 +116,7 @@ $res=mysqli_query($con,"select * from poster where p_uni_no = '$get_uni_no'");
                             <div class="comment-area">
                                 <div class="comment-area-user">
                                     <div class="comment-img-box">
-                                        <img src="./Images/User/<?php echo $sel_user_img['u_img']; ?>" class="img-set-100" alt="">
+                                        <img src="Images/User/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100" alt="">
                                     </div>
                                 </div>
                                 <div class="comment-area-text">

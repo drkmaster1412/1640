@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 
 *{
     box-sizing: border-box;
@@ -11,7 +12,6 @@
 }
 
 body{
-    font-family: 'Playfair Display', serif;
     display: grid;
     background-color: #ffffff;
     align-content: center;
@@ -63,7 +63,7 @@ section{
     padding-bottom: 15px;
     color: #141a35;
     font-weight: 200;
-    opacity: 0.7;
+    opacity: 0.9;
     width: 80%;
     text-align: justify;
     margin: 0 auto;
@@ -91,7 +91,6 @@ section{
 }
 .links li:hover a{
     color :#141a35;
-    color: #777;
     text-decoration: none;
 }
 .links li:hover{

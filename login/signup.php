@@ -78,13 +78,13 @@ require_once('dbcon.php');
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'hoangpnhtesting@gmail.com';                     //SMTP username
-        $mail->Password   = 'huyhoang022002';                               //SMTP password
+        $mail->Password   = 'gvhhrdgktqqzewti';                               //SMTP password
 
-        $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+        $mail->SMTPSecure = "ssl";            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('from@example.com', $Username);
+        $mail->setFrom('hoangpnhtesting@gmail.com', $Username);
         $mail->addAddress($email);
 
         //Content
@@ -132,6 +132,7 @@ require_once('dbcon.php');
             if (empty($err)) {
                 $Cus_id = rand(1000, 999999);
                 $verify_token = md5(rand(1,99999));
+                $uimg = "0.png";
                  $check_email_query = "SELECT email FROM users WHERE email='$email' LIMIT 1";
                 $check_email_query_run = mysqli_query($conn, $check_email_query);
                 if (mysqli_num_rows($check_email_query_run) > 0) {
@@ -140,7 +141,7 @@ require_once('dbcon.php');
                 }
                 else{
 
-                    $sql = "INSERT INTO users (Customer_ID,Username,Phone,email,pass,verify_token) VALUES ('$Cus_id','$Username','$Phone','$email','$pass', $verify_token)";
+                    $sql = "INSERT INTO users (Customer_ID,Username,Phone,email,pass,verify_token,u_img) VALUES ('$Cus_id','$Username','$Phone','$email','$pass', '$verify_token', '$uimg')";
                     $sql_run = mysqli_query($conn, $sql);
 
                     if ($sql_run) {

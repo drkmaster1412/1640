@@ -1,10 +1,10 @@
 <?php
-    $urladmin ="http://localhost:8080/1640/admin/";
+    $urladmin ="http://localhost:8080/1640/qa/";
     $urluser = "http://localhost:8080/1640/";
     $home = "home.php";
-    // $categories = "category.php";
-    // $categoryEdit = "category_edit.php"; 
-    // $categoryDelete = "category_delete.php"; 
+    $categories = "category.php";
+    $categoryEdit = "category_edit.php"; 
+    $categoryDelete = "category_delete.php"; 
     $post = "post.php";
     $postEdit = "post_edit.php"; 
     $postDelete = "post_delete.php";
@@ -12,7 +12,7 @@
     $urllogin = "http://localhost:8080/1640/login";
 
     //Connection
-    $host = "localhost";
+    $host = "localhost:3307";
     $username="root";
     $password="";
     $db= "btwev";

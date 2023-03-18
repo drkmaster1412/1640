@@ -12,7 +12,7 @@
     $urllogin = "http://localhost:8080/1640/login";
 
     //Connection
-    $host = "localhost";
+    $host = "localhost:3307";
     $username="root";
     $password="";
     $db= "btwev";

@@ -78,13 +78,13 @@ require_once('dbcon.php');
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'hoangpnhtesting@gmail.com';                     //SMTP username
-        $mail->Password   = 'huyhoang022002';                               //SMTP password
+        $mail->Password   = 'gvhhrdgktqqzewti';                               //SMTP password
 
-        $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+        $mail->SMTPSecure = "ssl";            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('from@example.com', $Username);
+        $mail->setFrom('hoangpnhtesting@gmail.com', $Username);
         $mail->addAddress($email);
 
         //Content

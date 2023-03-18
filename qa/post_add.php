@@ -4,26 +4,18 @@
 
 <?php
 $err="";
-$p_id="";
 $p_name="";
 $p_text="";
-$p_image="";
-$p_uni_no="";
-$p_file="";
+$p_image="";    
 $p_cat="";
 
 
 if(isset($_POST["btnSubmit"])){
-    $p_id=isset($_POST["p_id"])?$_POST["p_id"]:"";
-    $p_name=isset($_POST["p_name"])?$_POST["p_name"]:"";
-    $p_text=isset($_POST["p_text"])?$_POST["p_text"]:"";
-    $p_image=isset($_POST["p_image"])?$_POST["p_image"]:"";
-    $p_uni_no=isset($_POST["p_uni_no"])?$_POST["p_uni_no"]:"";
-    $p_id=isset($_POST["p_cat"])?$_POST["p_cat"]:"";
+    $p_name=$_POST["p_name"];
+    $p_text=$_POST["p_text"];
+    $p_image=$_POST["p_image"];
+    $p_cat=$_POST["p_cat"];
 
-    if($p_id==""){
-        $err .="<li> Enter post ID";
-    }
     if($p_name==""){
         $err .="<li> Enter post name";
     }
@@ -33,21 +25,13 @@ if(isset($_POST["btnSubmit"])){
     if($p_image==""){
         $err .="<li> Choose images";
     }
-    if($p_uni_no==""){
-        $err .="<li> Enter post no";
-    }
 
     if(empty($err)){
-        $sql ="Select * from poster where p_id = '$p_id' ";
-        $result = mysqli_query($conn,$sql);
-        if(mysqli_num_rows($result)==0){
+        $p_unino = md5(rand());
 
-            $sql="insert into poster(p_id, p_name, p_image, p_text, p_uni_no, p_file, p_cat) value('$p_id', '$p_name', '$p_image', '$p_text' , '$p_uni_no'  , '$p_file' , '$p_cat')";
-            mysqli_query($conn,$sql);
-            header("Location: $urladmin?page=$post");           
-        }else{
-            $err .="<li>Duplicate</li>";
-        }
+        $sql="INSERT INTO poster( p_name, p_image, p_text, p_uni_no,p_file, p_cat) VALUES ('$p_name', '$p_image', '$p_text','$p_unino', '$p_file' , '$p_cat')";
+        mysqli_query($conn,$sql);
+        header("Location: $urladmin?page=$post");           
     }
 }
 ?>
@@ -60,10 +44,6 @@ if(isset($_POST["btnSubmit"])){
 
 <form method="post" enctype="multipart/form data">
     <div class="row">
-        <div class="form-group col-sm-7">
-          <label for="">ID</label>
-          <input type="text" name="p_id" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
 
         <div class="form-group col-sm-7">
           <label for="">Name</label>
@@ -80,21 +60,16 @@ if(isset($_POST["btnSubmit"])){
         <input type="file" class="form-control-file" name="p_image" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
 
-        <div class="form-group col-sm-7">
-          <label for="">No</label>
-          <input type="text" name="p_uni_no" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
-
         <form method="POST" action="upload.php" enctype="multipart/form-data">
             <input type="file" name="file">
             <!-- <input type="submit" value="Upload"> -->
         </form>
 
         <div class="form-group col-sm-7">
-          <label for="">Post-cate</label>
+          <label for="">Where you want to tag for</label>
           <select class="form-control" name="cat_id" id="">
               <?php
-              $sql = "select *from categories";
+              $sql = "SELECT * from categories";
               $results = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_array($results)) {
             ?>

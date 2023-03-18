@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'btwev')
 or die ("Can not connect database".mysqli_connect_error());
 
@@ -26,13 +26,14 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Post</title>
+    <title>post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style2.css">
 </head>
 <body>
+    <?php include('../header.php'); ?>
 
     <div class="cintainer-fluid">
         <div class="container">

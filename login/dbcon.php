@@ -1,7 +1,7 @@
 <?php
-$urladmin ="http://localhost:8080/1640/admin";
-$urluser = "http://localhost:8080/1640/";
-$urllogin = "http://localhost:8080/1640/login";
+$urladmin ="http://localhost/1640/admin";
+$urluser = "http://localhost/1640/";
+$urllogin = "http://localhost/1640/login/login.php";
 $home = "homepage.php";
 $signup = "signup.php";
 $logout = "logout.php";; 

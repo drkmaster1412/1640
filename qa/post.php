@@ -1,7 +1,7 @@
-<h3><small>Post</small></h3>
+<h3>Post</h3>
 <hr>
 
-<h4><a href="?page=post_add.php">Create new</a></h4>
+<h4><a href="<?php echo "?page=" . $postAdd; ?>">Create new</a></h4>
 
 
 <table class="table table-hover table-inverse table-responsive">

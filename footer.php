@@ -17,8 +17,8 @@
         <div class="content font-Ubuntu">
             <div class="top">
                 <div class="logo-details">
-                    <a class="logo" href="homepage.php">
-                        <img src="image/Logo.png" href="homepage.php" width="15%" height="auto" alt="logo">
+                    <a class="logo" href="<?php echo" ?page=".$homepage;?>">
+                        <img src="image/Logo.png" href="<?php echo" ?page=".$homepage;?>" width="15%" height="auto" alt="logo">
                         <br>
                     </a>
                 </div>
@@ -27,7 +27,7 @@
             <div class="link-boxes">
                 <ul class="box">
                     <li class="link_name">Company</li>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="<?php echo" ?page=".$homepage;?>">Home</a></li>
                     <li><a href="#">Contact us</a></li>
                 </ul>
                 <ul class="box">
@@ -55,10 +55,11 @@
         </div>
         <div class="bottom-details font-Ubuntu">
             <div class="bottom_text">
-                <span class="copyright_text"><a href="#">University of Greenwich</a>© 2023</span>
+                <span class="copyright_text"><a href="<?php echo" ?page=".$homepage;?>">University of Greenwich</a>© 2023</span>
                 <span class="policy_terms">
-                    <a href="./privacy_policy.php">Privacy policy</a>
-                    <a href="./user_agreement.php">Terms & condition</a>
+                    <a href="http://localhost:8080/1640/?page=privacy_policy.php">Privacy policy</a>
+                    and 
+                    <a href="http://localhost:8080/1640/?page=user_agreement.php">Terms & agreement</a>
                 </span>
             </div>
         </div>

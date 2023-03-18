@@ -143,9 +143,7 @@
                     has changed.</p>
                 <br>
             </div>
-
         </div>
-        <?php include 'footer.php'; ?>
 </body>
 
 </html>

@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
 
     <section>
         <div class="map font-Ubuntu">
@@ -42,7 +41,6 @@
             </ul>
         </div>
     </section>
- <?php include 'footer.php'; ?>
 </body>
 
 </html>

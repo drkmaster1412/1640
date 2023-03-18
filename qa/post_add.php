@@ -81,11 +81,9 @@ if (isset($_POST["btnSubmit"])) {
         </div>
         <!-- Checkbox Term and Condition -->
         <div class="form-group col-sm-7">
-            <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
-                <input type="checkbox" name="checkbox" value="check" id="agree" required /> I have read and agree to the 
-                <a href="http://localhost:8080/1640/?page=user_agreement.php" target="_blank">Terms and Conditions</a> 
-                and <a href="http://localhost:8080/1640/?page=privacy_policy.php" target="_blank">Privacy Policy</a>
-            </form>
+            <input type="checkbox" name="formWheelchair" value="Yes" required/> I have read and agree to the
+            <a href="http://localhost:8080/1640/?page=user_agreement.php" target="_blank">Terms and Conditions</a>
+            and <a href="http://localhost:8080/1640/?page=privacy_policy.php" target="_blank">Privacy Policy</a>
         </div>
         <?php
 

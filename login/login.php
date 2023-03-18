@@ -1,8 +1,28 @@
+<!-- Code by Brave Coder - https://youtube.com/BraveCoder -->
+
 <?php
+    session_start();
+    if (isset($_SESSION['SESSION_EMAIL'])) {
+        header("Location: welcome.php");
+        die();
+    }
 
-session_start();
+    $msg = "";
+	$conn = mysqli_connect('localhost', 'root', '', 'btwev');
 
-require_once '../COMMENT/Config/Functions.php';
+    if (isset($_GET['verification'])) {
+        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE verify_token='{$_GET['verification']}'")) > 0) {
+            $query = mysqli_query($conn, "UPDATE users SET verified_status = '1' WHERE verify_token='{$_GET['verification']}'");
+            
+            if ($query) {
+                $msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
+            }
+        } else {
+            header("Location: login.php");
+        }
+    }
+
+    require_once '../COMMENT/Config/Functions.php';
 $Fun_call = new Functions();
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_uni_no'])) {
@@ -22,24 +42,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if ((!preg_match('/^[ ]*$/', $username)) && (!preg_match('/^[ ]*$/', $password))) {
 
-			$verify_fields['u_name'] = $username;
+			$verify_fields['email'] = $username;
 			$verify_fields['u_pass'] = $password;
 			$verify_user = $Fun_call->user_verify("users", $verify_fields);
 
 			if ($verify_user) {
 
-				$fetch_user_info = $Fun_call->select_assoc('users', $verify_fields);
+				$sql = "SELECT * FROM users WHERE email = '$username'";
+				
+				$status =  mysqli_fetch_assoc(mysqli_query($conn,$sql));
+				if($status['verified_status'] == 1)
+				{
+					$fetch_user_info = $Fun_call->select_assoc('users', $verify_fields);
 
-				if (!empty(trim($save_cookie))) {
-
-					setcookie('username', $username, time() + (365 * 24 * 60), "/");
-					setcookie('userpass', $password, time() + (365 * 24 * 60), "/");
+					if (!empty(trim($save_cookie))) {
+	
+						setcookie('username', $username, time() + (365 * 24 * 60), "/");
+						setcookie('userpass', $password, time() + (365 * 24 * 60), "/");
+					}
+	
+					$_SESSION['user_name'] = $fetch_user_info['u_name'];
+					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
+	
+					header('Location:../COMMENT/post.php');
+				}
+				else
+				{
+					$error_msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
 				}
 
-				$_SESSION['user_name'] = $fetch_user_info['u_name'];
-				$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
 
-				header('Location:../COMMENT/post.php');
 			} else {
 				$error_msg = "Username and Passwword are Invalid";
 			}
@@ -84,8 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<form class="login-box" method="post">
 
 								<div class="form-label-group">
-									<label for="username"><b>Username</b></label>
-									<input type="text" id="username" name="username" class="form-control mb-2" placeholder="Username" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
+									<label for="username"><b>Email</b></label>
+									<input type="text" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
 									<span class="error-msg"><?php echo @$u_error; ?></span>
 								</div>
 
@@ -104,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							</form>
 							<div class="reminder">
 								<p class="member">Not a member? <a href="http://localhost/1640/login/signup.php" class="signUp">Sign up now</a></p>
-								<p class="member">Forgot Your password?<a href=" <?php echo $urllogin . "/password_reset.php"; ?>" class="signUp">Forgot password</a></p>
-								<p class="member">Did not Recived a verify email? <a href=" <?php echo $urllogin . "/resendemail_verification.php"; ?>" class="signUp">Resend verify email</a></p>
+								<p class="member">Forgot Your password?<a href="http://localhost/1640/login/password_reset.php" class="signUp">Forgot password</a></p>
+								<p class="member">Did not Recived a verify email? <a href="http://localhost/1640/login/resend_email.php" class="signUp">Resend verify email</a></p>
 							</div>
 						</div>
 					</div>
@@ -117,6 +149,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+
+</body>
+
+</html>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (c) {
+            $('.alert-close').on('click', function (c) {
+                $('.main-mockup').fadeOut('slow', function (c) {
+                    $('.main-mockup').remove();
+                });
+            });
+        });
+    </script>
 
 </body>
 

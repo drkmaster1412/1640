@@ -1,7 +1,7 @@
 <?php
 
 
-$con=mysqli_connect('localhost:3307','root','','btwev');
+$con=mysqli_connect('localhost','root','','btwev');
 if(isset($_POST['type']) && $_POST['type']!='' && isset($_POST['p_id']) && $_POST['u_id']>0){
 	$type=mysqli_real_escape_string($conn,$_POST['type']);
 	$id=mysqli_real_escape_string($conn,$_POST['p_id']);

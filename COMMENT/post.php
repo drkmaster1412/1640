@@ -32,7 +32,7 @@ $sel_user_img = $Fun_call->select_assoc('users',$field);
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    
     <div class="cintainer-fluid">
         <div class="container">
             <div class="row">

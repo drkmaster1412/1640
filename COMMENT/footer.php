@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <!--<title> Responsive Footer | CodingLab </title>-->
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
         <div class="content font-Ubuntu">
             <div class="top">
                 <div class="logo-details">
-                    <a class="logo" href="<?php echo" ?page=".$homepage;?>">
-                        <img src="image/Logo.png" href="<?php echo" ?page=".$homepage;?>" width="15%" height="auto" alt="logo">
+                    <a class="logo" href="<?php echo" ?page=".$home;?>">
+                        <img src="../image/Logo.png" href="<?php echo" ?page=".$home;?>" width="15%" height="auto" alt="logo">
                         <br>
                     </a>
                 </div>
@@ -55,11 +55,10 @@
         </div>
         <div class="bottom-details font-Ubuntu">
             <div class="bottom_text">
-                <span class="copyright_text"><a href="<?php echo" ?page=".$homepage;?>">University of Greenwich</a>© 2023</span>
+                <span class="copyright_text"><a href="<?php echo" ?page=".$home;?>">University of Greenwich</a>© 2023</span>
                 <span class="policy_terms">
-                    <a href="<?php echo "?page=" .$policy; ?>" target="_blank">Privacy policy</a>
-                    and 
-                    <a href="<?php echo "?page=" .$user_agreement; ?>" target="_blank">Terms & agreement</a>
+                    <a href="http://localhost:8080/1640/?page=privacy_policy.php" target="_blank">Privacy policy</a>
+                    <a href="http://localhost:8080/1640/?page=user_agreement.php>" target="_blank">Terms & agreement</a>
                 </span>
             </div>
         </div>

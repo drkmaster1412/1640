@@ -1,3 +1,5 @@
+<html>
+</html>
 <h3>Add New post</h3>
 <hr>
 
@@ -81,9 +83,15 @@ if (isset($_POST["btnSubmit"])) {
         </div>
         <!-- Checkbox Term and Condition -->
         <div class="form-group col-sm-7">
-            <input type="checkbox" name="formWheelchair" value="Yes" required/> I have read and agree to the
+            <input type="checkbox" required /> I have read and agree to the
             <a href="http://localhost:8080/1640/?page=user_agreement.php" target="_blank">Terms and Conditions</a>
             and <a href="http://localhost:8080/1640/?page=privacy_policy.php" target="_blank">Privacy Policy</a>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Default checkbox
+            </label>
         </div>
         <?php
 

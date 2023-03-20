@@ -1,5 +1,8 @@
 <?php
     session_start();
+
+    $role = $_SESSION['Roles'];
+    if($role ==2){
 ?>
 
 <!DOCTYPE html>
@@ -41,3 +44,11 @@
     <script src="asset/js/scripts.js"></script>
 </body>
 </html>
+
+<?php 
+    }
+else
+{
+       echo '<script type="text/javascript"> window.onload = function () { alert("You not have authorization to access this page!!"); } </script>';
+}
+    ?>

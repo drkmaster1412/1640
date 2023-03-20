@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 					$_SESSION['user_name'] = $fetch_user_info['u_name'];
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
+					$_SESSION['Roles'] = $fetch_user_info['roles'];
 	
 					header('Location:../homepage.php');
 				}

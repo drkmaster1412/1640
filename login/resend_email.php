@@ -72,13 +72,13 @@ if (isset($_POST['submit'])) {
 <html lang="zxx">
 
 <head>
-    <title>Login Form - Brave Coder</title>
+    <title>Resend Email</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="keywords" content="Login Form" />
     <!-- //Meta tag Keywords -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
@@ -98,21 +98,19 @@ if (isset($_POST['submit'])) {
                 <div class="box-container">
                     <div class="card w-400">
                         <div class="card-body">
-                            <h5 class="card-title text-center pt-3 pb-3 ">Resend Email</h5>
+                            <h2 class="card-title text-center pt-3 pb-3 ">Resend Email</h2>
                             <?php echo $msg; ?>
                             <hr>
                             <form class="login-box" method="post">
 
                                 <div class="form-label-group">
                                     <label for="username"><b>Email</b></label>
-                                    <input type="email" class="form-control mb-2" name="email" placeholder="Enter Your Email" required>
-                                    <br>
-                                    <br>
-                                    <input class="btn btn-primary btn-block" name="submit" value="Resend Email Vertification Link" type="submit">
+                                    <input type="email" class="form-control mb-2" name="email" placeholder="Enter Your Email" required>    
                                     <!-- <button name="submit" class="btn" type="submit">Send Reset Link</button> -->
                                 </div>
+                                <hr>
+                                <input class="btn btn-primary btn-block" name="submit" value="Resend Email Vertification Link" type="submit">
                             </form>
-                            <hr>
                             <div class="reminder">
                                 <p class="member">Back to <a href="login.php">Login</a></p>
                             </div>

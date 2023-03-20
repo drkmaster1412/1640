@@ -79,13 +79,13 @@ if (isset($_POST['submit'])) {
 <html lang="zxx">
 
 <head>
-    <title>Login Form - Brave Coder</title>
+    <title>Sign Up</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="keywords" content="Login Form" />
     <!-- //Meta tag Keywords -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Stylesheet.css">
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
                 <div class="box-container">
                     <div class="card w-400">
                         <div class="card-body">
-                            <h5 class="card-title text-center pt-3 pb-3 ">Register Now</h5>
+                            <h2 class="card-title text-center pt-3 pb-3 ">Register Now</h2>
                             <hr>
                             <form class="login-box" method="post">
 
@@ -133,7 +133,6 @@ if (isset($_POST['submit'])) {
                                 <hr>                                
                                 <input class="btn btn-primary btn-block" name="submit" value="Register" type="submit">
                             </form>
-                            <hr>
                             <div class="reminder">
                                 <p class="member">Have an account! <a href="login.php">Login</a></p>
                             </div>

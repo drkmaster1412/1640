@@ -99,7 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Login</title>
+	<title>Sign In</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="Stylesheet.css">
@@ -114,10 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<div class="box-container">
 					<div class="card w-400">
 						<div class="card-body">
-							<h5 class="card-title text-center pt-3 pb-3 ">Sign In</h5>
+							<h2 class="card-title text-center pt-3 pb-3 ">Sign In</h2>
 							<hr>
 							<form class="login-box" method="post">
-
 								<div class="form-label-group">
 									<label for="username"><b>Email</b></label>
 									<input type="text" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
@@ -135,7 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<label class="custom-control-label" for="savepass">Remember password</label>
 								</div>
 								<span class="error-msg"><?php echo @$error_msg; ?></span>
-								<input class="btn btn-lg btn-primary btn-block text-uppercase" name="submit" value="SUBMIT" type="submit">
+								<hr>
+								<input class="btn btn-primary btn-block " name="submit" value="Submit" type="submit">
 							</form>
 							<div class="reminder">
 								<p class="member">Not a member? <a href="signup.php" >Sign up now</a></p>

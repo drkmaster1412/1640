@@ -1,18 +1,17 @@
 <?php
-    $urladmin ="http://localhost/1640/qa/";
-    $urluser = "http://localhost/1640/";
+    $urladmin ="http://localhost:/1640/admin/";
+    $urluser = "http://localhost:/1640/";
     $home = "home.php";
-    $categories = "category.php"
-    $categoryEdit = "category_edip"; 
-    $categoryDelete = "category_de.php"; 
+    // $categories = "category.ph
+    // $categoryEdit = "category_.php"; 
+    // $categoryDelete = "categorlete.php"; 
     $post = "post.php";
     $postEdit = "post_edit.php";
     $postDelete = "post_delete.ph
 
-    $urllogin = "http://localhost/1640/login";
+    $urllogin = "http://localhost0/1640/login";
 
     //Connection
-    $host = "localhost";
     $host = "localhost";
     $username="root";
     $password="";

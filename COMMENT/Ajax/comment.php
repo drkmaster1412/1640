@@ -64,11 +64,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $user_no = $Fun_call->validate($_POST['user_no']);
             $replay_no = $Fun_call->validate($_POST['replay_no']);
 
-            if(!empty(trim($replay_text)) && (strlen($replay_text) <= 8000) && !empty(trim($user_no)) && is_numeric($user_no) && !empty(trim($replay_no)) && is_numeric($replay_no)){
+            if(!empty(trim($replay_text)) && (strlen($replay_text) <= 8000) && !empty(trim($user_no)) && !empty(trim($replay_no)) && is_numeric($replay_no)){
 
-                $field_val['msc_text'] = $replay_text;
                 $field_val['msc_u_uni_no'] = $user_no;
                 $field_val['msc_mc_uni_no'] = $replay_no;
+                $field_val['msc_text'] = $replay_text;
                 $field_val['msc_date'] = date('y-m-d');
                 $field_val['msc_uni_no'] = rand(1000000000000000, 10000000000000000);
 
@@ -90,6 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             else{
 
+                
                 $json_data['status'] = 203;
                 $json_data['msg'] = 'Invalid Format Found';
 

@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
         $query = mysqli_query($conn, "UPDATE users SET verify_token='{$code}' WHERE email='{$email}'");
 
-        if ($query) {        
+        if ($query) {
             echo "<div style='display: none;'>";
             //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
@@ -50,14 +50,14 @@ if (isset($_POST['submit'])) {
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'no reply';
-                $mail->Body    = 'Here is the verification link <b><a href="http://localhost/1640/login/change-password.php?reset='.$code.'">http://localhost/1640/login/change-password.php?reset='.$code.'</a></b>';
+                $mail->Body    = 'Here is the verification link <b><a href="http://localhost/1640/login/change-password.php?reset=' . $code . '">http://localhost/1640/login/change-password.php?reset=' . $code . '</a></b>';
 
                 $mail->send();
                 echo 'Message has been sent';
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
-            echo "</div>";        
+            echo "</div>";
             $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
         }
     } else {
@@ -75,14 +75,14 @@ if (isset($_POST['submit'])) {
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <meta name="keywords"
-        content="Login Form" />
+    <meta name="keywords" content="Login Form" />
     <!-- //Meta tag Keywords -->
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!--/Style-CSS -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="Stylesheet.css" type="text/css" media="all" />
     <!--//Style-CSS -->
 
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
@@ -92,43 +92,46 @@ if (isset($_POST['submit'])) {
 <body>
 
     <!-- form section start -->
-    <section class="w3l-mockup-form">
-        <div class="container">
-            <!-- /form -->
-            <div class="workinghny-form-grid">
-                <div class="main-mockup">
-                    <div class="alert-close">
-                        <span class="fa fa-close"></span>
-                    </div>
-                    <div class="w3l_form align-self">
-                        <div class="left_grid_info">
-                            <img src="images/image3.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="content-wthree">
-                        <h2>Forgot Password</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <?php echo $msg; ?>
-                        <form action="" method="post">
-                            <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
-                            <button name="submit" class="btn" type="submit">Send Reset Link</button>
-                        </form>
-                        <div class="social-icons">
-                            <p>Back to! <a href="index.php">Login</a>.</p>
+    <!-- //form section start -->
+    <div class="container-fluid login-bg">
+        <div class="container ">
+            <div class="row">
+                <div class="box-container">
+                    <div class="card w-400">
+                        <div class="card-body">
+                            <h5 class="card-title text-center pt-3 pb-3 ">Forgot Password</h5>
+                            <?php echo $msg; ?>
+                            <hr>
+                            <form class="login-box" method="post">
+
+                                <div class="form-label-group">
+                                    <label for="username"><b>Email</b></label>
+                                    <input type="email" class="form-control mb-2" name="email" placeholder="Enter Your Email" required>
+                                    <br>
+                                    <br>
+                                    <input class="btn btn-primary btn-block" name="submit" value="Send Reset Link" type="submit">
+                                    <!-- <button name="submit" class="btn" type="submit">Send Reset Link</button> -->
+                                </div>
+                            </form>
+                            <hr>
+                            <div class="reminder">
+                                <p class="member">Back to <a href="login.php">Login</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- //form -->
         </div>
-    </section>
-    <!-- //form section start -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script src="js/jquery.min.js"></script>
     <script>
-        $(document).ready(function (c) {
-            $('.alert-close').on('click', function (c) {
-                $('.main-mockup').fadeOut('slow', function (c) {
+        $(document).ready(function(c) {
+            $('.alert-close').on('click', function(c) {
+                $('.main-mockup').fadeOut('slow', function(c) {
                     $('.main-mockup').remove();
                 });
             });

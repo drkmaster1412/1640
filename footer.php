@@ -58,7 +58,6 @@
                 <span class="copyright_text"><a href="<?php echo" ?page=".$homepage;?>">University of Greenwich</a>© 2023</span>
                 <span class="policy_terms">
                     <a href="<?php echo "?page=" .$policy; ?>" target="_blank">Privacy policy</a>
-                    and 
                     <a href="<?php echo "?page=" .$user_agreement; ?>" target="_blank">Terms & agreement</a>
                 </span>
             </div>

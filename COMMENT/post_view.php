@@ -10,7 +10,7 @@ $field['verify_token'] = $_SESSION['user_uni_no'];
 $sel_user_img = $Fun_call->select_assoc('users',$field);
 
 if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
-    header('Location:index.php');
+    header('Location:../login/login.php');
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){

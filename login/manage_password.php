@@ -21,6 +21,13 @@ include 'dbcon.php';
 $msg = "";
 
 if (isset($_POST['submit'])) {
+
+    $token = $_SESSION['user_uni_no'];
+    $connect = mysqli_query($conn,"SELECT * FROM users WHERE verify_token = '$token'" );
+    $pass = mysqli_real_escape_string($conn, $_POST['password']);
+    $row = mysqli_fetch_array($connect);
+    if($pass==$row['u_pass']){
+
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $code = mysqli_real_escape_string($conn, md5(rand()));
 
@@ -64,6 +71,11 @@ if (isset($_POST['submit'])) {
         $msg = "<div class='alert alert-danger'>$email - This email address do not found.</div>";
     }
 }
+else
+{
+    $msg = "<div class='alert alert-info'>Password Does not Match!!!</div>";
+}
+}
 
 ?>
 
@@ -71,7 +83,7 @@ if (isset($_POST['submit'])) {
 <html lang="zxx">
 
 <head>
-    <title>Login Form - Brave Coder</title>
+    <title>Change Your Password</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -106,15 +118,16 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="content-wthree">
-                        <h2>Forgot Password</h2>
+                        <h2>Change Your Password</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                         <?php echo $msg; ?>
                         <form action="" method="post">
                             <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
-                            <button name="submit" class="btn" type="submit">Send Reset Link</button>
+                            <input type="password" class="password" name="password" placeholder="Enter Your Current Password" required>
+                            <button name="submit" class="btn" type="submit">Send Change Password Link</button>
                         </form>
                         <div class="social-icons">
-                            <p>Back to! <a href="index.php">Login</a>.</p>
+                            <p>Back to! <a href="../homepage.php">Home</a>.</p>
                         </div>
                     </div>
                 </div>

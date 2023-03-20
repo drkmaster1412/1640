@@ -1,4 +1,4 @@
-<h3><small>post</small></h3>
+<h3><small>Post</small></h3>
 <hr>
 
 <h4><a href="?page=post_add.php">Create new</a></h4>

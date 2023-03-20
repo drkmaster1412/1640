@@ -22,12 +22,12 @@ $msg = "";
 
 if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $code = mysqli_real_escape_string($conn, md5(rand()));
+
 
     if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
-        $query = mysqli_query($conn, "UPDATE users SET verify_token='{$code}' WHERE email='{$email}'");
 
-        if ($query) {        
+            $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM users WHERE email='{$email}'"));
+            $code = $row['verify_token'];
             echo "<div style='display: none;'>";
             //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'no reply';
-                $mail->Body    = 'Here is the verification link <b><a href="http://localhost/1640/login/change-password.php?reset='.$code.'">http://localhost/1640/login/change-password.php?reset='.$code.'</a></b>';
+                $mail->Body    = 'Here is the verification link <b><a href="http://localhost/1640/login/login.php/?verification='.$code.'">http://localhost/1640/login/login.php/?verification='.$code.'</a></b>';
 
                 $mail->send();
                 echo 'Message has been sent';
@@ -58,12 +58,13 @@ if (isset($_POST['submit'])) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
             echo "</div>";        
-            $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
+            $msg = "<div class='alert alert-info'>We've resend a verification link on your email address.</div>";
+        }else {
+            $msg = "<div class='alert alert-danger'>$email - This email address do not found.</div>";
         }
     } else {
-        $msg = "<div class='alert alert-danger'>$email - This email address do not found.</div>";
+        $msg = "<div class='alert alert-danger'>Something Went Wrong!!</div>";
     }
-}
 
 ?>
 
@@ -111,7 +112,7 @@ if (isset($_POST['submit'])) {
                         <?php echo $msg; ?>
                         <form action="" method="post">
                             <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
-                            <button name="submit" class="btn" type="submit">Send Reset Link</button>
+                            <button name="submit" class="btn" type="submit">Resend Email Vertification Link</button>
                         </form>
                         <div class="social-icons">
                             <p>Back to! <a href="index.php">Login</a>.</p>
@@ -138,3 +139,6 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+
+
+

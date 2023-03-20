@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('login/dbcon.php');
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
+    header('Location:login/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +24,11 @@ include('login/dbcon.php');
                       enctype="multipart/form-data"
                 >
                     <?php
-                        $currentUser = $_SESSION['name'];
-                        $sql = "SELECT * FROM customer WHERE Customer_Name ='$currentUser'";
+                        
+
+
+                        $token = $_SESSION['user_uni_no'];
+                        $sql = "SELECT * FROM users WHERE verify_token ='$token'";
 
                         $result = mysqli_query($conn,$sql);
 
@@ -32,20 +38,23 @@ include('login/dbcon.php');
                                     //print_r($row['user_name']);
                                     ?>
                                         <div class="form-group col-sm-7">
-                                            <input type="text" name="Customer_Name" class="form-control" value="<?php echo $row['Customer_Name']; ?>">
+                                            <input type="email" name="mail" class="form-control" readonly="readonly" value="<?php echo $row['email']; ?>">
+                                        </div>  
+                                        <div class="form-group col-sm-7">
+                                            <input type="text" name="name" class="form-control" value="<?php echo $row['u_name']; ?>" required>
                                         </div>
                                         <div class="form-group col-sm-7">
-                                            <input type="email" name="mail" class="form-control" value="<?php echo $row['mail']; ?>">
-                                        </div>    
-                                        <div class="form-group col-sm-7">
-                                            <input type="date" name="DoB" class="form-control" value="<?php echo $row['DoB']; ?>">
-                                        </div> 
-                                        <div class="form-group col-sm-7">
-                                            <input type="text" name="Phone" class="form-control" value="<?php echo $row['Phone']; ?>">
-                                        </div>                    
+                                            <input type="file" name="img" class="form-control" value="<?php echo $row['u_img']; ?>">
+                                        </div>
+                   
                                         <div class="form-group col-sm-7">
                                             <input type="submit" name="update"  class="btn btn-primary" value="Update">
                                             <input type="button" name="cancel"  class="btn btn-primary" value="Ignore">
+                                        </div>
+
+                                        <div class="form-group col-sm-7">
+                                            <label>Wanna Change Password?</label>
+                                            <a href="http://localhost/1640/login/manage_password.php" class="signUp">Change Your Password</a>
                                         </div>
 
                                     <?php
@@ -56,25 +65,11 @@ include('login/dbcon.php');
                     <?php 
                     $err="";
                     if(isset($_POST["update"])){
-                        $Customer_Name=$_POST["Customer_Name"];
-                        $mail=$_POST["mail"];
-                        $DoB=$_POST["DoB"];
-                        $Phone=$_POST["Phone"];
-                    if($Customer_Name==""){
-                        $err .="<li> Enter customer name </li>";
-                    }
-                    if($mail==""){
-                        $err .="<li> Enter mail please </li>";
-                    }
-                    if($DoB==""){
-                        $err .="<li> Enter your birthday please </li>";
-                    }
-                
-                    if(empty($err)){
-                            $sql="Update customer set Customer_Name='$Customer_Name', mail='$mail', DoB='$DoB', Phone='$Phone' where Customer_Name = '$currentUser'";
+                        $Name=$_POST["name"];
+                        $avatar = $_POST["img"];
+                            $sql="Update users set name='$Name', u_img='$avatar' where verify_token = '$token'";
                             mysqli_query($conn,$sql);
-                            header("Location: $urllogin/$logout");  
-                            }         
+                            header("Location: hompage.php");      
                         }
                     ?>
                 

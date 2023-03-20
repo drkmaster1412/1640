@@ -6,8 +6,6 @@
         <li class="active"><a href="<?php echo "?page=" . $home; ?>">Admin</a></li>
         <li><a href="<?php echo "?page=" ####" 
                         ?>">Academic Year</a></li>
-        <!-- <li><a href="<?php echo "?page=" . $product; ?>">Product</a></li>
-        <li><a href="<?php echo "?page=" . $customer; ?>">Customer</a></li>
-        <li><a href="<?php echo "?page=" . $order; ?>">Order</a></li> -->
+         <li><a href="<?php echo "?page=role.php"; ?>">Role</a></li>
     </ul>
 </div>

@@ -26,7 +26,7 @@
 $Fun_call = new Functions();
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_uni_no'])) {
-	header('Location:../hompage.php');
+	header('Location:../homepage.php');
 }
 
 $u_error = $p_error = $error_msg = "";

@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<form class="login-box" method="post">
 								<div class="form-label-group">
 									<label for="username"><b>Email</b></label>
-									<input type="text" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
+									<input type="email" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
 									<span class="error-msg"><?php echo @$u_error; ?></span>
 								</div>
 

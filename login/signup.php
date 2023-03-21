@@ -17,21 +17,21 @@ require 'vendor/autoload.php';
 include 'dbcon.php';
 $msg = "";
 
-if (isset($_POST['submit'])) {
-    $id = rand();
-    $uimg = "0.png";
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
-    $confirm_password = mysqli_real_escape_string($conn, md5($_POST['confirm-password']));
-    $code = mysqli_real_escape_string($conn, md5(rand()));
+    if (isset($_POST['submit'])) {
+        $id = rand();
+        $uimg = "0.png";
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+        $confirm_password = mysqli_real_escape_string($conn, md5($_POST['confirm-password']));
+        $code = mysqli_real_escape_string($conn, md5(rand()));
 
-    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
-        $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
-    } else {
-        if ($password === $confirm_password) {
-            $sql = "INSERT INTO users (u_id, u_name, email, u_pass, verify_token, u_img) VALUES ('{$id}','{$name}', '{$email}', '{$password}', '{$code}' ,'{$uimg}')";
-            $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
+            $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
+        } else {
+            if ($password === $confirm_password) {
+                $sql = "INSERT INTO users (u_id, u_name, email, u_pass, verify_token, u_img) VALUES ('{$id}','{$name}', '{$email}', '{$password}', '{$code}' ,'{$uimg}')";
+                $result = mysqli_query($conn, $sql);
 
             if ($result) {
                 echo "<div style='display: none;'>";

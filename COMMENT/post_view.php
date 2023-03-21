@@ -164,6 +164,7 @@ else{
                 var flag = '000';
                 var c_text = $('#usercomment').val().trim();
                 var post_no = "<?php echo $fetch_post['p_uni_no']; ?>";
+                var post_user = "<?php echo $fetch_post['p_user']; ?>";
 
                 if(c_text != '' && c_text.length <= 8000){
 
@@ -174,6 +175,7 @@ else{
                             'comment_text' : encodeURIComponent(c_text),
                             'post_no' : encodeURIComponent(post_no),
                             'flag' : encodeURIComponent(flag),
+                            'post_user': encodeURIComponent(post_user),
                         },
                         success: function (response) {
                             var res_status = JSON.parse(response);

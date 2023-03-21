@@ -41,7 +41,17 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
                                             <input type="email" name="mail" class="form-control" readonly="readonly" value="<?php echo $row['email']; ?>">
                                         </div>  
                                         <div class="form-group col-sm-7">
-                                            <input type="text" name="name" class="form-control" value="<?php echo $row['u_name']; ?>" required>
+                                            <?php 
+                                            if($row['anonymous_status'] == 1)
+                                            {
+                                                echo '<input type="text" name="name" class="form-control" readonly="readonly" value='.$row['u_name'].' required>';
+                                            }
+                                            else
+                                            {
+                                                echo '<input type="text" name="name" class="form-control"  value='.$row['u_name'].' required>';
+                                            }
+                                            ?>
+                                            
                                         </div>
                                         <div class="form-group col-sm-7">
                                             <input type="file" name="img" class="form-control" value="<?php echo $row['u_img']; ?>">
@@ -49,7 +59,16 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
                    
                                         <div class="form-group col-sm-7">
                                             <input type="submit" name="update"  class="btn btn-primary" value="Update">
-                                            <input type="button" name="cancel"  class="btn btn-primary" value="Ignore">
+                                            <input type="submit" name="anonymous_button"class="btn btn-primary" value="<?php 
+                                            if($row['anonymous_status']==0)
+                                            {
+                                                echo "Turn On Anonymous";
+                                            }
+                                            else
+                                            {
+                                                echo "Turn Off Anonymous";
+                                            }
+                                            ?>">
                                         </div>
 
                                         <div class="form-group col-sm-7">
@@ -63,14 +82,40 @@ if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
                         }
                     ?>
                     <?php 
-                    $err="";
                     if(isset($_POST["update"])){
                         $Name=$_POST["name"];
                         $avatar = $_POST["img"];
-                            $sql="Update users set name='$Name', u_img='$avatar' where verify_token = '$token'";
+                            $sql="Update users set u_name='$Name', u_img='$avatar' where verify_token = '$token'";
                             mysqli_query($conn,$sql);
                             header("Location: hompage.php");      
                         }
+                    ?>
+
+                    <?php 
+                    if(isset($_POST["anonymous_button"])){
+                        $Name=$_POST["name"];
+                        $token = $_SESSION['user_uni_no'];
+                        $select_status = "SELECT * FROM users WHERE verify_token ='$token'";
+                        $result = mysqli_query($conn,$select_status);
+                        $row = mysqli_fetch_array($result);
+                        $status = $row['anonymous_status'];
+                        $u_name = $row['u_name'];
+                        $a_name = $row['anonymous_name'];
+                        
+                        if($status == 0){
+                            $switch_name =  $row['u_name'];
+                            $sql="Update users set anonymous_status = 1, u_name =' $a_name', anonymous_name='$u_name' where verify_token = '$token'";
+                            mysqli_query($conn,$sql);
+                            echo '<script type="text/javascript"> window.onload = function () { alert("Anomyous have been turn on"); } </script>';
+                            echo "<meta http-equiv='refresh' content='0'>";
+                        }else
+                        {
+                            $sql="Update users set anonymous_status = 0, u_name = ' $a_name', anonymous_name='$u_name' where verify_token = '$token'";
+                            mysqli_query($conn,$sql);
+                            echo '<script type="text/javascript"> window.onload = function () { alert("Anomyous have been turn off"); } </script>';
+                            echo "<meta http-equiv='refresh' content='0'>";
+                        }
+                    }
                     ?>
                 
                 </form>

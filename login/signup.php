@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
     <!--/Style-CSS -->
     <link rel="stylesheet" href="Stylesheet.css" type="text/css" media="all" />
     <!--//Style-CSS -->
-
+    <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
 </head>
@@ -112,8 +112,8 @@ if (isset($_POST['submit'])) {
                             <form class="login-box" method="post">
 
                                 <div class="form-label-group">
-                                    <label for="username"><b>Fullname</b></label>
-                                    <input type="text" id="username" name="username" class="form-control mb-2" placeholder="Enter Your Name" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
+                                    <label for="name"><b>Fullname</b></label>
+                                    <input type="text" id="name" name="name" class="form-control mb-2" placeholder="Enter Your Name" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
                                 </div>
                                 <div class="form-label-group">
                                     <label for="username"><b>Email</b></label>

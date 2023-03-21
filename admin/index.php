@@ -9,9 +9,8 @@
     $urladmin ="http://localhost:/1640/admin/";
     $urluser = "http://localhost:/1640/";
     $home = "home.php";
-    $post = "post.php";
-    $postEdit = "post_edit.php"; 
-    $postDelete = "post_delete.php";
+    $role = "role.php";
+    $roleEdit = "post_edit.php";
     $urllogin = "http://localhost:/1640/login";
     include('./theme.php');
 

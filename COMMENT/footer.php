@@ -57,8 +57,8 @@
             <div class="bottom_text">
                 <span class="copyright_text"><a href="<?php echo" ?page=".$home;?>">University of Greenwich</a>© 2023</span>
                 <span class="policy_terms">
-                    <a href="http://localhost:8080/1640/?page=privacy_policy.php" target="_blank">Privacy policy</a>
-                    <a href="http://localhost:8080/1640/?page=user_agreement.php>" target="_blank">Terms & agreement</a>
+                    <a href="http://localhost:8080/1640/privacy_policy.php" target="_blank">Privacy policy</a>
+                    <a href="http://localhost:8080/1640/user_agreement.php" target="_blank">Terms & agreement</a>
                 </span>
             </div>
         </div>

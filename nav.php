@@ -29,7 +29,7 @@
                 <a class="nav-link" href="COMMENT/post.php">Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo" ?page=".$policy;?>">Privacy</a>
+                <a class="nav-link" href="http://localhost:8080/1640/privacy_policy.php" target="_blank">Privacy</a>
             </li>
             <!-- Welcome non-fix -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -46,7 +46,7 @@
                         <?php
                         if (isset($_SESSION['user']) == "") {
                         ?>
-                            <li class="dropdown-item"><a class="nav-link" href="<?php echo "login/login.php"; ?>">Login</a></li>
+                            <li class="dropdown-item"><a class="nav-link" href="login/login.php">Login</a></li>
                             <hr>
                             <li class="dropdown-item"><a class="nav-link" href=" <?php echo $urllogin . "/" . $signup; ?>">Register</a></li>
                         <?php

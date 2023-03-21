@@ -7,7 +7,9 @@ $Fun_call = new Functions();
 
 $json_data = array();
 
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
 
     if(isset($_POST['flag']) && ($_POST['flag'] == '000')){
 
@@ -30,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $json_data['status'] = 101;
                     $json_data['msg'] = 'Comment Success';
+
 
                 }
                 else{
@@ -120,6 +123,7 @@ else{
     
 }
 
-echo json_encode($json_data);
 
+
+echo json_encode($json_data);
 ?>

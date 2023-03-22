@@ -125,7 +125,7 @@ else{
                                 <form  method="post">
                                 An danh?
                                 <input type="checkbox" name="formWheelchair" value="Yes" />
-                                <input type="submit" name="formSubmit" value="Submit" />
+                                <input type="submit" name="formSubmit" value="submit" />
                             </form>
 
                                 <div class="comment-area-btn">
@@ -164,7 +164,7 @@ else{
                 var flag = '000';
                 var c_text = $('#usercomment').val().trim();
                 var post_no = "<?php echo $fetch_post['p_uni_no']; ?>";
-                var post_user = "<?php echo $fetch_post['p_user']; ?>";
+                var post_user = "<?php echo $fetch_post['p_user']; $post_no = $fetch_post['p_user'];?>";
 
                 if(c_text != '' && c_text.length <= 8000){
 
@@ -183,7 +183,10 @@ else{
                                 $('#comment_post').trigger('reset');
                                 $('#comment_error').text('');
                                 $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no' : post_uni });
+                                $('.sendnofity').load("Ajax/send_commentnoft.php", { 'post_uni_no' : post_uni }); 
                                 $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                                
+
                                 console.log(res_status.msg);
                             }
                             else{

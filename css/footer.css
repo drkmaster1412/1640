@@ -5,6 +5,11 @@
     font-family: Ubuntu;
   }
 
+  
+  small {
+    text-align: left;
+  }
+
 *{
   margin: 0;
   padding: 0;

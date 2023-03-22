@@ -23,7 +23,7 @@ require_once ('connection.php');
 <?php
 $err="";
 $cat_name="";
-
+$cat_id="";
 if(isset($_POST["btnUpdate"])){
     $cat_name=isset($_POST["inputName"])?$_POST["inputName"]:"";
 

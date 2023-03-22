@@ -26,7 +26,7 @@
 $Fun_call = new Functions();
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_uni_no'])) {
-	header('Location:../homepage.php');
+	header('Location:../index.php');
 }
 
 $u_error = $p_error = $error_msg = "";
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
 					$_SESSION['Roles'] = $fetch_user_info['roles'];
 	
-					header('Location:../homepage.php');
+					header('Location:../index.php');
 				}
 				else
 				{

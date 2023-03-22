@@ -33,8 +33,9 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<div id="main-content" class="container allContent-section py-4">
+<div id="main-content" class="container allContent-section py-6">
     <h2>All Staff</h2>
+    <hr>    
     <table class="table">
         <thead>
             <tr>

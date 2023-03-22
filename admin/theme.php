@@ -46,5 +46,6 @@ if ($role == 2) {
 <?php
 } else {
     echo '<script type="text/javascript"> window.onload = function () { alert("You not have authorization to access this page!!"); } </script>';
+    header('Location:../index.php');
 }
 ?>

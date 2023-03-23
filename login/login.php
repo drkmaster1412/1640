@@ -26,7 +26,7 @@
 $Fun_call = new Functions();
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_uni_no'])) {
-	header('Location:../homepage.php');
+	header('Location:../index.php');
 }
 
 $u_error = $p_error = $error_msg = "";
@@ -63,8 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 					$_SESSION['user_name'] = $fetch_user_info['u_name'];
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
+					$_SESSION['Roles'] = $fetch_user_info['roles'];
 	
-					header('Location:../homepage.php');
+					header('Location:../index.php');
 				}
 				else
 				{
@@ -98,10 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Login</title>
+	<title>Sign In</title>
+	<link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="CSS/Stylesheet.css">
+	<link rel="stylesheet" href="Stylesheet.css">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -111,13 +116,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<div class="box-container">
 					<div class="card w-400">
 						<div class="card-body">
-							<h5 class="card-title text-center pt-3 pb-3 ">Sign In</h5>
+							<h2 class="card-title text-center pt-3 pb-3 ">Sign In</h2>
 							<hr>
 							<form class="login-box" method="post">
-
 								<div class="form-label-group">
 									<label for="username"><b>Email</b></label>
-									<input type="text" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
+									<input type="email" id="username" name="username" class="form-control mb-2" placeholder="Email" value="<?php echo @$_COOKIE['username']; ?>" autofocus>
 									<span class="error-msg"><?php echo @$u_error; ?></span>
 								</div>
 
@@ -132,12 +136,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<label class="custom-control-label" for="savepass">Remember password</label>
 								</div>
 								<span class="error-msg"><?php echo @$error_msg; ?></span>
-								<input class="btn btn-lg btn-primary btn-block text-uppercase" name="submit" value="SUBMIT" type="submit">
+								<hr>
+								<input class="btn btn-primary btn-block " name="submit" value="Submit" type="submit">
 							</form>
 							<div class="reminder">
-								<p class="member">Not a member? <a href="http://localhost/1640/login/signup.php" class="signUp">Sign up now</a></p>
-								<p class="member">Forgot Your password?<a href="http://localhost/1640/login/password_reset.php" class="signUp">Forgot password</a></p>
-								<p class="member">Did not Recived a verify email? <a href="http://localhost/1640/login/resend_email.php" class="signUp">Resend verify email</a></p>
+								<p class="member">Not a member? <a href="signup.php" >Sign up now</a></p>
+								<p class="member">Forgot Your password? <a href="password_reset.php" >Forgot password</a></p>
+								<p class="member">Did not Recived a verify email? <a href="resend_email.php" >Resend verify email</a></p>
 							</div>
 						</div>
 					</div>
@@ -145,14 +150,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
+	
 </body>
 
 </html>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
     <script src="js/jquery.min.js"></script>
     <script>

@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'btwev')
-    or die("Can not connect database" . mysqli_connect_error());
+$conn = mysqli_connect('localhost', 'root', '', 'btwev') or die("Can not connect database" . mysqli_connect_error());
 
 require_once './Config/Functions.php';
 $Fun_call = new Functions();
@@ -49,10 +48,21 @@ $Next = $page + 1;
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style2.css">
 </head>
+<style>
+    .pagination {
+        margin-left: 10%;
+
+    }
+
+    .pagi {
+        text-align: center;
+        padding: 5px;
+        border: solid 0.5px;
+    }
+</style>
 
 <body>
-    <?php include('../header.php');
-    // include('./post.php');
+    <?php include('../nav.php');
     ?>
 
     <div class="row">
@@ -147,5 +157,6 @@ $Next = $page + 1;
 
 </body>
 
+<?php include('./footer.php'); ?>
 
 </html>

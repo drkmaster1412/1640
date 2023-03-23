@@ -7,7 +7,9 @@ $Fun_call = new Functions();
 
 $json_data = array();
 
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
 
     if(isset($_POST['flag']) && ($_POST['flag'] == '000')){
 
@@ -25,6 +27,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $field_val['mc_uni_no'] = rand(1000000000000000, 10000000000000000);
 
                 $insert = $Fun_call->insert('mcomments', $field_val);
+                
+                $post_num = $Fun_call->validate($_POST['post_no']);
+                
+                
 
                 if($insert){
 
@@ -120,6 +126,7 @@ else{
     
 }
 
-echo json_encode($json_data);
 
+
+echo json_encode($json_data);
 ?>

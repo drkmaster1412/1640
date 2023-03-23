@@ -3,14 +3,13 @@
 
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- add jQuery library -->
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['bar'] });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Post', 'Like', 'Dislike'],
+                ['Post', 'Like ', 'Dislike'],
                 <?php
                 $query = "select * from poster";
                 $res = mysqli_query($conn, $query);
@@ -36,24 +35,12 @@
             var chart = new google.charts.Bar(document.getElementById('barchart_material'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
-
-            // add setInterval to check database changes
-            setInterval(function () {
-                $.ajax({
-                    url: "check_changes.php", // path to your server-side script
-                    success: function (result) {
-                        if (result == "1") {
-                            location.reload(); // reload page if changes detected
-                        }
-                    }
-                });
-            }, 5000); // check every 5 seconds
         }
     </script>
 </head>
 
 <body>
-    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+    <div id="barchart_material" style="width: 900px; height: 500px;margin-left:30%;"></div>
 </body>
 
 </html>

@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 $field['verify_token'] = $_SESSION['user_uni_no'];
 $sel_user_img = $Fun_call->select_assoc('users', $field);
 
-$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 5000;
+$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 4;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $start = ($page - 1) * $limit;
 $select_post = $conn->query("SELECT * FROM poster LIMIT $start, $limit");
@@ -77,13 +77,14 @@ $Next = $page + 1;
         </div>
         <div class="text-center" style="margin-top: 20px; " class="col-md-2">
             <form method="post" action="#">
-            <select name="limit-records" id="limit-records">
-                    <option disabled="disabled" selected="selected">---Limit Records---</option>
-                    <?php foreach ([3, 4, 5] as $limit): ?>
-                        <option <?php if (isset($_POST["limit-records"]) && $_POST["limit-records"] == $limit)
-                            echo "selected" ?> value="<?= $limit; ?>"><?= $limit; ?></option>
-                    <?php endforeach; ?>
-                </select>
+                <!-- <select name="limit-records" id="limit-records"> -->
+                <!-- <option disabled="disabled" selected="selected" style="display: none"></option> -->
+                <?php foreach ([4] as $limit):
+                    4 ?>
+                    <!-- <option <?php if (isset($_POST["limit-records"]) && $_POST["limit-records"] == $limit)
+                        echo "selected" ?> value="<?= $limit; ?>"><?= $limit; ?></option> -->
+                <?php endforeach; ?>
+                <!-- </select> -->
             </form>
         </div>
     </div>
@@ -133,18 +134,18 @@ $Next = $page + 1;
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#limit-records").change(function () {
-            $('form').submit();
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#limit-records").change(function () {
+                $('form').submit();
+            })
         })
-    })
-</script>
+    </script>
 
 </body>
 
 
 </html>
-        

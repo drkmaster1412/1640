@@ -8,6 +8,7 @@ $categoryDelete = "category_de.php";
 $post = "post.php";
 $postEdit = "post_edit.php";
 $postDelete = "post_delete.php";
+$download = "download.php";
 
 $urllogin = "http://localhost/1640/login";
 

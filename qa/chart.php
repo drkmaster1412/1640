@@ -4,6 +4,10 @@
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+        setTimeout(function () {
+            location.reload();
+        }, 5000);
+
         google.charts.load('current', { 'packages': ['bar'] });
         google.charts.setOnLoadCallback(drawChart);
 

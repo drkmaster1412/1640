@@ -3,7 +3,7 @@
 session_start();
 
 require_once 'Config/Functions.php';
-$Fun_call = new Functions();
+// $Fun_call = new Functions();
 global $post_no;
 
 $field['verify_token'] = $_SESSION['user_uni_no'];

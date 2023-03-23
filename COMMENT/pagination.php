@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'btwev')
-    or die("Can not connect database" . mysqli_connect_error());
+$conn = mysqli_connect('localhost', 'root', '', 'btwev') or die("Can not connect database" . mysqli_connect_error());
 
 require_once './Config/Functions.php';
 $Fun_call = new Functions();

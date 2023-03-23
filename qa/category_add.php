@@ -4,18 +4,6 @@ require_once ('connection.php');
 
 
 
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-
-
 <h3 class="col-md-7">Add New Category</h3>
 <hr>
 
@@ -26,7 +14,7 @@ require_once ('connection.php');
     </div>
     <div class="form-group col-md-7">
         <input type="submit" class="btn btn-success" name="btn_Submit" value="Submit"/>
-        <input type="ignore" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo 'category.php'; ?>'"/>
+        <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page=' . $categories; ?>'"/>
     </div>
 </form>
 <?php

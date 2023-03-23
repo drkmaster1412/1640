@@ -29,7 +29,7 @@
                 <a class="nav-link" href="<?php echo " ?page=" . $post; ?>">Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo " ?page=" . $categories; ?>">Category</a>
+                <a class="nav-link" href="<?php echo " ?page=" . $policy; ?>" target="_blank">Policy</a>
             </li>
             <!-- Welcome non-fix -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">

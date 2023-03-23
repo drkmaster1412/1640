@@ -1,8 +1,6 @@
-<?php
-    session_start();
-    $role = $_SESSION['Roles'];
-    if($role ==1){
-?>
+<!-- <?php
+        session_start();
+        ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <title>QA</title>
+    <title></title>
 </head>
 
 <body>
@@ -44,13 +42,5 @@
     <!-- Core theme JS-->
     <script src="asset/js/scripts.js"></script>
 </body>
-</html>
 
-<?php 
-    }
-else
-{
-       echo '<script type="text/javascript"> window.onload = function () { alert("You not have authorization to access this page!!"); } </script>';
-       header('location: ../index.php');
-}       
-    ?>
+</html>

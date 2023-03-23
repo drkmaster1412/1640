@@ -11,6 +11,7 @@ $post = "post.php";
 $postAdd = "post_add.php";
 $postEdit = "post_edit.php";
 $postDelete = "post_delete.php";
+$download = "download.php";
 
 $urllogin = "http://localhost/1640/login";
 

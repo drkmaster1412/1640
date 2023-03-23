@@ -42,36 +42,37 @@ if (isset($_POST["btnSubmit"])) {
     <?php echo $err;    ?>
 </ul>
 
+<div id="main-content" class="container p-5">
+    <h4>Edit Post Detail</h4>
 
-
-<form method="post" enctype="multipart/form data">
-    <div class="row">
-
-        <div class="form-group col-sm-7">
+    <form id="update-Post" enctype='multipart/form-data'>
+        <div class="form-group">
             <label for="">Name</label>
             <input type="text" name="p_name" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
-
-        <div class="form-group col-sm-7">
+        <div class="form-group">
             <label for="">Description</label>
             <input type="text" name="p_text" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
-
-        <div class="form-group col-sm-7">
-            <label for="">Images</label>
+        <div class="form-group">
+            <label for="">Image</label>
             <input type="file" class="form-control-file" name="p_image" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
+        <div class="form-group">
+        <label for="">File</label>
+        <br>
+            <form method="POST" action="upload.php" enctype="multipart/form-data">
+                
+                <input type="file" name="file">
+                <!-- <input type="submit" value="Upload"> -->
+            </form>
+        </div>
 
-        <form method="POST" action="upload.php" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <!-- <input type="submit" value="Upload"> -->
-        </form>
-
-        <div class="form-group col-sm-7">
+        <div class="form-group">
             <label for="">Where you want to tag for</label>
             <select class="form-control" name="cat_id" id="">
                 <?php
-                $sql = "SELECT * from categories";
+                $sql = "SELECT * FROM categories";
                 $results = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($results)) {
                 ?>
@@ -80,10 +81,8 @@ if (isset($_POST["btnSubmit"])) {
                 }
                 ?>
             </select>
-
         </div>
-        <!-- Checkbox Term and Condition -->
-        <div class="form-group col-sm-7">
+        <div class="form-group">
             <p>
                 <input id="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" required name="terms"> I have read and agree to the
                 <a href="http://localhost:8080/1640/?page=user_agreement.php" target="_blank">Terms and Conditions</a>
@@ -106,11 +105,12 @@ if (isset($_POST["btnSubmit"])) {
         <?php
         }
         ?>
-
-        <div class="form-row col-md-7">
+        <div class="form-group">
             <div class="from-group col md-12">
                 <input type="submit" class="btn btn-primary" name="btnSubmit" value="Submit">
                 <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page=' . $post; ?>'" />
             </div>
         </div>
-</form>
+    </form>
+</div>
+

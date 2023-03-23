@@ -37,6 +37,8 @@ else{
 }
 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -98,9 +100,33 @@ else{
                                 echo $row['cat_name'] ;
                             }
                         ?></h5>
-                            
+                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>   
+                        <?php 
+                        $conn=mysqli_connect('localhost','root','','btwev');
 
-                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>
+                        $post_no = $Fun_call->validate($_GET['post_uni_no']);
+                        $res=mysqli_query($conn,"select * from poster where p_uni_no='$post_no'");
+                        if(mysqli_num_rows($res)>0){
+                            while($row=mysqli_fetch_assoc($res)){
+                            
+                        $likeClass="far";	
+                        if(isset($_COOKIE['like_'.$row['p_id']])){
+                            $likeClass="fas";
+                        }		
+                        
+                        $dislikeClass="far";	
+                        if(isset($_COOKIE['dislike_'.$row['p_id']])){
+                            $dislikeClass="fas";
+                        }	
+                        ?>
+
+                        <span class="pull-right">
+                        <i class="<?php echo $likeClass?> fa-thumbs-up" onclick="setLikeDislike('like','<?php echo $row['p_id']?>')" id="like_<?php echo $row['p_id']?>"></i>
+						<div id="like"><?php echo $row['like_count']?></div>
+						&nbsp;&nbsp;<i class="<?php echo $dislikeClass?> fa-thumbs-down" onclick="setLikeDislike('dislike','<?php echo $row['p_id']?>')" " id="dislike_<?php echo $row['p_id']?>"></i>
+						<div id="dislike"><?php echo $row['dislike_count']?></div>
+                     </span>
+                        <?php } }?>
                     </div>
                     <hr>
 
@@ -274,6 +300,46 @@ else{
         });
 
     </script>
+
+<script>
+	  function setLikeDislike(type,id){
+		  jQuery.ajax({
+			  url:'setLikeDislike.php',
+			  type:'post',
+			  data:'type='+type+'&p_id='+id,
+			  success:function(result){
+				  result=jQuery.parseJSON(result);
+				  if(result.opertion=='like'){
+					  jQuery('#like_'+id).removeClass('far');
+					  jQuery('#like_'+id).addClass('fas');
+					  jQuery('#dislike_'+id).addClass('far');
+					  jQuery('#dislike_'+id).removeClass('fas');
+				  }
+				  if(result.opertion=='unlike'){
+					  jQuery('#like_'+id).addClass('far');
+					  jQuery('#like_'+id).removeClass('fas');
+				  }
+				  
+				  if(result.opertion=='dislike'){
+					   jQuery('#dislike_'+id).removeClass('far');
+					   jQuery('#dislike_'+id).addClass('fas');
+					   jQuery('#like_'+id).addClass('far');
+					   jQuery('#like_'+id).removeClass('fas');
+				  }
+				  if(result.opertion=='undislike'){
+					  jQuery('#dislike_'+id).addClass('far');
+					  jQuery('#dislike_'+id).removeClass('fas');
+
+				  }
+				  
+				  jQuery('#post'+id+' #like').html(result.like_count);
+				  jQuery('#post'+id+' #dislike').html(result.dislike_count);
+                  location.reload(true);
+			  }
+			  
+		  });
+	  }
+	  </script>
 
 </body>
 

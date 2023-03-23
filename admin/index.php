@@ -1,16 +1,4 @@
 <?php
-    $urladmin ="http://localhost:8080/1640/admin/";
-    $urluser = "http://localhost:8080/1640/";
-    $home = "home.php";
-    // $categories = "category.php";
-    // $categoryEdit = "category_edit.php"; 
-    // $categoryDelete = "category_delete.php"; 
-    $post = "post.php";
-    $postEdit = "post_edit.php"; 
-    $postDelete = "post_delete.php";
-
-    $urllogin = "http://localhost:8080/1640/login";
-
     //Connection
     $host = "localhost";
     $username="root";
@@ -18,7 +6,12 @@
     $db= "btwev";
     $conn = mysqli_connect($host,$username,$password,$db) or die("Can not connect database ".mysqli_connect_error());
 
+    $urladmin ="http://localhost:8080/1640/admin/";
+    $urluser = "http://localhost:8080/1640/";
+    $home = "home.php";
+    $roles = "role.php";
+    $roleEdit = "role_edit.php";
+    $urllogin = "http://localhost:8080/1640/login";
     include('./theme.php');
-
 
 ?>

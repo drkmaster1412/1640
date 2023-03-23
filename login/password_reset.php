@@ -1,35 +1,15 @@
+<!-- Code by Brave Coder - https://youtube.com/BraveCoder -->
+
 <?php
+
 session_start();
-include('./header.php');
-include('./nav.php');
-include('dbcon.php');
-?>
+if (isset($_SESSION['SESSION_EMAIL'])) {
+    header("Location: login.php");
+    die();
+}
 
-<div class="form-wrapper">
-
-    <form action="#" method="post">
-        <div class="container">
-            <div class="alert">
-                <?php
-                if (isset($_SESSION['status'])) {
-                    echo "<h4>" . $_SESSION['status'] . "</h4>";
-                    unset($_SESSION['status']);
-                }
-                ?>
-            </div>
-            <h3>Resend Email Verification</h3>
-            <!-- <p>Fill up the form with correct values.</p> -->
-            <div class="form-items">
-                <label>Email Address</label>
-                <input type="text" name="email" id="email" placeholder="Email"></input>
-                <div class="button-panel">
-                    <input type="submit" class="button" title="Send Password Reset Link" name="password_reset_btn" value="Send Password Reset Link"></input>
-                </div>
-    </form>
-</div>
-
-<?php
-
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -37,81 +17,126 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-function send_password_reset($get_name,$get_email,$token)
-{
-    $mail = new PHPMailer(true);
+include 'dbcon.php';
+$msg = "";
 
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                   //Debug might be the number
+if (isset($_POST['submit'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $code = mysqli_real_escape_string($conn, md5(rand()));
 
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'hoangpnhtesting@gmail.com';                     //SMTP username
-    $mail->Password   = 'huyhoang022002';                               //SMTP password
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
+        $query = mysqli_query($conn, "UPDATE users SET verify_token='{$code}' WHERE email='{$email}'");
 
-    $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        if ($query) {
+            echo "<div style='display: none;'>";
+            //Create an instance; passing `true` enables exceptions
+            $mail = new PHPMailer(true);
 
-    //Recipients
-    $mail->setFrom('from@example.com', $get_name);
-    $mail->addAddress($get_email);
+            try {
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'hoangpnhtesting@gmail.com';                     //SMTP username
+                $mail->Password   = 'gvhhrdgktqqzewti';                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Reset Password Nofitication';
+                //Recipients
+                $mail->setFrom('hoangpnhtesting@gmail.com');
+                $mail->addAddress($email);
 
-    $email_template = "
-    <h2> You have send the reset password message from website</h2>
-    <h5> To Change your passwprd click the link below</h5>
-    <h5> If this not you, you should check for sercurity of your account</h5>
-    <br/><br/>
-    <a href='http://localhost/1640/login/password_change.php?token=$token&email=$get_email'>Verified Your Email</a>
-    ";
-    // $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'no reply';
+                $mail->Body    = 'Here is the verification link <b><a href="http://localhost/1640/login/change-password.php?reset=' . $code . '">http://localhost/1640/login/change-password.php?reset=' . $code . '</a></b>';
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+            echo "</div>";
+            $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
+        }
+    } else {
+        $msg = "<div class='alert alert-danger'>$email - This email address do not found.</div>";
+    }
 }
 
-
-
-
-
-
-
-    if(isset($_POST['password_reset_btn']))
-    {
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $token = md5(rand());
-
-        $check_email = "SELECT email FROM users WHERE email='$email LIMIT 1";
-        $check_email_run = mysqli_query($conn,$check_email);
-
-        if(mysqli_num_rows($check_email_run) > 0){
-            $row =  mysqli_fetch_array($check_email_run);
-            $get_name = $row['name'];
-            $get_email = $row['email'];
-
-            $update_token = "UPDATE users SET verify_token='$token' WHERE email='$get_email' LIMIT 1";
-            $update_token_run = mysqli_query($conn, $update_token);
-
-            if($update_token_run)
-            {
-                send_password_reset($get_name,$get_email,$token);
-                $_SESSION['status'] = "The reset password link has been sent to your mail!!";
-                header("location: password_reset.php");
-                exit(0);
-            }
-            else
-            {
-                $_SESSION['status'] = "Something went wrong";
-                header("location: password_reset.php");
-                exit(0);
-            }
-        }
-        else
-        {
-            $_SESSION['status'] = "No email found";
-            header("location: password_reset.php");
-            exit(0);
-        }
-    }
 ?>
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Reset Password</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Login Form" />
+    <!-- //Meta tag Keywords -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
+    <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="Stylesheet.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+
+    <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- form section start -->
+    <!-- //form section start -->
+    <div class="container-fluid login-bg">
+        <div class="container ">
+            <div class="row">
+                <div class="box-container">
+                    <div class="card w-400">
+                        <div class="card-body">
+                            <h2 class="card-title text-center pt-3 pb-3 ">Forgot Password</h2>
+                            <?php echo $msg; ?>
+                            <hr>
+                            <form class="login-box" method="post">
+                                <div class="form-label-group">
+                                    <label for="username"><b>Email</b></label>
+                                    <input type="email" class="form-control mb-2" name="email" placeholder="Enter Your Email" required>
+
+                                    <!-- <button name="submit" class="btn" type="submit">Send Reset Link</button> -->
+                                </div>
+                                <hr>
+                                <input class="btn btn-primary btn-block" name="submit" value="Send Reset Link" type="submit">
+                            </form>
+                            <div class="reminder">
+                                <p class="member">Back to <a href="login.php">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(c) {
+            $('.alert-close').on('click', function(c) {
+                $('.main-mockup').fadeOut('slow', function(c) {
+                    $('.main-mockup').remove();
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

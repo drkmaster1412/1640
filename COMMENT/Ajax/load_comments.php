@@ -6,6 +6,7 @@ require_once '../Config/Functions.php';
 $Fun_call = new Functions();
 global $post_no;
 
+
 if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
     header('Location:index.php');
 }
@@ -25,6 +26,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $field['verify_token'] = $_SESSION['user_uni_no'];
         $sel_user_img = $Fun_call->select_assoc('users', $field);
 
+
+
     }
     else{
         echo "Invalid Data";
@@ -34,6 +37,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 else{
     echo "Invalid Method";
 }
+
+
 
 
 ?>
@@ -92,18 +97,6 @@ else{
 
                                         <h6 class="mb-0"><b><?php 
                                     echo ($user_info['u_name']);
-                                        // if(isset($_POST['formWheelchair']) && 
-                                        // $_POST['formWheelchair'] == 'Yes') 
-                                        // {
-                                        //     echo bin2hex($user_info['u_name']);
-                                        // }
-                                        // else
-                                        //     echo ($user_info['u_name']); 
-                                        
-                                        // switch (isset($_POST['anonymous'])){
-                                        //     case 'Yes': echo bin2hex($user_info['u_name']);
-                                        //     case 'No': echo ($user_info['u_name']);
-                                        // }
                                         ?></b> 
                                         	 
                                         <span class="cm-date"><?php echo $fetch_cdata['mc_date']; ?></span></h6>

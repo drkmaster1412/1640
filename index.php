@@ -10,7 +10,7 @@ $signup = "signup.php";
 $logout = "logout.php";
 $amanage = "accountmanage.php";
 $search = "search.php";
-$post = "COMMENT/post.php";
+$post = "http://localhost:8080/COMMENT/post.php";
 
 session_start();
 include('./theme.php');

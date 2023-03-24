@@ -26,7 +26,7 @@
 
         <ul class="nav-list">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo " ?page=" . $home; ?>">Home</a>
+                <a class="nav-link" href="<?php echo " ?page=" . $homepage; ?>">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo " ?page=" . $post; ?>">Post</a>

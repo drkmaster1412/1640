@@ -1,28 +1,28 @@
 <!-- Code by Brave Coder - https://youtube.com/BraveCoder -->
 
 <?php
-    session_start();
-    if (isset($_SESSION['SESSION_EMAIL'])) {
-        header("Location: welcome.php");
-        die();
-    }
+session_start();
+if (isset($_SESSION['SESSION_EMAIL'])) {
+	header("Location: welcome.php");
+	die();
+}
 
-    $msg = "";
-	$conn = mysqli_connect('localhost', 'root', '', 'btwev');
+$msg = "";
+$conn = mysqli_connect('localhost', 'root', '', 'btwev');
 
-    if (isset($_GET['verification'])) {
-        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE verify_token='{$_GET['verification']}'")) > 0) {
-            $query = mysqli_query($conn, "UPDATE users SET verified_status = '1' WHERE verify_token='{$_GET['verification']}'");
-            
-            if ($query) {
-                $msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
-            }
-        } else {
-            header("Location: login.php");
-        }
-    }
+if (isset($_GET['verification'])) {
+	if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE verify_token='{$_GET['verification']}'")) > 0) {
+		$query = mysqli_query($conn, "UPDATE users SET verified_status = '1' WHERE verify_token='{$_GET['verification']}'");
 
-    require_once '../COMMENT/Config/Functions.php';
+		if ($query) {
+			$msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
+		}
+	} else {
+		header("Location: login.php");
+	}
+}
+
+require_once '../COMMENT/Config/Functions.php';
 $Fun_call = new Functions();
 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user_uni_no'])) {
@@ -49,30 +49,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if ($verify_user) {
 
 				$sql = "SELECT * FROM users WHERE email = '$username'";
-				
-				$status =  mysqli_fetch_assoc(mysqli_query($conn,$sql));
-				if($status['verified_status'] == 1)
-				{
+
+				$status =  mysqli_fetch_assoc(mysqli_query($conn, $sql));
+				if ($status['verified_status'] == 1) {
 					$fetch_user_info = $Fun_call->select_assoc('users', $verify_fields);
 
 					if (!empty(trim($save_cookie))) {
-	
+
 						setcookie('username', $username, time() + (365 * 24 * 60), "/");
 						setcookie('userpass', $password, time() + (365 * 24 * 60), "/");
 					}
-	
+
 					$_SESSION['user_name'] = $fetch_user_info['u_name'];
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
 					$_SESSION['Roles'] = $fetch_user_info['roles'];
-	
-					header('Location:../index.php');
-				}
-				else
-				{
+					if ($fetch_user_info['roles'] == 0) {
+						header('Location:../index.php');
+					} else if ($fetch_user_info['roles'] == 1) {
+						header('Location:http://localhost:8080/1640/admin/index.php');
+					} else if ($fetch_user_info['roles'] == 2) {
+						header('Location:http://localhost:8080/1640/qa/index.php');
+					}
+				} else {
 					$error_msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
 				}
-
-
 			} else {
 				$error_msg = "Username and Passwword are Invalid";
 			}
@@ -140,9 +140,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								<input class="btn btn-primary btn-block " name="submit" value="Submit" type="submit">
 							</form>
 							<div class="reminder">
-								<p class="member">Not a member? <a href="signup.php" >Sign up now</a></p>
-								<p class="member">Forgot Your password? <a href="password_reset.php" >Forgot password</a></p>
-								<p class="member">Did not Recived a verify email? <a href="resend_email.php" >Resend verify email</a></p>
+								<p class="member">Not a member? <a href="signup.php">Sign up now</a></p>
+								<p class="member">Forgot Your password? <a href="password_reset.php">Forgot password</a></p>
+								<p class="member">Did not Recived a verify email? <a href="resend_email.php">Resend verify email</a></p>
 							</div>
 						</div>
 					</div>
@@ -150,25 +150,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 
 </html>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script>
-        $(document).ready(function (c) {
-            $('.alert-close').on('click', function (c) {
-                $('.main-mockup').fadeOut('slow', function (c) {
-                    $('.main-mockup').remove();
-                });
-            });
-        });
-    </script>
+<script src="js/jquery.min.js"></script>
+<script>
+	$(document).ready(function(c) {
+		$('.alert-close').on('click', function(c) {
+			$('.main-mockup').fadeOut('slow', function(c) {
+				$('.main-mockup').remove();
+			});
+		});
+	});
+</script>
 
 </body>
 

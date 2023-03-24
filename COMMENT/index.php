@@ -1,14 +1,14 @@
 <?php
-$urladmin = "http://localhost:8080/1640/qa/";
-$urluser = "http://localhost:8080/1640/";
-$home = "home.php";
+$urladmin = "http://localhost/1640/qa/";
+$urluser = "http://localhost/1640/";
+$home = "../index.php";
 
 $user_agreement = "../user_agreement.php";
-$policy = "../privacy_policy.php";
+$policy = "../policy.php";
 $post = "post.php";
 $postView = "post_view.php";
 
-$urllogin = "http://localhost:8080/1640/login";
+$urllogin = "http://localhost/1640/login";
 
 //Connection
 $host = "localhost";

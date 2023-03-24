@@ -27,7 +27,7 @@
             <div class="link-boxes">
                 <ul class="box">
                     <li class="link_name">Company</li>
-                    <li><a href="<?php echo" ?page=".$homepage;?>">Home</a></li>
+                    <li><a href="<?php echo " ?page=" . $homepage; ?>">Home</a></li>
                     <li><a href="#">Contact us</a></li>
                 </ul>
                 <ul class="box">
@@ -55,10 +55,11 @@
         </div>
         <div class="bottom-details font-Ubuntu">
             <div class="bottom_text">
-                <span class="copyright_text"><a href="<?php echo" ?page=".$homepage;?>">University of Greenwich</a>© 2023</span>
+                <span class="copyright_text"><a href="<?php echo " ?page=" . $homepage; ?>">University of Greenwich</a>©
+                    2023</span>
                 <span class="policy_terms">
-                    <a href="<?php echo" ?page=".$policy;?>" target="_blank">Privacy policy</a>
-                    <a href="<?php echo" ?page=".$user_agreement;?>" target="_blank">Terms & agreement</a>
+                    <a href="<?php echo " ?page=" . $policy; ?>" target="_blank">Privacy policy</a>
+                    <a href="<?php echo " ?page=" . $user_agreement; ?>" target="_blank">Terms & agreement</a>
                 </span>
             </div>
         </div>

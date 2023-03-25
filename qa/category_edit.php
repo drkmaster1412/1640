@@ -2,23 +2,24 @@
 require_once ('connection.php');
 
 ?>
+<div id="main-content" class="container p-5">
+    <h2>Edit Category</h4>
+    <hr>
 
-<h4><small>Edit Category</small></h4>
-<hr>
-<form method="post">
-    <div class="form-row">
-        <div class="from-group col-md-7">
+    <form id="update-Items" method="post" enctype='multipart/form-data'>
+        <div class="form-group">
             <label for="InputName">Name</label>
-            <input type= "text" class="form-control" name="inputName" placeholder=" " value="<?php echo "". isset($cat_name)?$cat_name:"";?>"></br>
+            <input type="text" class="form-control" name="inputName" placeholder="" value="<?php echo "". isset($cat_name)?$cat_name:"";?>"></br>
         </div>
-    </div>
-    <div class="form-row col-md-7">
-        <div class="from-group col md-12">
-            <input type ="submit" class= "btn btn-primary" name="btnUpdate" value="Update">
-            <input type ="button" class= "btn btn-primary" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page='.$categories; ?>'"/>
+        <div class="form-group">
+            <div class="from-group col md-12">
+                <input type="submit" class="btn btn-primary" name="btnUpdate" value="Update">
+                <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page='.$categories; ?>'" />
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
+
 
 <?php
 $err="";

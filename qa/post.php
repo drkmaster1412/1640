@@ -1,4 +1,5 @@
-<div id="main-content" class="container allContent-section py-6">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:30%">
     <h2>All Posts</h2>
     <hr>
     <h4><a href="<?php echo "?page=" . $postAdd; ?>">Create new</a></h4>

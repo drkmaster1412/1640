@@ -7,6 +7,10 @@
   font-size: 18px;
 }
 
+.fa {
+  color: #00bcd4
+}
+
 .user-cart span {
   background-color: red;
   padding-right: 3px;
@@ -43,7 +47,7 @@
   /* Black*/
   overflow-x: hidden;
   /* Disable horizontal scroll */
-  padding-top: 60px;
+  padding-top: 10px;
   /* Place content 60px from the top */
   transition: 0.5s;
   /* 0.5 second transition effect to slide in the sidebar */
@@ -294,6 +298,13 @@ tr:nth-child(even) {
   text-align: center;
 }
 
+.center {
+  display: block;
+text-align: center;
+  margin-right: auto;
+  width: 85%;
+}
+
 .box:hover .image {
   opacity: 0.3;
 }
@@ -319,7 +330,7 @@ tr:nth-child(even) {
 .cart-login-btn a i {
   padding: 10px;
   font-size: 30px;
-  color: #584e46;
+  color: #00bcd4;
 }
 
 .cart-login-btn a i:hover {

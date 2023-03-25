@@ -1,15 +1,14 @@
 <?php
-$urladmin = "http://localhost/1640/qa/";
-$urluser = "http://localhost/1640/";
-$home = "../index.php";
+$urladmin = "http://localhost:8080/1640/qa/";
+$urluser = "http://localhost:8080/1640/";
 
-$user_agreement = "../user_agreement.php";
-$policy = "../policy.php";
-$post = "post.php";
+$user_agreement = "user_agreement.php";
+$policy = "policy.php";
+$POST = "http://localhost:8080/1640/COMMENT/post.php";
 $postView = "post_view.php";
-
-$urllogin = "http://localhost/1640/login";
-
+$logout = "http://localhost:8080/1640/login/logout.php";
+$urllogin = "http://localhost:8080/1640/login";
+$post = "post.php";
 //Connection
 $host = "localhost";
 $username = "root";

@@ -54,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="./CSS/Stylesheet.css">
 </head>
 
 <body>
-
-<?php include('./nav.php'); ?>
-
+<?php include "./nav.php"; ?>
+<br>
     <div class="container-fluid">
         <div class="container plr-15">
             <div class="row ml-0 mr-0">
@@ -345,7 +345,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 });
             }
         </script>
-
+<?php include "./footer.php"; ?>
 </body>
-<?php include './footer.php'; ?>
 </html>

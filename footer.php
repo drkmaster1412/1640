@@ -29,17 +29,17 @@
                 <ul class="box">
                     <li class="link_name">Organization</li>
                     <li><a href="<?php echo " ?page=" . $index; ?>">Home</a></li>
-                    <li><a href="http://localhost:8080/1640/?page=policy.php" target="_blank">Policy</a></li>
+                    <li><a href="<?php echo $urluser. " ?page=" . $policy; ?>" target="_blank">Policy</a></li>
                 </ul>
                 <ul class="box">
                     <li class="link_name">Address:</li>
-                    <li><small><i class="fa fa-map-marker"></i> Old Royal Naval College,</small></li>
-                    <li><small>Park Row, London SE10 9LS, United Kingdom</small></li>
+                    <li style="text-align:left"><small><i class="fa fa-map-marker"></i> Old Royal Naval College,</small></li>
+                    <li style="text-align:left"><small>Park Row, London SE10 9LS, United Kingdom</small></li>
                 </ul>
                 <ul class="box">
                     <li class="link_name">Contact Us:</li>
-                    <li><small><i class="fa fa-phone"></i> +44 20 8331 8000</small></li>
-                    <li><small><i class="fa fa-envelope"></i> international@gre.ac.uk</small></li>
+                    <li style="text-align:left"><small><i class="fa fa-phone"></i> +44 20 8331 8000</small></li>
+                    <li style="text-align:left"><small><i class="fa fa-envelope"></i> international@gre.ac.uk</small></li>
                 </ul>
                 <!-- <ul class="box">
                     <li class="link_name">Courses</li>
@@ -47,10 +47,10 @@
                     <li><a href="#">JavaScript</a></li>
                 </ul> -->
                 <ul class="box media-icons">
-                    <li href="#"><i class="fab fa-facebook-f"></i></li>
-                    <li href="#"><i class="fab fa-twitter"></i></li>
-                    <li href="#"><i class="fab fa-instagram"></i></li>
-                    <li href="#"><i class="fab fa-linkedin-in"></i></li>
+                    <li href="https://www.facebook.com/uniofgreenwich" target="_blank"><i class="fab fa-facebook-f"></i></li>
+                    <li href="https://twitter.com/UniofGreenwich" target="_blank"><i class="fab fa-twitter"></i></li>
+                    <li href="https://www.instagram.com/uniofgreenwich/" target="_blank"><i class="fab fa-instagram"></i></li>
+                    <li href="https://uk.linkedin.com/school/university-of-greenwich/" target="_blank"><i class="fab fa-linkedin-in"></i></li>
                 </ul>
             </div>
         </div>
@@ -59,8 +59,8 @@
                 <span class="copyright_text"><a href="<?php echo " ?page=" . $homepage; ?>">University of Greenwich</a>©
                     2023</span>
                 <span class="policy_terms">
-                    <a href="http://localhost:8080/1640/privacy_policy.php" target="_blank">Privacy policy</a>
-                    <a href="http://localhost:8080/1640/user_agreement.php" target="_blank">Terms & agreement</a>
+                    <a href="http://localhost:8080/1640/privacy_policy.php" target="_blank">Policy</a>
+                    <a href="<?php echo $urluser. " ?page=" . $policy; ?>" target="_blank">Terms & agreement</a>
                 </span>
             </div>
         </div>

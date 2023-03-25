@@ -1,9 +1,3 @@
-<html>
-
-</html>
-<h3>Add New post</h3>
-<hr>
-
 <?php
 $err = "";
 $p_name = "";
@@ -41,10 +35,10 @@ if (isset($_POST["btnSubmit"])) {
 <ul style="color:red">
     <?php echo $err;    ?>
 </ul>
-
-<div id="main-content" class="container p-5">
-    <h4>Edit Post Detail</h4>
-
+<br>
+<div id="main-content" class="container p-5" style="margin-left:30%">
+    <h2>Add New post</h2>
+    <hr>
     <form id="update-Post" enctype='multipart/form-data'>
         <div class="form-group">
             <label for="">Name</label>
@@ -59,10 +53,10 @@ if (isset($_POST["btnSubmit"])) {
             <input type="file" class="form-control-file" name="p_image" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
         <div class="form-group">
-        <label for="">File</label>
-        <br>
+            <label for="">File</label>
+            <br>
             <form method="POST" action="upload.php" enctype="multipart/form-data">
-                
+
                 <input type="file" name="file">
                 <!-- <input type="submit" value="Upload"> -->
             </form>
@@ -113,4 +107,3 @@ if (isset($_POST["btnSubmit"])) {
         </div>
     </form>
 </div>
-

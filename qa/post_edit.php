@@ -31,9 +31,10 @@ if (isset($_POST["btnSubmit"])) {
   }
 }
 ?>
-<div id="main-content" class="container p-5">
-  <h4>Edit Post Detail</h4>
-
+<br>
+<div id="main-content" class="container p-5" style="margin-left:30%">
+  <h2>Edit Post Detail</h2>
+  <hr>
   <form id="update-Items" enctype='multipart/form-data'>
     <div class="form-group">
       <label for="">ID</label>

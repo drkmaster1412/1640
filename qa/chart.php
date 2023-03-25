@@ -4,7 +4,9 @@
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.load('current', {
+            'packages': ['bar']
+        });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
@@ -17,9 +19,8 @@
                     $p_name = $data['p_name'];
                     $like_count = $data['like_count'];
                     $dislike_count = $data['dislike_count'];
-                    ?>
-                    ['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
-                    <?php
+                ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
+                <?php
                 }
                 ?>
             ]);
@@ -40,7 +41,9 @@
 </head>
 
 <body>
-    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+    <div id="main-content" class="container p-5" style="margin-left:30%">
+        <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+    </div>
 </body>
 
 </html>

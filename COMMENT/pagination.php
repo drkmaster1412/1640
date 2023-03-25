@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'btwev') or die("Can not connect database" . mysqli_connect_error());
 
 require_once './Config/Functions.php';
@@ -62,7 +61,6 @@ $Next = $page + 1;
 </style>
 
 <body>
-    <?php include('../nav.php');
     ?>
 
     <div class="row">
@@ -157,6 +155,5 @@ $Next = $page + 1;
 
 </body>
 
-<?php include('./footer.php'); ?>
 
 </html>

@@ -1,13 +1,3 @@
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../COMMENT/CSS/Stylesheet.css">
-</head>
 
 <style>
     .nav-list {
@@ -30,7 +20,7 @@
 
 <div class="container mt-2 mb-2 " style="background-color:#e9ecef;">
     <nav class="navbar navbar-expand-lg  ">
-        <a class=" text" href="#"><b><img src="image/Logo.png" align="center" width="20%" height="auto"
+        <a class=" text" href="<?php echo $urluser; ?>"><b><img src="image/Logo.png" align="center" width="25%" height="auto"
                     alt="logo"></b></a>
         <button class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -42,19 +32,16 @@
 
             <ul class="nav-list strong">
                 <li class="nav-item" style="margin-left: -15%;">
-                    <a class="nav-link size" href="../index.php">Home</a>
+                    <a class="nav-link size" href="<?php echo $urluser; ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="./post.php">Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link size" href="../policy.php">Privacy</a>
+                    <a class="nav-link size" href="http://localhost:8080/1640/COMMENT/">Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link size" href="../accountmanage.php">Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="policy.php"><i class="fas fa-power-off fa-2x"></i></a>
+                    <a class="nav-link size" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>
                 </li>
             </ul>
             <!-- <form class=" " style="margin-right: 55px;">
@@ -110,6 +97,3 @@
 </ul>
 </ul> -->
 </nav>
-</body>
-
-</html>

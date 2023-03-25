@@ -44,16 +44,13 @@
                     <a class="nav-link size" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="COMMENT/post.php">Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link size" href="policy.php">Privacy</a>
+                    <a class="nav-link size" href="http://localhost:8080/1640/COMMENT/">Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link size" href="accountmanage.php">Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="policy.php"><i class="fas fa-power-off fa-2x"></i></a>
+                    <a class="nav-link size" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>
                 </li>
             </ul>
             <!-- <form class=" " style="margin-right: 55px;">

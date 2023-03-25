@@ -1,8 +1,6 @@
-<?php
-    session_start();
-    $role = $_SESSION['Roles'];
-    if($role ==1){
-?>
+<!-- <?php
+        session_start();
+        ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,19 +36,11 @@
     <!--Footer-->
 
     <!-- Bootstrap core JS-->
-    <script type="text/javascript" src="assets/js/ajaxWork.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="assets/js/ajaxWork.js"></script>
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </body>
-</html>
 
-<?php 
-    }
-else
-{
-       echo '<script type="text/javascript"> window.onload = function () { alert("You not have authorization to access this page!!"); } </script>';
-       header('location: ../index.php');
-}       
-    ?>
+</html>

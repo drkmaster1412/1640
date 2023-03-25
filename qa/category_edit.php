@@ -2,7 +2,8 @@
 require_once ('connection.php');
 
 ?>
-<div id="main-content" class="container p-5">
+<br>
+<div id="main-content" class="container p-5" style="margin-left:30%">
     <h2>Edit Category</h4>
     <hr>
 

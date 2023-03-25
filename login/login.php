@@ -64,8 +64,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$_SESSION['user_name'] = $fetch_user_info['u_name'];
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
 					$_SESSION['Roles'] = $fetch_user_info['roles'];
+
+					if($fetch_user_info['roles'] ==  0)
+					{
+						header('Location:../index.php');
+					}elseif($fetch_user_info['roles'] ==  1)
+					{
+						header('Location:../index.php');
+					}
+					elseif($fetch_user_info['roles'] ==  2)
+					{
+						header('Location:../index.php');
+					}
 	
-					header('Location:../index.php');
+					
 				}
 				else
 				{

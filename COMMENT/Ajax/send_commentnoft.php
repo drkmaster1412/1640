@@ -1,24 +1,27 @@
 <?php
 session_start();
 
-require_once '../Config/Functions.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
+require_once '../Config/Functions.php';
 $Fun_call = new Functions();
 global $post_no;
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){                                
-    
-    $post_no = $Fun_call->validate($_POST['post_uni']);
-    sendEmail_nofitication($post_no);
 
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
+    header('Location:index.php');
 }
 
-function sendEmail_nofitication($post_no)
-{
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    if(isset($_POST['post_uni_no']) && is_numeric($_POST['post_uni_no'])){
+
+        $post_no = $Fun_call->validate($_POST['post_uni_no']);
+
         $conn = mysqli_connect('localhost', 'root', '', 'btwev');
         $p_user = "SELECT p_user FROM poster WHERE p_uni_no='$post_no'";
         $p_user_query = mysqli_query($conn,$p_user);
@@ -63,9 +66,14 @@ function sendEmail_nofitication($post_no)
             }
             echo "</div>";
             $json_data['msg'] = "We have send a nofitication on your email address.";
-        }
+    }
+    else{
+        echo "Invalid Data";
     }
 }
+}
 
-
-?> 
+}
+else{
+    echo "Invalid Method";
+}

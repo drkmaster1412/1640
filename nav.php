@@ -44,7 +44,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
-                        if (isset($_SESSION['user']) == "") {
+                        if ($_SESSION['Roles']  == "") {
                         ?>
                             <li class="dropdown-item"><a class="nav-link" href="login/login.php">Login</a></li>
                             <hr>
@@ -53,7 +53,7 @@
                         }
                         ?>
                         <?php
-                        if (isset($_SESSION['user']) != "" && isset($_SESSION['type']) != "admin") { ?>
+                        if (isset($_SESSION['Roles'] ) != "" && isset($_SESSION['Roles'] ) == 1) { ?>
                             <li><a class="dropdown-item" href="<?php echo " ?page=" . $amanage; ?>">Account manage </a></li>
                             <li><a class="dropdown-item" href=" <?php echo $urllogin . "/" . $logout; ?>">Logout</a></li>
                         <?php

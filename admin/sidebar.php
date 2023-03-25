@@ -9,7 +9,7 @@
 
     <hr style="border:1px solid; background-color:#8a7b6d; border-color:#3B3131;">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#category"><i class="fa fa-th-large"></i> Acadamic Year</a>
+    <a href="?page=AcademicYear.php"><i class="fa fa-th-large"></i> Acadamic Year</a>
     <a href="<?php echo "?page=role.php"; ?>"><i class="fa fa-users"></i> Role</a>
     <!---->
 </div>

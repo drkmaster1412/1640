@@ -30,7 +30,7 @@
                     <td>
                         <?php echo $row['p_name'] ?>
                     </td>
-                    <td><img src="../image/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
                     <td>
                         <?php echo $row['p_text'] ?>
                     </td>

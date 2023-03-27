@@ -1,3 +1,15 @@
+<?php 
+
+$time = date("Y-m-d");
+$yeat = date("y");
+$closetime = "SELECT * FROM closesuredate WHERE Year = $year" ;
+$closetime_run = $conn ->query($closetime);
+while ($row = mysqli_fetch_array($closetime_run)){
+    if($row['Closesure_date'] > $time){
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +39,7 @@
         $path = "upload/" . $fileName;
         $imgpath = "images/" . $fileName;
 
+
         if ($p_name == "") {
             $err .= "<li> Enter post name";
         }
@@ -54,16 +67,6 @@
         }
 
 
-        // $query = "INSERT INTO filedownload(filename) VALUES ('$fileName')";
-        // $run = mysqli_query($conn,$query);
-
-        // if($run){
-        //     move_uploaded_file($fileTmpName,$path);
-        //     echo "success";
-        // }
-        // else{
-        //     echo "error".mysqli_error($conn);
-        // }
 
     }
 
@@ -129,3 +132,11 @@
 </body>
 
 </html>
+
+<?php 
+}else
+{
+   ?> <h3>The time of add post have ended please wait for the next year</h3> <?php
+}
+}
+?>

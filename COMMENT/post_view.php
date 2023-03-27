@@ -193,20 +193,13 @@ else{
                             'post_user': encodeURIComponent(post_user),
                         },
                         success: function (response) {
-                            var res_status = JSON.parse(response);
-                            if(res_status.status == 101){
                                 $('#comment_post').trigger('reset');
                                 $('#comment_error').text('');
                                 $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no' : post_uni });
-                                $('.sendnofity').load("Ajax/send_commentnoft.php", { 'post_uni_no' : post_uni }); 
                                 $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                                 
 
                                 console.log(res_status.msg);
-                            }
-                            else{
-                                console.log(res_status.msg);
-                            }
                         }
                     });
 

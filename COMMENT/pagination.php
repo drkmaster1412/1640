@@ -50,9 +50,6 @@ $Next = $page + 1;
 </head>
 
 <body>
-    <?php include('../header.php');
-    // include('./post.php');
-    ?>
 
     <div class="row">
         <div class="col-md-10">

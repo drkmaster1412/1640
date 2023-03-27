@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
     header('Location:../login/login.php');
 }
 
-// $select_post = $Fun_call->select_order('poster', 'p_id');
+$select_post = $Fun_call->select_order('poster', 'p_id');
 
 
 $field['verify_token'] = $_SESSION['user_uni_no'];
@@ -49,9 +49,6 @@ $Next = $page + 1;
 </head>
 
 <body>
-    <?php include('../header.php');
-    // include('./post.php');
-    ?>
 
     <div class="row">
         <div class="col-md-10">

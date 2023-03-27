@@ -44,10 +44,10 @@
                     <a class="nav-link size" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="http://localhost:8080/1640/COMMENT/">Post</a>
+                    <a class="nav-link size" href="<?php echo $urluser."COMMENT/post.php?page=1" ?>">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="accountmanage.php">Account</a>
+                    <a class="nav-link size" href="<?php echo $urluser."?page=".$account; ?>">Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link size" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>

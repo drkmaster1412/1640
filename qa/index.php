@@ -4,7 +4,7 @@ $urluser = "http://localhost:8080/1640/";
 $urllogin = "http://localhost:8080/1640/login";
 $categories = "category.php";
 $categoryEdit = "category_edit.php";
-$POST = "http://localhost:8080/1640/COMMENT/";
+$POST = "COMMENT/?page=post.php";
 $categoryAdd = "category_add.php";
 $categoryDelete = "category_delete.php";
 $post = "post.php";

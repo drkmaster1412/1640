@@ -27,7 +27,7 @@
             <div class="link-boxes">
                 <ul class="box">
                     <li class="link_name">Company</li>
-                    <li><a href="<?php echo " ?page=" . $homepage; ?>">Home</a></li>
+                    <li><a href="<?php echo " ?page=" .$homepage;?>">Home</a></li>
                     <li><a href="#">Contact us</a></li>
                 </ul>
                 <ul class="box">

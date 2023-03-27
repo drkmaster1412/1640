@@ -41,7 +41,8 @@
 </head>
 
 <body>
-    <div id="main-content" class="container p-5" style="margin-left:30%">
+    <br>
+    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%">
         <div id="barchart_material" style="width: 900px; height: 500px;"></div>
     </div>
 </body>

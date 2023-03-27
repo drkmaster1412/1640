@@ -17,6 +17,12 @@
 </head>
 
 <body>
+<input type="submit" onClick="myFunction()" value="Add Post"/>
+ <script>
+  function myFunction() {
+    window.location.href="<?php echo $urluser.'?page='.$postAdd; ?>";
+  }
+ </script>
     <section>
         <div class="map font-Ubuntu">
             <iframe height="500px"
@@ -44,8 +50,11 @@
                 <li><a href="#">sign in</a></li>
             </ul>
         </div>
-
+        </div>
+</div>
     </section>
+
+
 </body>
 
 </html>

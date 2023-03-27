@@ -7,7 +7,7 @@
 
 <body>
     <br>
-    <div id="main-content" class="container p-5" style="margin-left:30%">
+    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width: 70%;" >
         <h2>Sort and Download Table Data</h2>
         <hr>
         <form method="post">

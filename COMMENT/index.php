@@ -2,13 +2,15 @@
 $urladmin = "http://localhost:8080/1640/qa/";
 $urluser = "http://localhost:8080/1640/";
 
-$user_agreement = "user_agreement.php";
+$account = "accountmanage.php";
 $policy = "policy.php";
-$POST = "http://localhost:8080/1640/COMMENT/post.php";
 $postView = "post_view.php";
 $logout = "http://localhost:8080/1640/login/logout.php";
 $urllogin = "http://localhost:8080/1640/login";
+$POSTS = "COMMENT/?page=post.php";
 $post = "post.php";
+$postAdd = "post_add.php";
+$homepage = "homepage.php";
 //Connection
 $host = "localhost";
 $username = "root";

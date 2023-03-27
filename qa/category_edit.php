@@ -3,7 +3,7 @@ require_once ('connection.php');
 
 ?>
 <br>
-<div id="main-content" class="container p-5" style="margin-left:30%">
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
     <h2>Edit Category</h4>
     <hr>
 

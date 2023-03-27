@@ -1,9 +1,8 @@
 <?php
 require_once ('connection.php');
 ?>
-
 <br>
-<div id="main-content" class="container p-5" style="margin-left:30%">
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
     <h2>Add New Category</h4>
     <hr>
     <form id="update-Items" method="post" enctype='multipart/form-data'>

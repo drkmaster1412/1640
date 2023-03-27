@@ -25,11 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if (!$fetch_post) {
             header('Location:post.php');
         }
-
     } else {
         header('Location:post.php');
     }
-
 } else {
     header('Location:post.php');
 }
@@ -46,28 +44,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>View Post</title>
+    <title>View Post Detail</title>
+    <link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="./CSS/Stylesheet.css">
 </head>
 
 <body>
-<?php include "./nav.php"; ?>
-<br>
+    <?php include "./nav.php"; ?>
+    </div>
+    <br>
     <div class="container-fluid">
         <div class="container plr-15">
             <div class="row ml-0 mr-0">
                 <div class="card" style="margin-bottom: 25px;">
                     <div class="box-img-100">
-                        <img src="/1640/image/<?php echo $fetch_post['p_image']; ?>"
-                            class="card-img-top justify-content-center" alt="...">
+                        <img src="/1640/image/<?php echo $fetch_post['p_image']; ?>" class="card-img-top justify-content-center" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
@@ -104,22 +102,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                 if (isset($_COOKIE['dislike_' . $row['p_id']])) {
                                     $dislikeClass = "fas";
                                 }
-                                ?>
+                        ?>
 
                                 <span class="pull-right" style="display: flex; color:#638ec7">
-                                    <i class="<?php echo $likeClass ?> fa-thumbs-up" style="padding-right: 8px; "
-                                        onclick="setLikeDislike('like','<?php echo $row['p_id'] ?>')"
-                                        id="like_<?php echo $row['p_id'] ?>"></i>
+                                    <i class="<?php echo $likeClass ?> fa-thumbs-up" style="padding-right: 8px; " onclick="setLikeDislike('like','<?php echo $row['p_id'] ?>')" id="like_<?php echo $row['p_id'] ?>"></i>
                                     <div id="like" style="padding-right: 20px; ">
                                         <?php echo $row['like_count'] ?>
                                     </div>
-                                    <i class="<?php echo $dislikeClass ?> fa-thumbs-down" style="padding-right: 8px; "
-                                        onclick="setLikeDislike('dislike','<?php echo $row['p_id'] ?>')" " id=" dislike_<?php echo $row['p_id'] ?>"></i>
+                                    <i class="<?php echo $dislikeClass ?> fa-thumbs-down" style="padding-right: 8px; " onclick="setLikeDislike('dislike','<?php echo $row['p_id'] ?>')" " id=" dislike_<?php echo $row['p_id'] ?>"></i>
                                     <div id="dislike">
                                         <?php echo $row['dislike_count'] ?>
                                     </div>
                                 </span>
-                            <?php }
+                        <?php }
                         } ?>
                     </div>
                     <hr>
@@ -130,13 +125,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <div class="comment-area">
                                 <div class="comment-area-user">
                                     <div class="comment-img-box">
-                                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>"
-                                            class="img-set-100" alt="">
+                                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>" class="img-set-100" alt="">
                                     </div>
                                 </div>
                                 <div class="comment-area-text">
-                                    <textarea class="form-control" id="usercomment" cols="30" rows="3"
-                                        placeholder="Share Your Story"></textarea>
+                                    <textarea class="form-control" id="usercomment" cols="30" rows="3" placeholder="Share Your Story"></textarea>
                                 </div>
                                 <!-- <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="formSwitchDefault" name="anonymous">
@@ -145,18 +138,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                                 <div>
                                     <div class="anony" style="margin-left:-175%">
-                                <form method="post">
-                                    Anonymous?
-                                    <input type="checkbox" name="formWheelchair" value="Yes" />
-                                    <input type="submit" name="formSubmit" value="submit" />
-                                </form>
-                                </div>
+                                        <form method="post">
+                                            Anonymous?
+                                            <input type="checkbox" name="formWheelchair" value="Yes" />
+                                            <input type="submit" name="formSubmit" value="submit" />
+                                        </form>
+                                    </div>
 
-                                <div class="comment-area-btn" >
-                                    <button type="submit" class="btn btn-sm btn-primary comment-btn" style="margin-right:-380%; margin-top:-30%">Comment</button>
+                                    <div class="comment-area-btn">
+                                        <button type="submit" class="btn btn-sm btn-primary comment-btn" style="margin-right:-380%; margin-top:-30%">Comment</button>
+                                    </div>
+                                    <span id="comment_error" class="error-msg"></span>
                                 </div>
-                                <span id="comment_error" class="error-msg"></span>
-                    </div>
                             </div>
                         </form>
                     </div>
@@ -172,30 +165,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"> </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"> </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"> </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"> </script>
 
         <script type="text/javascript">
-
-            $(document).ready(function () {
+            $(document).ready(function() {
 
                 var post_uni = "<?php echo $post_no; ?>";
 
-                $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no': post_uni });
+                $('.load-comments').load('Ajax/load_comments.php', {
+                    'post_uni_no': post_uni
+                });
 
-                $('#comment_post').on('submit', function (e) {
+                $('#comment_post').on('submit', function(e) {
                     e.preventDefault();
                     var flag = '000';
                     var c_text = $('#usercomment').val().trim();
                     var post_no = "<?php echo $fetch_post['p_uni_no']; ?>";
                     var post_user = "<?php echo $fetch_post['p_user'];
-                    $post_no = $fetch_post['p_user']; ?>";
+                                        $post_no = $fetch_post['p_user']; ?>";
 
                     if (c_text != '' && c_text.length <= 8000) {
 
@@ -208,26 +197,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                 'flag': encodeURIComponent(flag),
                                 'post_user': encodeURIComponent(post_user),
                             },
-                            success: function (response) {
+                            success: function(response) {
                                 var res_status = JSON.parse(response);
                                 if (res_status.status == 101) {
                                     $('#comment_post').trigger('reset');
                                     $('#comment_error').text('');
-                                    $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no': post_uni });
-                                    $('.sendnofity').load("Ajax/send_commentnoft.php", { 'post_uni_no': post_uni });
-                                    $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
+                                    $('.load-comments').load('Ajax/load_comments.php', {
+                                        'post_uni_no': post_uni
+                                    });
+                                    $('.sendnofity').load("Ajax/send_commentnoft.php", {
+                                        'post_uni_no': post_uni
+                                    });
+                                    $('html, body').animate({
+                                        scrollTop: $(document).height()
+                                    }, 'slow');
 
 
                                     console.log(res_status.msg);
-                                }
-                                else {
+                                } else {
                                     console.log(res_status.msg);
                                 }
                             }
                         });
 
-                    }
-                    else {
+                    } else {
 
                         if (c_text == '') {
                             $('#comment_error').text('Please Enter Something');
@@ -240,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                 });
 
-                $(document).on('click', '.replay-btn', function () {
+                $(document).on('click', '.replay-btn', function() {
 
                     $('#comment_post_replay').trigger('reset');
                     $('#comment_rep_error').text('');
@@ -249,11 +242,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                 });
 
-                $(document).on('click', '#close_rep', function () {
+                $(document).on('click', '#close_rep', function() {
                     $('#comment_post_replay').hide();
                 });
 
-                $(document).on('submit', '#comment_post_replay', function (e) {
+                $(document).on('submit', '#comment_post_replay', function(e) {
                     e.preventDefault();
                     var reuni_no = $(this).prev().prev().children().find('.replay-btn').data('dataid');
                     var R_flag = '111';
@@ -271,25 +264,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                                 'replay_no': encodeURIComponent(reuni_no),
                                 'R_flag': encodeURIComponent(R_flag),
                             },
-                            success: function (response) {
+                            success: function(response) {
 
                                 var res_status = JSON.parse(response);
                                 if (res_status.status == 201) {
 
                                     $('#usercommentreplay').hide();
-                                    $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no': post_uni });
+                                    $('.load-comments').load('Ajax/load_comments.php', {
+                                        'post_uni_no': post_uni
+                                    });
                                     console.log(res_status.msg);
 
-                                }
-                                else {
+                                } else {
                                     console.log(res_status.msg);
                                 }
 
                             }
                         });
 
-                    }
-                    else {
+                    } else {
 
                         if (cr_text == '') {
                             $('#comment_rep_error').text('Please Enter Something');
@@ -303,7 +296,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 });
 
             });
-
         </script>
 
         <script>
@@ -312,7 +304,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     url: 'setLikeDislike.php',
                     type: 'post',
                     data: 'type=' + type + '&p_id=' + id,
-                    success: function (result) {
+                    success: function(result) {
                         result = jQuery.parseJSON(result);
                         if (result.opertion == 'like') {
                             jQuery('#like_' + id).removeClass('far');
@@ -345,6 +337,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 });
             }
         </script>
-<?php include "./footer.php"; ?>
+    </div>
+    </div>
+    </div>
+    <?php include "./footer.php"; ?>
 </body>
+
 </html>

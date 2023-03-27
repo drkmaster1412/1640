@@ -90,7 +90,7 @@ else
     <meta name="keywords"
         content="Login Form" />
     <!-- //Meta tag Keywords -->
-    <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+    <link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">

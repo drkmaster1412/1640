@@ -1,6 +1,5 @@
 <?php
 require_once('connection.php');
-include('home.php');
 ?>
 
 <?php
@@ -36,7 +35,8 @@ if (isset($_GET["u_id"])) {
     }
 }
 ?>
-<div id="main-content" class="container p-5" style="margin-left:30%">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;;">
     <h2>Edit Account Role</h4>
         <hr>
 

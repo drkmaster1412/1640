@@ -143,17 +143,6 @@ else{
                                 <div class="comment-area-text">
                                     <textarea class="form-control" id="usercomment" cols="30" rows="3" placeholder="Share Your Story"></textarea>
                                 </div>
-                                <!-- <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="formSwitchDefault" name="anonymous">
-                                    <label class="form-check-label" for="formSwitchDefault"> Anonymous comments</label>
-                                </div> -->
-
-                                <form  method="post">
-                                An danh?
-                                <input type="checkbox" name="formWheelchair" value="Yes" />
-                                <input type="submit" name="formSubmit" value="submit" />
-                            </form>
-
                                 <div class="comment-area-btn">
                                     <button type="submit" class="btn btn-sm btn-primary comment-btn">Comment</button>
                                 </div>

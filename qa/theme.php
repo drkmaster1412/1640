@@ -1,7 +1,8 @@
 <?php
     session_start();
-    $role = $_SESSION['Roles'];
-    if($role ==1){
+    // $role = $_SESSION['Roles'];
+    $role = 1;
+    if($role == 1){
 ?>
 
 <!DOCTYPE html>

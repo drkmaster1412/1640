@@ -30,7 +30,7 @@
 
 <div class="container mt-2 mb-2 " style="background-color:#e9ecef">
     <nav class="navbar navbar-expand-lg  ">
-        <a class=" text" href="#" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%"
+        <a class=" text" href="http://localhost:8080/1640/homepage.php" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%"
                     height="auto" alt="logo"></b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

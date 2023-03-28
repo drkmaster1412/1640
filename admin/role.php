@@ -66,10 +66,10 @@ if (isset($_POST['submit'])) {
                             case "0":
                                 echo "staff";
                                 break;
-                            case "1":
+                            case "2":
                                 echo "admin";
                                 break;
-                            case "2":
+                            case "1":
                                 echo "qa";
                                 break;
                         }

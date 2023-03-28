@@ -53,7 +53,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
                 if ($sql_run) {
                     move_uploaded_file($imgTmpName, $imgpath);
                     move_uploaded_file($fileTmpName, $path);
-                    header("Location: $urladmin?page=$post");
+                    header("Location: http://localhost:8080/1640/COMMENT/post.php?page=1");
                 } else {
                     $error = "Error uploading";
                 }
@@ -119,7 +119,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
                         <p>
                             <input id="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" required name="terms">
                             I have read and agree to the
-                            <a href="<?php echo $urluser . "?page=" . $policy; ?>" target="_blank">Policy</a>
+                            <a href="<?php echo "http://localhost:8080/1640/policy.php" ?>" target="_blank">Policy</a>
                         </p>
                     </div>
 

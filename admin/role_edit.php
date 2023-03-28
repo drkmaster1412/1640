@@ -55,8 +55,8 @@ if (isset($_GET["u_id"])) {
                 <label for="InputName">Roles</label>
                 <select id="roles" name="roles">
                     <option value="0">staff</option>
-                    <option value="2">qa</option>
-                    <option value="1">admin</option>
+                    <option value="1">qa</option>
+                    <option value="2">admin</option>
                 </select></br>
             </div>
             <div class="form-group">

@@ -1,7 +1,7 @@
 <?php 
 
 $time = date("Y-m-d");
-$yeat = date("y");
+$year = date("y");
 $closetime = "SELECT * FROM closesuredate WHERE Year = $year" ;
 $closetime_run = $conn ->query($closetime);
 while ($row = mysqli_fetch_array($closetime_run)){
@@ -59,6 +59,7 @@ while ($row = mysqli_fetch_array($closetime_run)){
             if ($sql_run) {
                 move_uploaded_file($imgTmpName, $imgpath);
                 move_uploaded_file($fileTmpName, $path);
+                SendNofitication();
                 header("Location: $urladmin?page=$post");
             } else {
                 $error = "Error uploading";
@@ -138,5 +139,42 @@ while ($row = mysqli_fetch_array($closetime_run)){
 {
    ?> <h3>The time of add post have ended please wait for the next year</h3> <?php
 }
+}
+?>
+
+<?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
+function SendNofitication(){
+    $email = "huyhoanglm1412@gmail.com";
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'hoangpnhtesting@gmail.com';                     //SMTP username
+        $mail->Password   = 'gvhhrdgktqqzewti';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+        //Recipients
+        $mail->setFrom('hoangpnhtesting@gmail.com');
+        $mail->addAddress($email);
+
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = 'no reply';
+        $mail->Body    = '<p>Someone have posted the new idea</p>';
+
+        $mail->send();
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }   
 }
 ?>

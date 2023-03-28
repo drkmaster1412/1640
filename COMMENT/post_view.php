@@ -100,7 +100,16 @@ else{
                                 echo $row['cat_name'] ;
                             }
                         ?></h5>
-                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>   
+                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>
+                        
+                        <a href="download.php?file=<?php 
+                        if($fetch_post['p_file'] > 0){
+                            echo $fetch_post['p_file'];
+                        }else
+                        {
+                            echo "";
+                        }
+                         ?>"><?php if($fetch_post['p_file'] > 0){ echo $fetch_post['p_file'];}else{echo "";} ?></a><br>  
                         <?php 
                         $conn=mysqli_connect('localhost','root','','btwev');
 
@@ -130,6 +139,15 @@ else{
                     </div>
                     <hr>
 
+                    <?php
+                    $time = date("Y-m-d");
+                    $year = date("y");
+                    $closetime = "SELECT * FROM closesuredate WHERE Year = $year" ;
+                    $closetime_run = $conn ->query($closetime);
+                    while ($row = mysqli_fetch_array($closetime_run)){
+                        if($row['Final_Date'] > $time){
+                    ?>
+
                     <div class="title-comment">Write Comment</div>
                     <div class="card-body">
                         <form id="comment_post" method="post">
@@ -153,11 +171,14 @@ else{
                     <hr>
 
                     <div class="load-comments">
-
-
-
                     </div>
-
+                    <?php 
+                    }else
+                    {
+                       ?> <h5>Time to collect suggestion of this post is over!!</h5> <?php
+                    }
+                    }
+                    ?>
                 </div>
             </div>
         </div>

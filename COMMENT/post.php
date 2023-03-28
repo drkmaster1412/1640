@@ -70,7 +70,8 @@ $Next = $page + 1;
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li class="pagi">
-                        <a href="pagination.php?page=<?= $Previous; ?>" aria-label="Previous">
+                        <a href="post.php?page=<?= $Previous;
+                        ?>" aria-label="Previous">
                             <span aria-hidden="true">&laquo; Previous</span>
                         </a>
                     </li>
@@ -150,12 +151,14 @@ $Next = $page + 1;
     <script type="text/javascript">
         $(document).ready(function () {
             $("#limit-records").change(function () {
-                $('form').submit();
+                $(' form').submit();
             })
-        })
-    </script>
+        }) </script>
 
 </body>
-<?php include('./footer.php'); ?>
+<?php include('./footer.php');
+
+
+?>
 
 </html>

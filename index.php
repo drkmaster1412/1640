@@ -12,6 +12,8 @@ $logout = "logout.php";
 $amanage = "accountmanage.php";
 $search = "search.php";
 $post = "COMMENT/post.php";
+$post_view = "COMMENT/post_view.php";
+
 
 session_start();
 include('./theme.php');

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('login/dbcon.php');
 if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
     header('Location:login/login.php');
@@ -12,13 +13,15 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" type="text/css" href="asset/css/styles.css">
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg"/>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-</div>
-    <div style="margin: -4% 24% 5% 26%; width: 50%; font-family: 'Ubuntu'">
+    <?php include './nav.php'; ?>
+    </div>
+    <div style="margin: 3% 24% 5% 26%; width: 50%; font-family: 'Ubuntu'">
         <h2 align="center">Update Your Information</h2>
         <hr>
         <form action="accountmanage.php" method="POST" enctype="multipart/form-data">
@@ -111,10 +114,12 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
         </form>
     </div>
     </div>
+    <script type="text/javascript" src="assets/js/ajaxWork.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
 </body>
+<?php include './footer.php'; ?>
 </html>
-<script type="text/javascript" src="assets/js/ajaxWork.js"></script>
-        <script type="text/javascript" src="assets/js/script.js"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>

@@ -30,15 +30,12 @@
         <div class="row content">
 
             <!--Navigation-->
-            <?php include("./nav.php"); ?>
             <!--Section-->
             <?php include("./section.php"); ?>
 
         </div>
     </div>
 
-    <!--Footer-->
-    <?php include("./footer.php"); ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

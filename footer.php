@@ -17,8 +17,8 @@
         <div class="content font-Ubuntu">
             <div class="top">
                 <div class="logo-details">
-                    <a class="logo" href="<?php echo"?page=".$homepage; ?>">
-                        <img src="image/Logo.png" href="<?php echo "?page=".$homepage; ?>" width="15%" height="auto"
+                    <a class="logo" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">
+                        <img src="image/Logo.png" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>" width="15%" height="auto"
                             alt="logo">
                         <br>
                     </a>
@@ -28,8 +28,8 @@
             <div class="link-boxes">
                 <ul class="box">
                     <li class="link_name">Organization</li>
-                    <li><a href="<?php echo " ?page=" . $homepage; ?>">Home</a></li>
-                    <li><a href="<?php echo $urluser."?page=".$policy; ?>" target="_blank">Policy</a></li>
+                    <li><a href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">Home</a></li>
+                    <li><a href="<?php echo "http://localhost:8080/1640/policy.php" ?>" target="_blank">Policy</a></li>
                 </ul>
                 <ul class="box">
                     <li class="link_name">Address:</li>
@@ -53,7 +53,7 @@
         </div>
         <div class="bottom-details font-Ubuntu">
             <div class="bottom_text">
-                <span class="copyright_text"><a href="<?php echo "?page=".$homepage; ?>">University of Greenwich</a>©
+                <span class="copyright_text"><a href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">University of Greenwich</a>©
                     2023</span>
             </div>
         </div>

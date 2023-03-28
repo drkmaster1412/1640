@@ -1,15 +1,15 @@
 <?php
 
-
+session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'btwev')
     or die("Can not connect database" . mysqli_connect_error());
 
 require_once './Config/Functions.php';
 $Fun_call = new Functions();
 
-// if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
-//     header('Location:../login/login.php');
-// }
+if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
+    header('Location:../login/login.php');
+}
 
 // $select_post = $Fun_call->select_order('poster', 'p_id');
 
@@ -68,10 +68,10 @@ $Next = $page + 1;
 <input type="submit" class="btn btn-primary" onClick="myFunction()" style="margin-top: 2%; margin-left:82%; width:8%" value="Add Post" />
  <script>
   function myFunction() {
-    window.location.href="<?php echo $urluser.'?page='.$postAdd; ?>";
+    window.location.href="<?php echo "http://localhost:8080/1640/post_add.php" ?>";
   }
  </script>
-    <div class="row" align="center">
+    <div class="row">
         <div class="col-md-10">
             <nav aria-label="Page navigation">
                 <ul class="pagination">

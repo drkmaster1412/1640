@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg"/>
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style3.css">
@@ -17,12 +17,8 @@
 </head>
 
 <body>
-<input type="submit" onClick="myFunction()" value="Add Post"/>
- <script>
-  function myFunction() {
-    window.location.href="<?php echo $urluser.'?page='.$postAdd; ?>";
-  }
- </script>
+<?php include './nav.php'; ?>
+
     <section>
         <div class="map font-Ubuntu">
             <iframe height="500px"
@@ -54,7 +50,8 @@
 </div>
     </section>
 
-
+    <?php include './footer.php'; ?>
 </body>
+
 
 </html>

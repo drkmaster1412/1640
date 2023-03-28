@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg"/>
     <title>Policy</title>
 </head>
 
 <body>
-
+<?php include './nav.php'; ?>
     <p>On our website, we assert that everyone has a right to privacy. We aim to provide our consumers the
         tools they need to take control of their identity. Our website, Inc. ("our website," "we," or "us")
         collects, uses, and shares information about you when you use our websites, mobile apps, widgets,
@@ -26,6 +27,7 @@
         as you choose. You have the option to set up additional accounts, edit information as necessary,
         or request that we erase your information.
     </p>
+    <?php include './footer.php'; ?>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
     .strong {
 
         font-weight: 500;
-        color: #00bcd4;
+        color: #00bcd4 !important;
         margin: 5%;
     }
 
@@ -20,7 +20,7 @@
 
 <div class="container mt-2 mb-2 " style="background-color:#e9ecef;">
     <nav class="navbar navbar-expand-lg  ">
-        <a class=" text" href="<?php echo $urluser; ?>"><b><img src="image/Logo.png" align="center" width="25%" height="auto"
+        <a class=" text" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>"><b><img src="image/Logo.png" align="center" width="24%" height="auto"
                     alt="logo"></b></a>
         <button class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -32,16 +32,16 @@
 
             <ul class="nav-list strong">
                 <li class="nav-item" style="margin-left: -15%;">
-                    <a class="nav-link size" href="<?php echo $urluser."?page=".$homepage; ?>">Home</a>
+                    <a class="nav-link size" style="color: #00bcd4" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="<?php echo $urluser."COMMENT/post.php?page=1" ?>">Post</a>
+                    <a class="nav-link size" style="color: #00bcd4" href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="<?php echo $urluser."?page=".$account; ?>">Account</a>
+                    <a class="nav-link size" style="color: #00bcd4" href="<?php echo "http://localhost:8080/1640/accountmanage.php" ?>">Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>
+                    <a class="nav-link size" style="color: #00bcd4" href="<?php echo "http://localhost:8080/1640/login/logout.php" ?>"><i class="fas fa-power-off fa-2x"></i></a>
                 </li>
             </ul>
             <!-- <form class=" " style="margin-right: 55px;">

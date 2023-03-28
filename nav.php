@@ -30,7 +30,7 @@
 
 <div class="container mt-2 mb-2 " style="background-color:#e9ecef">
     <nav class="navbar navbar-expand-lg  ">
-        <a class=" text" href="#" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="20%"
+        <a class=" text" href="#" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%"
                     height="auto" alt="logo"></b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,13 +41,13 @@
 
             <ul class="nav-list strong">
                 <li class="nav-item" style="margin-left: -15%;">
-                    <a class="nav-link size" href="index.php">Home</a>
+                    <a class="nav-link size" href="http://localhost:8080/1640/homepage.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="<?php echo $urluser."COMMENT/post.php?page=1" ?>">Post</a>
+                    <a class="nav-link size" href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="<?php echo $urluser."?page=".$account; ?>">Account</a>
+                    <a class="nav-link size" href="<?php echo "http://localhost:8080/1640/accountmanage.php" ?>">Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link size" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>

@@ -4,7 +4,7 @@
             <div class="top">
                 <div class="logo-details">
                     <a class="logo" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">
-                        <img src="../image/Logo.png" width="20%" height="auto"
+                        <img src="../image/Logo.png" style="margin-top:-2%" width="16%" height="auto"
                             alt="logo">
                         <br>
                     </a>

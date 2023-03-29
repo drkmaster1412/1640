@@ -8,7 +8,7 @@
     .strong {
 
         font-weight: 500;
-        color: #00bcd4 !important;
+        color: #00bcd4;
         margin: 5%;
     }
 

@@ -51,10 +51,6 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 
                         </div>
                         <!-- <img src="#" alt="Avatar" class="img-thumbnail mb-3"> -->
-                        <div class="form-group">
-                            <label>Avatar</label>
-                            <input type="file" name="img" class="form-control" value="<?php echo $row['u_img']; ?>">
-                        </div>
 
                         <div class="form-group">
                             <input type="submit" name="update" class="btn btn-primary" value="Update">

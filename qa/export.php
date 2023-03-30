@@ -4,7 +4,7 @@
 include_once 'connection.php';
 
 // Fetch records from database 
-$query = $conn->query("SELECT * FROM poster ORDER BY p_id ASC");
+$query = $conn->query("SELECT * FROM poster ORDER BY like_count ASC");
 
 if ($query->num_rows > 0) {
     $delimiter = ",";
@@ -14,12 +14,12 @@ if ($query->num_rows > 0) {
     $f = fopen('php://memory', 'w');
 
     // Set column headers 
-    $fields = array('ID', ' NAME');
+    $fields = array('p name', ' p user', ' like', ' dislike');
     fputcsv($f, $fields, $delimiter);
 
     // Output each row of the data, format line as csv and write to file pointer 
     while ($row = $query->fetch_assoc()) {
-        $lineData = array($row['p_id'], $row['p_name']);
+        $lineData = array($row['p_name'], $row['p_user'], $row['like_count'], $row['dislike_count']);
         fputcsv($f, $lineData, $delimiter);
     }
 

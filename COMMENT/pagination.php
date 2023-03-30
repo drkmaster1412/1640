@@ -48,8 +48,22 @@ $Next = $page + 1;
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style2.css">
 </head>
+<style>
+    .pagination {
+        margin-left: 10%;
+
+    }
+
+    .pagi {
+        text-align: center;
+        padding: 5px;
+        border: solid 0.5px;
+    }
+</style>
 
 <body>
+    <?php include('../nav.php');
+    ?>
 
     <div class="row">
         <div class="col-md-10">
@@ -143,5 +157,6 @@ $Next = $page + 1;
 
 </body>
 
+<?php include('./footer.php'); ?>
 
 </html>

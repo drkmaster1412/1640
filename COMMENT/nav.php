@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="1640/COMMENT/CSS/Stylesheet.css">
+    <link rel="stylesheet" href="../COMMENT/CSS/Stylesheet.css">
 </head>
 
 <style>
@@ -28,29 +28,30 @@
 </style>
 
 
-<div class="container mt-2 mb-2 " style="background-color:#e9ecef">
+<div class="container mt-2 mb-2 " style="background-color:#e9ecef;">
     <nav class="navbar navbar-expand-lg  ">
-        <a class=" text" href="#" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="20%"
-                    height="auto" alt="logo"></b></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class=" text" href="#"><b><img src="image/Logo.png" align="center" width="20%" height="auto"
+                    alt="logo"></b></a>
+        <button class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            style=" display:none;">
+            <span class=""></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="nav-list strong">
                 <li class="nav-item" style="margin-left: -15%;">
-                    <a class="nav-link size" href="index.php">Home</a>
+                    <a class="nav-link size" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="COMMENT/post.php">Post</a>
+                    <a class="nav-link size" href="./post.php">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="policy.php">Privacy</a>
+                    <a class="nav-link size" href="../policy.php">Privacy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link size" href="accountmanage.php">Account</a>
+                    <a class="nav-link size" href="../accountmanage.php">Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link size" href="policy.php"><i class="fas fa-power-off fa-2x"></i></a>
@@ -58,7 +59,7 @@
             </ul>
             <!-- <form class=" " style="margin-right: 55px;">
                 <div class="user-area">
-                    <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
+                    <img src="../image/<?php echo $sel_user_img['u_img']; ?>" alt="User Image">
                 </div>
                 <p href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></p>
             </form> -->
@@ -66,9 +67,7 @@
     </nav>
 </div>
 
-
-
-
+<!-- Welcome non-fix -->
 <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"

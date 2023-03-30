@@ -1,6 +1,7 @@
 <?php
 
 include('connection.php');
+include('home.php');
 
 ?>
 
@@ -33,9 +34,9 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<div id="main-content" class="container allContent-section py-6">
+<div id="main-content" class="container allContent-section py-6" style="margin-left:30%">
     <h2>All Staff</h2>
-    <hr>    
+    <hr>
     <table class="table">
         <thead>
             <tr>
@@ -51,10 +52,14 @@ if (isset($_POST['submit'])) {
             $sql = "SELECT * FROM users";
             $results = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_array($results)) {
-            ?>
+                ?>
                 <tr>
-                    <td scope="row"><?php echo $row['u_name'] ?></td>
-                    <td scope="row"><?php echo $row['email'] ?></td>
+                    <td scope="row">
+                        <?php echo $row['u_name'] ?>
+                    </td>
+                    <td scope="row">
+                        <?php echo $row['email'] ?>
+                    </td>
                     <td scope="row">
                         <?php
                         switch ($row['roles']) {
@@ -78,16 +83,16 @@ if (isset($_POST['submit'])) {
                         </a>
                     </td>
                 </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>
 </div>
 <script src="js/jquery.min.js"></script>
 <script>
-    $(document).ready(function(c) {
-        $('.alert-close').on('click', function(c) {
-            $('.main-mockup').fadeOut('slow', function(c) {
+    $(document).ready(function (c) {
+        $('.alert-close').on('click', function (c) {
+            $('.main-mockup').fadeOut('slow', function (c) {
                 $('.main-mockup').remove();
             });
         });

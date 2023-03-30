@@ -1,6 +1,6 @@
 <?php
 require_once('connection.php');
-
+include('home.php');
 ?>
 
 <?php
@@ -36,32 +36,35 @@ if (isset($_GET["u_id"])) {
     }
 }
 ?>
-<div id="main-content" class="container p-5">
+<div id="main-content" class="container p-5" style="margin-left:30%">
     <h2>Edit Account Role</h4>
-    <hr>
+        <hr>
 
-    <form id="update-Items" method="post" enctype='multipart/form-data'>
-        <div class="form-group">
-            <label for="InputName">Name</label>
-            <input type="text" class="form-control" name="inputName" placeholder=" " disabled="disabled" value="<?php echo $u_name; ?>"></br>
-        </div>
-        <div class="form-group">
-            <label for="InputName">Email</label>
-            <input type="text" class="form-control" name="inputName" placeholder=" " disabled="disabled" value="<?php echo $email; ?>"></br>
-        </div>
-        <div class="form-group">
-            <label for="InputName">Roles</label>
-            <select id="roles" name="roles">
-                <option value="0">staff</option>
-                <option value="2">qa</option>
-                <option value="1">admin</option>
-            </select></br>
-        </div>
-        <div class="form-group">
-            <div class="from-group col md-12">
-                <input type="submit" class="btn btn-primary" name="btnUpdate" value="Update">
-                <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page=' . $roles; ?>'" />
+        <form id="update-Items" method="post" enctype='multipart/form-data'>
+            <div class="form-group">
+                <label for="InputName">Name</label>
+                <input type="text" class="form-control" name="inputName" placeholder=" " disabled="disabled"
+                    value="<?php echo $u_name; ?>"></br>
             </div>
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="InputName">Email</label>
+                <input type="text" class="form-control" name="inputName" placeholder=" " disabled="disabled"
+                    value="<?php echo $email; ?>"></br>
+            </div>
+            <div class="form-group">
+                <label for="InputName">Roles</label>
+                <select id="roles" name="roles">
+                    <option value="0">staff</option>
+                    <option value="2">qa</option>
+                    <option value="1">admin</option>
+                </select></br>
+            </div>
+            <div class="form-group">
+                <div class="from-group col md-12">
+                    <input type="submit" class="btn btn-primary" name="btnUpdate" value="Update">
+                    <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore"
+                        onclick="window.location='<?php echo '?page=' . $roles; ?>'" />
+                </div>
+            </div>
+        </form>
 </div>

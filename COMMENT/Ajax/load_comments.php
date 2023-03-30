@@ -7,7 +7,7 @@ $Fun_call = new Functions();
 global $post_no;
 
 
-if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
+if(!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])){
     header('Location:index.php');
 }
 
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $field['verify_token'] = $_SESSION['user_uni_no'];
         $sel_user_img = $Fun_call->select_assoc('users', $field);
+
+
     } else {
         echo "Invalid Data";
     }
@@ -81,10 +83,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $user_info = $Fun_call->select_assoc('users', $u_field);
                     ?>
 
-                    <div class="comment-img-box-2" data-ppp="123">
-                        <img src="/1640/image/<?php echo $user_info['u_image']; ?>" class="img-set-100" alt="Image Not Found">
-                    </div>
-                    <div class="main-comment-area">
+                                        <h6 class="mb-0"><b><?php 
+                                    echo ($user_info['u_name']);
+                                        ?></b> 
+                                        	 
+                                        <span class="cm-date"><?php echo $fetch_cdata['mc_date']; ?></span></h6>
+                                        <span class="comment-text"><?php echo $fetch_cdata['mc_text']; ?></span>
+                                    </div>
+                                    <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Replay</div>
+                                </div>
+                            </div>
 
 
                         <h6 class="mb-0"><b><?php

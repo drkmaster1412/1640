@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" type="text/css" href="asset/css/styles.css">
-    <link rel="icon" type="image/jpg" href="./image/favicon.jpg"/>
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 
                         <div class="form-group">
                             <label>Wanna Change Password?</label>
-                            <a href="http://localhost:8080/1640/login/manage_password.php" class="signUp">Change Your Password</a>
+                            <a href="http://localhost/1640/login/manage_password.php" class="signUp">Change Your Password</a>
                         </div>
 
             <?php
@@ -76,10 +76,8 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
             <?php
             if (isset($_POST["update"])) {
                 $Name = $_POST["name"];
-                $avatar = $_POST["img"];
-                $sql = "Update users set name='$Name', u_img='$avatar' where verify_token = '$token'";
+                $sql = "Update users set u_name='$Name' where verify_token = '$token'";
                 mysqli_query($conn, $sql);
-                header("Location: hompage.php");
             }
             ?>
             <?php
@@ -118,4 +116,5 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 
 </body>
 <?php include './footer.php'; ?>
+
 </html>

@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
             $fileName = $_FILES['file']['name'];
             $fileTmpName = $_FILES['file']['tmp_name'];
             $path = "upload/" . $fileName;
-            $imgpath = "images/" . $fileName;
+            $imgpath = "image/" . $fileName;
 
 
             if ($p_name == "") {
@@ -53,7 +53,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
                 if ($sql_run) {
                     move_uploaded_file($imgTmpName, $imgpath);
                     move_uploaded_file($fileTmpName, $path);
-                    header("Location: http://localhost:8080/1640/COMMENT/post.php?page=1");
+                    header("Location: http://localhost/1640/COMMENT/post.php?page=1");
                 } else {
                     $error = "Error uploading";
                 }
@@ -119,13 +119,13 @@ while ($row = mysqli_fetch_array($closetime_run)) {
                         <p>
                             <input id="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" required name="terms">
                             I have read and agree to the
-                            <a href="<?php echo "http://localhost:8080/1640/policy.php" ?>" target="_blank">Policy</a>
+                            <a href="<?php echo "http://localhost/1640/policy.php" ?>" target="_blank">Policy</a>
                         </p>
                     </div>
 
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="btnSubmit" value="Submit">
-                        <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>'">
+                        <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo "http://localhost/1640/COMMENT/post.php?page=1" ?>'">
                     </div>
 
                 </form>

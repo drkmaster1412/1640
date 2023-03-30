@@ -61,24 +61,10 @@ else{
 
 <body>
 
-    <div class="container mt-2 mb-2">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><b>COMMENT SYSTEM</b></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline ml-auto">
-                    <div class="user-area">
-                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
-                    </div>
-                    <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
-                </form>
-            </div>
-        </nav>
-    </div>
+<?php 
+include('./nav.php');
+?>
+<br>
 
     <div class="container-fluid">
         <div class="container plr-15">

@@ -7,9 +7,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'btwev')
 require_once './function.php';
 $Fun_call = new Functions();
 
-if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
-    header('Location:../login/login.php');
-}
 
 $field['verify_token'] = $_SESSION['user_uni_no'];
 $sel_user_img = $Fun_call->select_assoc('users', $field);

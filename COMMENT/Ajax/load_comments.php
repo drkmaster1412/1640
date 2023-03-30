@@ -42,6 +42,7 @@ else{
 
 
 ?>
+<link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
 
                     <form id="comment_post_replay" style="display:none;">
                         <div class="comment-area">

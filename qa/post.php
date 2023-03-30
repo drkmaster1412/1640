@@ -45,11 +45,11 @@
                     </td>
 
                     <td>
-                        <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
+                        <!-- <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
                             <span class="material-icons">drive_file_rename_outline</span>
                             <a href="<?php echo $urladmin . '?page=' . $postDelete . '&p_id=' . $row['p_id']; ?>" onclick="return confirm('Are you sure')">
                                 <span class="material-icons">delete_outline</span>
-                            </a>
+                            </a> -->
                     </td>
                 </tr>
             <?php

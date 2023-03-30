@@ -15,8 +15,7 @@
     <a href="<?php echo $urladmin."?page=statistic.php"; ?>"><i class="fa fa-th"></i> Statistic</a>
     <a href="<?php echo $urladmin."?page=category.php"; ?>"><i class="fa fa-th-large"></i> Category</a>
     <a href="<?php echo $urladmin."?page=post.php";?>"><i class="fa fa-th-large"></i> Post</a>
-    <!-- <hr>
+    <hr>
     <a href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>" target="_blank"><i class="fa fa-th-list"></i> View Posts</a>
-    <hr> -->
-    <!---->
+    <hr>
 </div>

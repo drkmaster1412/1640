@@ -1,7 +1,6 @@
 <?php
 
 include('connection.php');
-include('home.php');
 
 ?>
 
@@ -34,7 +33,8 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<div id="main-content" class="container allContent-section py-6" style="margin-left:30%">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
     <h2>All Staff</h2>
     <hr>
     <table class="table">
@@ -66,10 +66,10 @@ if (isset($_POST['submit'])) {
                             case "0":
                                 echo "staff";
                                 break;
-                            case "1":
+                            case "2":
                                 echo "admin";
                                 break;
-                            case "2":
+                            case "1":
                                 echo "qa";
                                 break;
                         }

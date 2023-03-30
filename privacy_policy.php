@@ -10,9 +10,9 @@
     <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
 
 </head>
-<?php include('nav.php') ?>
 
 <body>
+<?php include('nav.php') ?>
 
     <div class="container">
 

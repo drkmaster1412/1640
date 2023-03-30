@@ -1,7 +1,8 @@
-<div id="main-content" class="container allContent-section py-6">
-    <h2>Academic</h2>
-    <hr>    
-    <a href="<?php echo $urladmin . '?page=closesure_date.php'?>">Add New Academic Year</a>
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
+    <h2>Academic Year</h2>
+    <hr>
+    <h4><a href="<?php echo $urladmin.'?page=closesure_date.php' ?>">Add New Academic Year</a></h4>
     <table class="table">
         <thead>
             <tr>

@@ -11,17 +11,18 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login System</title>
+    <title>Account</title>
     <link rel="stylesheet" type="text/css" href="asset/css/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<?php include('./nav.php'); ?>
 
 <body>
-    <div align="center">
-        <hr>
-        <h3>Update User Information</h3>
+    <?php include './nav.php'; ?>
+    </div>
+    <div style="margin: 3% 24% 5% 26%; width: 50%; font-family: 'Ubuntu'">
+        <h2 align="center">Update Your Information</h2>
         <hr>
         <form action="accountmanage.php" method="POST" enctype="multipart/form-data">
             <?php
@@ -35,12 +36,11 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_array($result)) {
                         //print_r($row['user_name']);
-                        ?>
-                        <div class="form-group col-sm-7">
-                            <input type="email" name="mail" class="form-control" readonly="readonly"
-                                value="<?php echo $row['email']; ?>">
+            ?>
+                        <div class="form-group">
+                            <input type="email" name="mail" class="form-control" readonly="readonly" value="<?php echo $row['email']; ?>">
                         </div>
-                        <div class="form-group col-sm-7">
+                        <div class="form-group">
                             <?php
                             if ($row['anonymous_status'] == 1) {
                                 echo '<input type="text" name="name" class="form-control" readonly="readonly" value=' . $row['u_name'] . ' required>';
@@ -50,33 +50,30 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
                             ?>
 
                         </div>
-                        <div class="form-group col-sm-7">
-                            <input type="file" name="img" class="form-control" value="<?php echo $row['u_img']; ?>">
-                        </div>
+                        <!-- <img src="#" alt="Avatar" class="img-thumbnail mb-3"> -->
 
-                        <div class="form-group col-sm-7">
+                        <div class="form-group">
                             <input type="submit" name="update" class="btn btn-primary" value="Update">
-                            <input type="submit" name="anonymous_button" class="btn btn-primary" value="<?php
-                            if ($row['anonymous_status'] == 0) {
-                                echo "Turn On Anonymous";
-                            } else {
-                                echo "Turn Off Anonymous";
-                            }
-                            ?>">
+                            <input type="submit" name="anonymous_button" class="btn btn-success" value="<?php
+                                                                                                        if ($row['anonymous_status'] == 0) {
+                                                                                                            echo "Turn On Anonymous";
+                                                                                                        } else {
+                                                                                                            echo "Turn Off Anonymous";
+                                                                                                        }
+                                                                                                        ?>">
                         </div>
 
-                        <div class="form-group col-sm-7">
+                        <div class="form-group">
                             <label>Wanna Change Password?</label>
-                            <a href="http://localhost/1640/login/manage_password.php" class="signUp">Change Your Password</a>
+                            <a href="http://localhost:8080/1640/login/manage_password.php" class="signUp">Change Your Password</a>
                         </div>
 
-                        <?php
+            <?php
                     }
                 }
             }
             ?>
             <?php
-            $err = "";
             if (isset($_POST["update"])) {
                 $Name = $_POST["name"];
                 $avatar = $_POST["img"];
@@ -85,7 +82,6 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
                 header("Location: hompage.php");
             }
             ?>
-
             <?php
             if (isset($_POST["anonymous_button"])) {
                 $Name = $_POST["name"];
@@ -111,16 +107,15 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
                 }
             }
             ?>
-
         </form>
     </div>
-
     </div>
-
-
-    </div>
+    <script type="text/javascript" src="assets/js/ajaxWork.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
 </body>
-<?php include('./footer.php'); ?>
-
+<?php include './footer.php'; ?>
 </html>

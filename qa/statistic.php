@@ -6,9 +6,10 @@
 </head>
 
 <body>
-    <div style="margin-left: 30%;width:80%;">
+    <br>
+    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width: 70%;" >
         <h2>Sort and Download Table Data</h2>
-
+        <hr>
         <form method="post">
             <label for="sort">Sort By:</label>
             <select id="sort" name="sort">

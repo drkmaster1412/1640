@@ -1,6 +1,5 @@
 <?php
 require_once('connection.php');
-include('home.php');
 ?>
 
 <?php
@@ -36,7 +35,8 @@ if (isset($_GET["u_id"])) {
     }
 }
 ?>
-<div id="main-content" class="container p-5" style="margin-left:30%">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;;">
     <h2>Edit Account Role</h4>
         <hr>
 
@@ -55,8 +55,8 @@ if (isset($_GET["u_id"])) {
                 <label for="InputName">Roles</label>
                 <select id="roles" name="roles">
                     <option value="0">staff</option>
-                    <option value="2">qa</option>
-                    <option value="1">admin</option>
+                    <option value="1">qa</option>
+                    <option value="2">admin</option>
                 </select></br>
             </div>
             <div class="form-group">

@@ -1,4 +1,5 @@
-<div id="main-content" class="container p-5">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
     <h2>Setting up for Academic Year</h4>
     <hr>
 

@@ -27,7 +27,7 @@ include('connection.php');
       </a>
 <?php
 include('connection.php');
-
+    }
 ?>
 
 <!-- nav -->

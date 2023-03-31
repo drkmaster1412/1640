@@ -12,7 +12,7 @@ include('connection.php');
     <?php
     if (isset($_SESSION['Roles'])) {
       ?>
-      <a href="http://localhost:8080/1640/login/logout.php" style="text-decoration:none;">
+      <a href="http://localhost/1640/login/logout.php" style="text-decoration:none;">
         <i class="fa fa-sign-in mr-5" style="font-size:30px; color:#00bcd4;" aria-hidden="true"></i>
       </a>
       <?php

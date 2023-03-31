@@ -1,7 +1,7 @@
 <?php
-$urladmin = "http://localhost:8080/1640/qa/";
-$urluser = "http://localhost:8080/1640/";
-$urllogin = "http://localhost:8080/1640/login";
+$urladmin = "http://localhost/1640/qa/";
+$urluser = "http://localhost/1640/";
+$urllogin = "http://localhost/1640/login";
 $categories = "category.php";
 $categoryEdit = "category_edit.php";
 $POST = "COMMENT/?page=post.php";
@@ -14,10 +14,11 @@ $postEdit = "post_edit.php";
 $postDelete = "post_delete.php";
 $statistic = "statistic.php";
 $download = "download.php";
-$logout = "http://localhost:8080/1640/login/logout.php";
+$logout = "http://localhost/1640/login/logout.php";
 
 
 //Connection
+$host = "localhost";
 $host = "localhost";
 $username = "root";
 $password = "";

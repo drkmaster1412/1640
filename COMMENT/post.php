@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'btwev')
     or die("Can not connect database" . mysqli_connect_error());
@@ -11,7 +10,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
     header('Location:../login/login.php');
 }
 
-// $select_post = $Fun_call->select_order('poster', 'p_id');
+$select_post = $Fun_call->select_order('poster', 'p_id');
 
 
 $field['verify_token'] = $_SESSION['user_uni_no'];

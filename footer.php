@@ -17,7 +17,7 @@
         <div class="content font-Ubuntu">
             <div class="top">
                 <div class="logo-details">
-                    <a class="logo" href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">
+                    <a class="logo" href="<?php echo "http://localhost/1640/homepage.php" ?>">
                         <img src="image/Logo.png" style="margin-top:-2%" width="16%" height="auto"
                             alt="logo">
                         <br>
@@ -28,8 +28,8 @@
             <div class="link-boxes">
                 <ul class="box">
                     <li class="link_name">Organization</li>
-                    <li><a href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">Home</a></li>
-                    <li><a href="<?php echo "http://localhost:8080/1640/policy.php" ?>" target="_blank">Policy</a></li>
+                    <li><a href="<?php echo "http://localhost/1640/homepage.php" ?>">Home</a></li>
+                    <li><a href="<?php echo "http://localhost/1640/policy.php" ?>" target="_blank">Policy</a></li>
                 </ul>
                 <ul class="box">
                     <li class="link_name">Address:</li>
@@ -53,7 +53,7 @@
         </div>
         <div class="bottom-details font-Ubuntu">
             <div class="bottom_text">
-                <span class="copyright_text"><a href="<?php echo "http://localhost:8080/1640/homepage.php" ?>">University of Greenwich</a>©
+                <span class="copyright_text"><a href="<?php echo "http://localhost/1640/homepage.php" ?>">University of Greenwich</a>©
                     2023</span>
             </div>
         </div>

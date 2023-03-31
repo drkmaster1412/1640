@@ -1,8 +1,8 @@
 <?php
-$urladmin = "http://localhost:8080/1640/qa/";
-$urluser = "http://localhost:8080/1640/";
-$logout = "http://localhost:8080/1640/login/logout.php";
-$urllogin = "http://localhost:8080/1640/login";
+$urladmin = "http://localhost/1640/qa/";
+$urluser = "http://localhost/1640/";
+$logout = "http://localhost/1640/login/logout.php";
+$urllogin = "http://localhost/1640/login";
 //Connection
 $host = "localhost";
 $username = "root";

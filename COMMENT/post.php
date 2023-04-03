@@ -128,13 +128,7 @@ $Next = $page + 1;
                                     <p class="card-text">
                                         <?php echo substr($select_post_data['p_text'], 0, 200) . '&nbsp;.......'; ?>
                                     </p>
-                                    <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>" class="btn btn-sm btn-primary" 
-                                    onclick = "<?php $view = $select_post_data['view'];
-                                    $view_update = $view + 1;
-                                    $p_no = $select_post_data['p_uni_no'];
-                                    $viewupdate = "UPDATE poster SET view = $view_update WHERE p_uni_no = '$p_no'";
-                                    mysqli_query($conn,$viewupdate);
-                                    ?>">Read More</a>
+                                    <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>" class="btn btn-sm btn-primary" >Read More</a>
                                 </div>
                             </div>
                         </div>

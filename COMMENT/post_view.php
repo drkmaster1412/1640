@@ -19,8 +19,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         $post_no = $Fun_call->validate($_GET['post_uni_no']);
 
+
+
         $condition['p_uni_no'] = $post_no;
         $fetch_post = $Fun_call->select_assoc('poster', $condition);
+
+        $view =  $fetch_post['view'];
+        $view_update = $view + 1;
+        $viewupdate = "UPDATE poster SET view = $view_update WHERE p_uni_no = '$post_no'";
+        $conn = mysqli_connect('localhost', 'root', '', 'btwev');
+        mysqli_query($conn,$viewupdate);
 
         if(!$fetch_post){
             header('Location:post.php');

@@ -224,7 +224,7 @@ $Next = $page + 1;
                                         </h5>
                                         <p class="card-text">
                                         </p>
-                                        <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
+                                        <a href="./COMMENT/post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
                                             class="btn btn-sm btn-primary">Read More</a>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ $Next = $page + 1;
                                         </h5>
                                         <p class="card-text">
                                         </p>
-                                        <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
+                                        <a href="./COMMENT/post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
                                             class="btn btn-sm btn-primary">Read More</a>
                                     </div>
                                 </div>

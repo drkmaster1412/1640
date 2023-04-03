@@ -1,7 +1,6 @@
 <?php
     session_start();
     $role = $_SESSION['Roles'];
-    $role = 1;
     if($role == 1){
 ?>
 

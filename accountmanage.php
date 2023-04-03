@@ -108,6 +108,68 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
         </form>
     </div>
     </div>
+
+    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
+    <h2>Your Ideas History</h2>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Image</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">No</th>
+                <th class="text-center">File</th>
+                <th class="text-center" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+
+            $token = $_SESSION['user_uni_no'];
+            $sql = "SELECT * FROM poster WHERE p_user = '$token'";
+            $results = mysqli_query($conn, $sql);
+
+            if(mysqli_fetch_array($results)!=0){
+            while ($row = mysqli_fetch_array($results)) {
+            ?>
+                <tr>
+                    <td scope="row">
+                        <?php echo $row['p_id'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['p_name'] ?>
+                    </td>
+                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td>
+                        <?php echo $row['p_text'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['p_uni_no'] ?>
+                    </td>
+                    <td>
+                        <?php echo $row['p_file'] ?>
+                    </td>
+
+                    <td>
+                        <a href="<?php echo './?page=post_edit.php&p_id=' . $row['p_id']; ?>">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <a href="<?php echo $urladmin . '?page=' . $postDelete . '&p_id=' . $row['p_id']; ?>" onclick="return confirm('Are you sure')">
+                                <span class="material-icons">delete_outline</span>
+                            </a>
+                    </td>
+                </tr>
+            <?php
+            }
+        }else{
+            echo "<p> You haven't give any ideas yet!! </p>";
+        }
+            ?>
+        </tbody>
+    </table>
+</div>
+
     <script type="text/javascript" src="assets/js/ajaxWork.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

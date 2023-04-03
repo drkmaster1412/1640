@@ -1,4 +1,5 @@
 <?php
+session_start();
 $err = "";
 
 $conn = mysqli_connect('localhost', 'root', '', 'btwev')
@@ -45,7 +46,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
             }
 
             if (empty($err)) {
-                $p_unino = md5(rand());
+                $p_unino = rand();
 
                 $sql = "INSERT INTO poster( p_name,p_user, p_image, p_text, p_uni_no, p_file, p_cat) VALUES ('$p_name','$p_user', '$imgName', '$p_text','$p_unino', '$fileName' , '$p_cat')";
                 $sql_run = mysqli_query($conn, $sql);
@@ -78,7 +79,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
             </div>
             <div style="margin: 3% 24% 5% 26%; width: 50%; font-family: 'Ubuntu';">
                 <form action="post_add.php" method="post" enctype="multipart/form-data">
-                    <h2 align="center">Add New post</h2>
+                    <h2 style = "text-align:center">Add New post</h2>
                     <hr>
                     <div class="form-group">
                         <label for="">Name</label>

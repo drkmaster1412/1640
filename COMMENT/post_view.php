@@ -139,10 +139,6 @@ include('./nav.php');
                         <form id="comment_post" method="post">
                             <div class="comment-area">
                                 <div class="comment-area-user">
-                                    <div class="comment-img-box">
-                                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>"
-                                            class="img-set-100" alt="">
-                                    </div>
                                 </div>
                                 <div class="comment-area-text">
                                     <textarea class="form-control" id="usercomment" cols="30" rows="3" placeholder="Share Your Story"></textarea>

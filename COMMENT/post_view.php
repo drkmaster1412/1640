@@ -19,8 +19,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         $post_no = $Fun_call->validate($_GET['post_uni_no']);
 
+
+
         $condition['p_uni_no'] = $post_no;
         $fetch_post = $Fun_call->select_assoc('poster', $condition);
+
+        $view =  $fetch_post['view'];
+        $view_update = $view + 1;
+        $viewupdate = "UPDATE poster SET view = $view_update WHERE p_uni_no = '$post_no'";
+        $conn = mysqli_connect('localhost', 'root', '', 'btwev');
+        mysqli_query($conn,$viewupdate);
 
         if(!$fetch_post){
             header('Location:post.php');
@@ -139,10 +147,6 @@ include('./nav.php');
                         <form id="comment_post" method="post">
                             <div class="comment-area">
                                 <div class="comment-area-user">
-                                    <div class="comment-img-box">
-                                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>"
-                                            class="img-set-100" alt="">
-                                    </div>
                                 </div>
                                 <div class="comment-area-text">
                                     <textarea class="form-control" id="usercomment" cols="30" rows="3" placeholder="Share Your Story"></textarea>

@@ -71,11 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					}
 					elseif($fetch_user_info['roles'] ==  1)
 					{
-						header('Location:http://localhost:8080/1640/qa/');
+						header('Location:http://localhost/1640/qa/');
 					}
 					elseif($fetch_user_info['roles'] ==  2)
 					{
-						header('Location:http://localhost:8080/1640/admin/');
+						header('Location:http://localhost/1640/admin/');
 					}
 	
 					

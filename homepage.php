@@ -35,10 +35,12 @@ $Next = $page + 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Post</title>
+    
+    <link rel="icon" type="image/jpg" href="./image/favicon.jpg" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
+    <title>Post</title>
 </head>
 
 <style>
@@ -197,6 +199,8 @@ $Next = $page + 1;
         <?php
         $select_post = $conn->query("SELECT * FROM poster ORDER BY like_count DESC LIMIT 4;");
         ?>
+        <br>
+        <br>
         <h3 class=""
             style="    position: relative; margin-top: 250px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
             Top likest</h3></br>
@@ -224,7 +228,7 @@ $Next = $page + 1;
                                         </h5>
                                         <p class="card-text">
                                         </p>
-                                        <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
+                                        <a href="./COMMENT/post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
                                             class="btn btn-sm btn-primary">Read More</a>
                                     </div>
                                 </div>
@@ -266,7 +270,7 @@ $Next = $page + 1;
                                         </h5>
                                         <p class="card-text">
                                         </p>
-                                        <a href="post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
+                                        <a href="./COMMENT/post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
                                             class="btn btn-sm btn-primary">Read More</a>
                                     </div>
                                 </div>

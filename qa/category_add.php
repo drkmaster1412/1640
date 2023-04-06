@@ -1,22 +1,23 @@
 <?php
 require_once ('connection.php');
 ?>
-
-
-
-<h3 class="col-md-7">Add New Category</h3>
-<hr>
-
-<form method="post">
-    <div class="from-group col-md-7">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
+    <h2>Add New Category</h4>
+    <hr>
+    <form id="update-Items" method="post" enctype='multipart/form-data'>
+        <div class="form-group">
         <label for="InputName">Name</label>
         <input required type="text" class="form-control" name="inputName" placeholder="Name" value="<?php echo "" . isset($cat_name) ? $cat_name : ""; ?>"></br>
-    </div>
-    <div class="form-group col-md-7">
-        <input type="submit" class="btn btn-success" name="btn_Submit" value="Submit"/>
+        </div>
+        <div class="form-group">
+            <div class="from-group col md-12">
+            <input type="submit" class="btn btn-success" name="btn_Submit" value="Submit"/>
         <input type="button" class="btn btn-danger" name="btnIgnore" value="Ignore" onclick="window.location='<?php echo '?page=' . $categories; ?>'"/>
-    </div>
-</form>
+            </div>
+        </div>
+    </form>
+</div>
 <?php
 $err="";
 $name="";

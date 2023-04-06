@@ -46,7 +46,7 @@ if (isset($_GET['reset'])) {
     <!--/Style-CSS -->
     <link rel="stylesheet" href="Stylesheet.css" type="text/css" media="all" />
     <!--//Style-CSS -->
-    <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+    <link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
 </head>

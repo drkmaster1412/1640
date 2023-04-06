@@ -19,8 +19,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         $post_no = $Fun_call->validate($_GET['post_uni_no']);
 
+
+
         $condition['p_uni_no'] = $post_no;
         $fetch_post = $Fun_call->select_assoc('poster', $condition);
+
+        $view =  $fetch_post['view'];
+        $view_update = $view + 1;
+        $viewupdate = "UPDATE poster SET view = $view_update WHERE p_uni_no = '$post_no'";
+        $conn = mysqli_connect('localhost', 'root', '', 'btwev');
+        mysqli_query($conn,$viewupdate);
 
         if(!$fetch_post){
             header('Location:post.php');
@@ -61,24 +69,10 @@ else{
 
 <body>
 
-    <div class="container mt-2 mb-2">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><b>COMMENT SYSTEM</b></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline ml-auto">
-                    <div class="user-area">
-                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>" alt="User Image">
-                    </div>
-                    <a href="logout.php" class="logout my-2 my-sm-0"><i class="fas fa-power-off fa-2x"></i></a>
-                </form>
-            </div>
-        </nav>
-    </div>
+<?php 
+include('./nav.php');
+?>
+<br>
 
     <div class="container-fluid">
         <div class="container plr-15">
@@ -100,7 +94,16 @@ else{
                                 echo $row['cat_name'] ;
                             }
                         ?></h5>
-                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>   
+                        <p class="card-text"><?php echo $fetch_post['p_text']; ?></p>
+                        
+                        <a href="download.php?file=<?php 
+                        if($fetch_post['p_file'] > 0){
+                            echo $fetch_post['p_file'];
+                        }else
+                        {
+                            echo "";
+                        }
+                         ?>"><?php if($fetch_post['p_file'] > 0){ echo $fetch_post['p_file'];}else{echo "";} ?></a><br>  
                         <?php 
                         $conn=mysqli_connect('localhost','root','','btwev');
 
@@ -130,30 +133,24 @@ else{
                     </div>
                     <hr>
 
+                    <?php
+                    $time = date("Y-m-d");
+                    $year = date("y");
+                    $closetime = "SELECT * FROM closesuredate WHERE Year = $year" ;
+                    $closetime_run = $conn ->query($closetime);
+                    while ($row = mysqli_fetch_array($closetime_run)){
+                        if($row['Final_Date'] > $time){
+                    ?>
+
                     <div class="title-comment">Write Comment</div>
                     <div class="card-body">
                         <form id="comment_post" method="post">
                             <div class="comment-area">
                                 <div class="comment-area-user">
-                                    <div class="comment-img-box">
-                                        <img src="/1640/image/<?php echo $sel_user_img['u_image']; ?>"
-                                            class="img-set-100" alt="">
-                                    </div>
                                 </div>
                                 <div class="comment-area-text">
                                     <textarea class="form-control" id="usercomment" cols="30" rows="3" placeholder="Share Your Story"></textarea>
                                 </div>
-                                <!-- <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="formSwitchDefault" name="anonymous">
-                                    <label class="form-check-label" for="formSwitchDefault"> Anonymous comments</label>
-                                </div> -->
-
-                                <form  method="post">
-                                An danh?
-                                <input type="checkbox" name="formWheelchair" value="Yes" />
-                                <input type="submit" name="formSubmit" value="submit" />
-                            </form>
-
                                 <div class="comment-area-btn">
                                     <button type="submit" class="btn btn-sm btn-primary comment-btn">Comment</button>
                                 </div>
@@ -164,11 +161,14 @@ else{
                     <hr>
 
                     <div class="load-comments">
-
-
-
                     </div>
-
+                    <?php 
+                    }else
+                    {
+                       ?> <h5>Time to collect suggestion of this post is over!!</h5> <?php
+                    }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -204,20 +204,13 @@ else{
                             'post_user': encodeURIComponent(post_user),
                         },
                         success: function (response) {
-                            var res_status = JSON.parse(response);
-                            if(res_status.status == 101){
                                 $('#comment_post').trigger('reset');
                                 $('#comment_error').text('');
                                 $('.load-comments').load('Ajax/load_comments.php', { 'post_uni_no' : post_uni });
-                                $('.sendnofity').load("Ajax/send_commentnoft.php", { 'post_uni_no' : post_uni }); 
                                 $('html, body').animate({scrollTop:$(document).height()}, 'slow');
                                 
 
                                 console.log(res_status.msg);
-                            }
-                            else{
-                                console.log(res_status.msg);
-                            }
                         }
                     });
 

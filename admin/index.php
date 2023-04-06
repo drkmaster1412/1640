@@ -8,9 +8,10 @@
 
     $urladmin ="http://localhost/1640/admin/";
     $urluser = "http://localhost/1640/";
-    $home = "home.php";
     $roles = "role.php";
+    $acadamicYear="AcademicYear.php";
     $roleEdit = "role_edit.php";
+    
     $urllogin = "http://localhost/1640/login";
     include('./theme.php');
 

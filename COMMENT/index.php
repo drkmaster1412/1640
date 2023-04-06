@@ -1,15 +1,8 @@
 <?php
 $urladmin = "http://localhost/1640/qa/";
 $urluser = "http://localhost/1640/";
-$home = "home.php";
-
-$user_agreement = "../user_agreement.php";
-$policy = "../privacy_policy.php";
-$post = "post.php";
-$postView = "post_view.php";
-
+$logout = "http://localhost/1640/login/logout.php";
 $urllogin = "http://localhost/1640/login";
-
 //Connection
 $host = "localhost";
 $username = "root";

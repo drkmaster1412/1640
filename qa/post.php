@@ -1,7 +1,7 @@
-<div id="main-content" class="container allContent-section py-6">
+<br>
+<div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
     <h2>All Posts</h2>
     <hr>
-    <h4><a href="<?php echo "?page=" . $postAdd; ?>">Create new</a></h4>
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +30,7 @@
                     <td>
                         <?php echo $row['p_name'] ?>
                     </td>
-                    <td><img src="../image/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
                     <td>
                         <?php echo $row['p_text'] ?>
                     </td>

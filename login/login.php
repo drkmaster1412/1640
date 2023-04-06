@@ -64,8 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$_SESSION['user_name'] = $fetch_user_info['u_name'];
 					$_SESSION['user_uni_no'] = $fetch_user_info['verify_token'];
 					$_SESSION['Roles'] = $fetch_user_info['roles'];
+
+					if($fetch_user_info['roles'] ==  0)
+					{
+						header('Location:../index.php');
+					}
+					elseif($fetch_user_info['roles'] ==  1)
+					{
+						header('Location:http://localhost/1640/qa/');
+					}
+					elseif($fetch_user_info['roles'] ==  2)
+					{
+						header('Location:http://localhost/1640/admin/');
+					}
 	
-					header('Location:../index.php');
+					
 				}
 				else
 				{
@@ -100,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Sign In</title>
-	<link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+	<link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>

@@ -28,7 +28,7 @@ $msg = "";
 
         if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}'")) > 0) {
             $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
-        } else {
+        } else {    
             if ($password === $confirm_password) {
                 $sql = "INSERT INTO users (u_id, u_name, email, u_pass, verify_token, u_img) VALUES ('{$id}','{$name}', '{$email}', '{$password}', '{$code}' ,'{$uimg}')";
                 $result = mysqli_query($conn, $sql);
@@ -93,7 +93,7 @@ $msg = "";
     <!--/Style-CSS -->
     <link rel="stylesheet" href="Stylesheet.css" type="text/css" media="all" />
     <!--//Style-CSS -->
-    <link rel="icon" type="image/x-icon" href="asset/images/favicon.ico" />
+    <link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
 </head>
@@ -110,6 +110,9 @@ $msg = "";
                             <h2 class="card-title text-center pt-3 pb-3 ">Register Now</h2>
                             <hr>
                             <form class="login-box" method="post">
+                                <?php
+                                echo $msg;
+                                ?>
 
                                 <div class="form-label-group">
                                     <label for="name"><b>Fullname</b></label>

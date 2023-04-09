@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </h6>
                         <span class="comment-text"><?php echo $fetch_cdata['mc_text']; ?></span>
                     </div>
-                    <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Replay</div>
+                    <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Reply</div>
                 </div>
             </div>
 

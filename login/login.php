@@ -1,3 +1,4 @@
+@ -1,188 +0,0 @@
 <!-- Code by Brave Coder - https://youtube.com/BraveCoder -->
 
 <?php

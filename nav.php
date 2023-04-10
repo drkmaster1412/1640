@@ -34,6 +34,7 @@
         .nav-link {
             color: #00bcd4;
         }
+
         .dropdown {
             list-style: none;
             display: flex;
@@ -64,8 +65,9 @@
             color: #00bcd4;
             display: block;
         }
-        .dropdown-item{
-            color:#00bcd4;
+
+        .dropdown-item {
+            color: #00bcd4;
         }
     </style>
 </head>
@@ -85,7 +87,7 @@
                 </li>
                 <hr>
                 <li class="nav-item" style=" margin-right: 15%;">
-                    <a class="nav-link size" style="margin-right: 15%;" href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>">Post</a>
+                    <a class="nav-link size" style="margin-right: 15%;" href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>">Idea</a>
                 </li>
                 <hr>
                 <li class="nav-item dropdown" style="border :solid 0.5px">
@@ -127,11 +129,13 @@
                         ?>
                             <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/accountmanage.php">Account manage</a></li>
                             <hr>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/qa">QA Application</a></li>
+                            <hr>
                             <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/logout.php">Logout</a></li>
                         <?php
                         } else if ($roles == 2) {
                         ?>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/accountmanage.php">Account manage</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/admin/">Admin Function</a></li>
                             <hr>
                             <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/logout.php">Logout</a></li>
                         <?php

@@ -63,7 +63,7 @@ $Next = $page + 1;
     </style>
     <?php include "./nav.php"; ?>
     </div>
-    <input type="submit" class="btn btn-primary" onClick="myFunction()" style="margin-top: 2%; margin-left:82%; width:8%" value="Add Post" />
+    <input type="submit" class="btn btn-primary" onClick="myFunction()" style="margin-top: 2%; margin-left:82%; width:10%" value="Add Idea" />
     <script>
         function myFunction() {
             window.location.href = "<?php echo "http://localhost/1640/post_add.php" ?>";

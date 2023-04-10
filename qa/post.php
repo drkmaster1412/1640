@@ -1,6 +1,6 @@
 <br>
 <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
-    <h2>All Posts</h2>
+    <h2>All Ideas</h2>
     <hr>
     <table class="table">
         <thead>

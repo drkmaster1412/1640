@@ -281,7 +281,7 @@ $Next = $page + 1;
                         foreach ($select_post as $select_post_data) { ?>
                             <div class="post-content">
                                 <div class="card cardSize">
-                                    <img src="/1640/image/<?php echo $select_post_data['p_image']; ?>" class="card-img-top" alt="...">
+                                    <img src="./image/<?php echo $select_post_data['p_image']; ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <?php echo $select_post_data['p_name']; ?> #

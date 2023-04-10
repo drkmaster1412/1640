@@ -1,6 +1,6 @@
 <br>
 <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
-    <h2>All Posts</h2>
+    <h2>All Ideas</h2>
     <hr>
     <table class="table">
         <thead>
@@ -45,11 +45,11 @@
                     </td>
 
                     <td>
-                        <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
+                        <!-- <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
                             <span class="material-icons">drive_file_rename_outline</span>
                             <a href="<?php echo $urladmin . '?page=' . $postDelete . '&p_id=' . $row['p_id']; ?>" onclick="return confirm('Are you sure')">
                                 <span class="material-icons">delete_outline</span>
-                            </a>
+                            </a> -->
                     </td>
                 </tr>
             <?php

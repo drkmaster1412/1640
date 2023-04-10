@@ -20,8 +20,8 @@
                     while ($data = mysqli_fetch_array($res)) {
                         $p_name = $data['p_name'];
                         $view = $data['view'];
-                        ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
-                        <?php
+                    ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
+                    <?php
                     }
                     ?>
                 ]);

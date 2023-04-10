@@ -29,7 +29,6 @@ if ($role == 2) {
         include "./adminHeader.php";
         include "./sidebar.php";
         include "./section.php";
-
         ?>
 
         <!--Footer-->

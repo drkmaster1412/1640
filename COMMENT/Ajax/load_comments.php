@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 ?>
+<link rel="icon" type="image/jpg" href="../image/favicon.jpg" />
 
 <form id="comment_post_replay" style="display:none;">
     <div class="comment-area">
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <textarea class="form-control" id="usercommentreplay" cols="30" rows="3" placeholder="Share Your Story"></textarea>
         </div>
         <div class="comment-area-btn">
-            <button type="submit" class="btn btn-sm btn-primary comment-btn">Add Replay</button>
+            <button type="submit" class="btn btn-sm btn-primary comment-btn">Reply</button>
             <button type="button" id="close_rep" class="btn btn-sm btn-danger comment-btn mt-1">Close</button>
         </div>
         <span id="comment_rep_error" class="error-msg"></span>
@@ -77,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </h6>
                         <span class="comment-text"><?php echo $fetch_cdata['mc_text']; ?></span>
                     </div>
-                    <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Replay</div>
+                    <div class="replay-btn btn btn-sm btn-primary" data-dataid="<?php echo $fetch_cdata['mc_uni_no']; ?>">Reply</div>
                 </div>
             </div>
 
@@ -103,9 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $user_info_rep = $Fun_call->select_assoc('users', $u_field1);
                             ?>
 
-                            <div class="comment-img-box-2">
+                            <!-- <div class="comment-img-box-2">
                                 <img src="/1640/image/<?php echo $user_info_rep['u_image']; ?>" class="img-set-100" alt="Image Not Found">
-                            </div>
+                            </div> -->
                             <div class="main-comment-area">
                                 <h6 class="mb-0"><b><?php echo $user_info_rep['u_name']; ?></b> <span class="cm-date"><?php echo $replay_data['msc_date']; ?></span></h6>
                                 <span class="comment-text"><?php echo $replay_data['msc_text']; ?></span>

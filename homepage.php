@@ -198,7 +198,7 @@ $Next = $page + 1;
         $select_post = $conn->query("SELECT * FROM poster ORDER BY view DESC LIMIT 4;");
         ?>
         <h3 class=""
-            style="    position: relative; margin-top: 305px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
+            style="    position: relative; margin-top: 325px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
             Top view</h3></br>
         <div class="cintainer-fluid like" style="position: relative;  top: 50px;">
             <div class="container-post">

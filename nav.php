@@ -5,7 +5,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f124118c9b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="1640/COMMENT/CSS/Stylesheet.css">
     <style>
@@ -62,8 +63,10 @@
 
 <div class="container mt-2 mb-2" style="background-color:#e9ecef">
     <nav class="navbar navbar-expand-lg">
-        <a class=" text" href="http://localhost/1640/homepage.php" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%" alt="logo"></b></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class=" text" href="http://localhost/1640/homepage.php" style="color:#00bcd4"><b><img src="image/Logo.png"
+                    align="center" width="25%" alt="logo"></b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -73,7 +76,8 @@
                 </li>
                 <hr>
                 <li class="nav-item">
-                    <a class="nav-link size" style="color: #00bcd4" href="<?php echo "http://localhost/1640/COMMENT/post.php?page=1" ?>">Post</a>
+                    <a class="nav-link size" style="color: #00bcd4"
+                        href="<?php echo "http://localhost/1640/COMMENT/post.php?page=1" ?>">Post</a>
                 </li>
                 <hr>
                 <!-- <li class="nav-item">
@@ -83,8 +87,9 @@
                 <li class="nav-item">
                     <a class="nav-link size" style="color: #00bcd4" href="<?php echo $logout; ?>"><i class="fas fa-power-off fa-2x"></i></a>
                 </li> -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link size dropdown-toggle" style="color: #00bcd4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item dropdown" style="boder: solid 0.5px">
+                    <a class="nav-link size dropdown-toggle" style="color: #00bcd4" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Welcome,
                         <?php
                         // session_start();
@@ -107,32 +112,41 @@
                     <ul class="dropdown-menu">
                         <?php
                         if (!isset($_SESSION['user_uni_no']) || $_SESSION['user_uni_no'] == "") {
-                        ?>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/login/login.php">Login</a></li>
+                            ?>
+                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                    href="http://localhost/1640/login/login.php">Login</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/login/signup.php">Register</a></li>
-                        <?php
+                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                    href="http://localhost/1640/login/signup.php">Register</a></li>
+                            <?php
                         } else if ($roles == 0) {
-                        ?>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/accountmanage.php">Account manage</a></li>
-                            <hr>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/login/logout.php">Logout</a></li>
-                        <?php
+                            ?>
+                                <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                        href="http://localhost/1640/accountmanage.php">Account manage</a></li>
+                                <hr>
+                                <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                        href="http://localhost/1640/login/logout.php">Logout</a></li>
+                            <?php
                         } else if ($roles == 1) {
-                        ?>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/accountmanage.php">Account manage</a></li>
-                            <hr>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/qa">QA Application</a></li>
-                            <hr>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/login/logout.php">Logout</a></li>
-                            
-                        <?php
+                            ?>
+                                    <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                            href="http://localhost/1640/accountmanage.php">Account manage</a></li>
+                                    <hr>
+                                    <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                            href="http://localhost/1640/qa">QA Application</a></li>
+                                    <hr>
+                                    <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                            href="http://localhost/1640/login/logout.php">Logout</a></li>
+
+                            <?php
                         } else if ($roles == 2) {
-                        ?>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/admin/">Admin Function</a></li>
-                            <hr>
-                            <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4" href="http://localhost/1640/login/logout.php">Logout</a></li>
-                        <?php
+                            ?>
+                                        <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                                href="http://localhost/1640/admin/">Admin Function</a></li>
+                                        <hr>
+                                        <li class="dropdown-item"><a class="nav-link" style="color: #00bcd4"
+                                                href="http://localhost/1640/login/logout.php">Logout</a></li>
+                            <?php
                         }
                         ?>
                     </ul>

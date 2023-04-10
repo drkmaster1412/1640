@@ -76,18 +76,18 @@
 
 <div class="container mt-2 mb-2" style="background-color:#e9ecef">
     <nav class="navbar navbar-expand-lg">
-        <a class=" text" href="http://localhost:8080/1640/homepage.php" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%" alt="logo"></b></a>
+        <a class=" text" href="http://localhost/1640/homepage.php" style="color:#00bcd4"><b><img src="image/Logo.png" align="center" width="25%" alt="logo"></b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-list strong" style="margin-left: -30%;">
                 <li class="nav-item" style=" margin-right: 15%;">
-                    <a class="nav-link size" style=" margin-right: 15%;" href="http://localhost:8080/1640/homepage.php">Home</a>
+                    <a class="nav-link size" style=" margin-right: 15%;" href="http://localhost/1640/homepage.php">Home</a>
                 </li>
                 <hr>
                 <li class="nav-item" style=" margin-right: 15%;">
-                    <a class="nav-link size" style="margin-right: 15%;" href="<?php echo "http://localhost:8080/1640/COMMENT/post.php?page=1" ?>">Idea</a>
+                    <a class="nav-link size" style="margin-right: 15%;" href="<?php echo "http://localhost/1640/COMMENT/post.php?page=1" ?>">Idea</a>
                 </li>
                 <hr>
                 <li class="nav-item dropdown" style="border :solid 0.5px">
@@ -115,29 +115,29 @@
                         <?php
                         if (!isset($_SESSION['user_uni_no']) || $_SESSION['user_uni_no'] == "") {
                         ?>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/login.php">Login</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/login/login.php">Login</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/signup.php">Register</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/login/signup.php">Register</a></li>
                         <?php
                         } else if ($roles == 0) {
                         ?>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/accountmanage.php">Account manage</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/accountmanage.php">Account manage</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/logout.php">Logout</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/login/logout.php">Logout</a></li>
                         <?php
                         } else if ($roles == 1) {
                         ?>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/accountmanage.php">Account manage</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/accountmanage.php">Account manage</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/qa">QA Application</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/qa">QA Application</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/logout.php">Logout</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/login/logout.php">Logout</a></li>
                         <?php
                         } else if ($roles == 2) {
                         ?>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/admin/">Admin Function</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/admin/">Admin Function</a></li>
                             <hr>
-                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost:8080/1640/login/logout.php">Logout</a></li>
+                            <li class="dropdown-item"><a class="dropdown-item" href="http://localhost/1640/login/logout.php">Logout</a></li>
                         <?php
                         }
                         ?>

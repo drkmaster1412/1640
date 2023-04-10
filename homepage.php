@@ -195,10 +195,52 @@ $Next = $page + 1;
         </div>
 
         <?php
+        $select_post = $conn->query("SELECT * FROM poster ORDER BY view DESC LIMIT 4;");
+        ?>
+        <h3 class=""
+            style="    position: relative; margin-top: 305px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
+            Top view</h3></br>
+        <div class="cintainer-fluid like" style="position: relative;  top: 50px;">
+            <div class="container-post">
+                <div class="row-post">
+                    <?php if ($select_post) {
+                        foreach ($select_post as $select_post_data) { ?>
+                            <div class="post-content">
+                                <div class="card cardSize">
+                                    <img src="/1640/image/<?php echo $select_post_data['p_image']; ?>" class="card-img-top"
+                                        alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <?php echo $select_post_data['p_name']; ?> #
+                                            <?php
+                                            $cat_id = $select_post_data['p_cat'];
+                                            $catName = "SELECT cat_name FROM categories WHERE cat_id= '$cat_id'";
+                                            $catName_run = $conn->query($catName);
+                                            while ($row = mysqli_fetch_array($catName_run)) {
+                                                echo $row['cat_name'];
+                                            }
+
+                                            ?>
+                                        </h5>
+                                        <p class="card-text">
+                                        </p>
+                                        <a href="./COMMENT/post_view.php?post_uni_no=<?php echo $select_post_data['p_uni_no']; ?>"
+                                            class="btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }
+                    } ?>
+                </div>
+            </div>
+        </div>
+
+
+        <?php
         $select_post = $conn->query("SELECT * FROM poster ORDER BY like_count DESC LIMIT 4;");
         ?>
         <h3 class=""
-            style="    position: relative; margin-top: 250px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
+            style="position: relative; margin-top: 80px; border-bottom: solid 0.5px; margin-left: 12%; width: 80%;">
             Top likest</h3></br>
         <div class="cintainer-fluid like" style="position: relative;  top: 50px;">
             <div class="container-post">
@@ -233,8 +275,6 @@ $Next = $page + 1;
                     } ?>
                 </div>
             </div>
-
-
         </div>
 
         <?php

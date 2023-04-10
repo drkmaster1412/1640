@@ -19,9 +19,8 @@
                     $res = mysqli_query($conn, $query);
                     while ($data = mysqli_fetch_array($res)) {
                         $p_name = $data['p_name'];
-                        $like_count = $data['like_count'];
-                        $dislike_count = $data['dislike_count'];
-                        ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
+                        $view = $data['view'];
+                        ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
                         <?php
                     }
                     ?>
@@ -49,42 +48,3 @@
         </div>
     </body>
 </div>
-
-<div class="line">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['line'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Post', 'View'],
-                <?php
-                $query = "select * from poster";
-                $res = mysqli_query($conn, $query);
-                while ($data = mysqli_fetch_array($res)) {
-                    $p_name = $data['p_name'];
-                    $view = $data['view'];
-                    ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
-                    <?php
-                }
-                ?>
-            ]);
-
-            var options = {
-                chart: {
-                    title: 'Poster follow view',
-                    subtitle: 'view/click'
-                },
-                width: 900,
-                height: 500
-            };
-
-            var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-            chart.draw(data, google.charts.Line.convertOptions(options));
-        }
-        <script>
-        </div>
-            </html >

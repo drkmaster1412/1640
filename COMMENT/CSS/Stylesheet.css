@@ -10,7 +10,7 @@
 
 .center {
   display: block;
-text-align: center;
+  text-align: center;
   margin-right: auto;
   width: 85%;
 }
@@ -183,6 +183,7 @@ text-align: center;
 }
 
 .pull-right {
+  display: flex;
   float: right !important;
   padding-right: 15px;
   padding-left: 0;

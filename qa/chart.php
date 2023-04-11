@@ -1,17 +1,16 @@
 <?php include "connection.php"; ?>
 <html>
-
-<head>
+  <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['bar']
-        });
-        google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
 
-        function drawChart() {
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        // function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Post', 'Like ', 'Dislike'],
+                ['Post', 'Like ', 'Dislike', 'View'],
                 <?php
                 $query = "select * from poster";
                 $res = mysqli_query($conn, $query);
@@ -19,35 +18,34 @@
                     $p_name = $data['p_name'];
                     $like_count = $data['like_count'];
                     $dislike_count = $data['dislike_count'];
-                ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
+                    $view = $data['view'];
+                ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count;  ?>, <?php echo $view; ?>],
                 <?php
                 }
                 ?>
             ]);
 
-            var options = {
-                chart: {
-                    title: 'Post statistic',
-                    subtitle: 'Like , dislike_count',
-                },
-                bars: 'vertical' // Required for Material Bar Charts.
-            };
 
-            var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+        var options = {
+          title : 'Post statistic',
+          vAxis: {title: 'Numbers'},
+          hAxis: {title: 'Ideas'},
+          seriesType: 'bars',
+          series: {2: {type: 'line'}}
+        };
 
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
     </script>
-</head>
-
-<body>
-    <br>
-    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%">
-        <div id="barchart_material" style="width: 900px; height: 500px;"></div>
-    </div>
-</body>
-
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="barchart_material_1" style="width: 900px; height: 500px;"></div>
+  </body>
 </html>
+
+
 
 
 
@@ -63,7 +61,7 @@
                 ['Post', 'Comment'],
                 <?php
                 $getposter = "SELECT p_uni_no FROM poster";
-                $getposter_query = mysqli_query($conn, $getposter);
+                $getposter_query = mysqli_query($conn, $getposter); 
 
                 while($data = mysqli_fetch_array($getposter_query))
                 {
@@ -85,10 +83,10 @@
                     title: 'Comment statistic',
                     subtitle: 'Comment',
                 },
-                bars: 'vertical' // Required for Material Bar Charts.
+bars: 'vertical' // Required for Material Bar Charts.
             };
 
-            var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+            var chart = new google.charts.Bar(document.getElementById('barchart_material_1'));
 
             chart.draw(data, google.charts.Bar.convertOptions(options));
         }

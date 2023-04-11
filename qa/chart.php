@@ -1,155 +1,25 @@
 <?php include "connection.php"; ?>
 <html>
 
-<div class="bar">
-
-<div class="bar">
-
-    <head>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', {
-                'packages': ['bar']
-            });
-            google.charts.setOnLoadCallback(drawChart);
-    <head>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', {
-                'packages': ['bar']
-            });
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Post', 'Like ', 'Dislike'],
-                    <?php
-                    $query = "select * from poster";
-                    $res = mysqli_query($conn, $query);
-                    while ($data = mysqli_fetch_array($res)) {
-                        $p_name = $data['p_name'];
-                        $like_count = $data['like_count'];
-                        $dislike_count = $data['dislike_count'];
-                    ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
-                    <?php
-                    }
-                    ?>
-                ]);
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Post', 'Like ', 'Dislike'],
-                    <?php
-                    $query = "select * from poster";
-                    $res = mysqli_query($conn, $query);
-                    while ($data = mysqli_fetch_array($res)) {
-                        $p_name = $data['p_name'];
-                        $like_count = $data['like_count'];
-                        $dislike_count = $data['dislike_count'];
-                        ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
-                        <?php
-                    }
-                    ?>
-                ]);
-
-                var options = {
-                    chart: {
-                        title: 'Post statistic',
-                        subtitle: 'Like , dislike_count',
-                    },
-                    bars: 'vertical' // Required for Material Bar Charts.
-                };
-                var options = {
-                    chart: {
-                        title: 'Post statistic',
-                        subtitle: 'Like , dislike_count',
-                    },
-                    bars: 'vertical' // Required for Material Bar Charts.
-                };
-
-                var chart = new google.charts.Bar(document.getElementById('barchart_material'));
-                var chart = new google.charts.Bar(document.getElementById('barchart_material'));
-
-                chart.draw(data, google.charts.Bar.convertOptions(options));
-            }
-        </script>
-    </head>
-                chart.draw(data, google.charts.Bar.convertOptions(options));
-            }
-        </script>
-    </head>
-
-    <body>
-        <br>
-        <div id="main-content" class="container allContent-section py-6" style="margin-left:20%">
-            <div id="barchart_material" style="width: 900px; height: 500px;"></div>
-        </div>
-    </body>
-</div>
-
-<div class="line">
-
+<head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
-            'packages': ['line']
+            'packages': ['bar']
         });
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Post', 'View'],
+                ['Post', 'Like ', 'Dislike'],
                 <?php
                 $query = "select * from poster";
                 $res = mysqli_query($conn, $query);
                 while ($data = mysqli_fetch_array($res)) {
                     $p_name = $data['p_name'];
-                    $view = $data['view'];
-                ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
-                <?php
-                }
-                ?>
-            ]);
-
-            var options = {
-                chart: {
-                    title: 'Poster follow view',
-                    subtitle: 'view/click'
-                },
-                width: 900,
-                height: 500
-            };
-
-            var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-            chart.draw(data, google.charts.Line.convertOptions(options));
-        }
-    </script>
-</div>
-    <body>
-        <br>
-        <div id="main-content" class="container allContent-section py-6" style="margin-left:20%">
-            <div id="barchart_material" style="width: 900px; height: 500px;"></div>
-        </div>
-    </body>
-</div>
-
-<div class="line">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['line'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Post', 'View'],
-                <?php
-                $query = "select * from poster";
-                $res = mysqli_query($conn, $query);
-                while ($data = mysqli_fetch_array($res)) {
-                    $p_name = $data['p_name'];
-                    $view = $data['view'];
-                    ?>['<?php echo $p_name; ?>', <?php echo $view; ?>],
+                    $like_count = $data['like_count'];
+                    $dislike_count = $data['dislike_count'];
+                    ?>['<?php echo $p_name; ?>', <?php echo $like_count; ?>, <?php echo $dislike_count; ?>],
                     <?php
                 }
                 ?>
@@ -157,17 +27,68 @@
 
             var options = {
                 chart: {
-                    title: 'Poster follow view',
-                    subtitle: 'view/click'
+                    title: 'Post statistic',
+                    subtitle: 'Like , dislike_count',
                 },
-                width: 900,
-                height: 500
+                bars: 'vertical' // Required for Material Bar Charts.
             };
 
-            var chart = new google.charts.Line(document.getElementById('linechart_material'));
+            var chart = new google.charts.Bar(document.getElementById('barchart_material'));
 
-            chart.draw(data, google.charts.Line.convertOptions(options));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
         }
-        <script>
-        </div>
-            </html >
+    </script>
+</head>
+
+<body>
+    <br>
+    <div id="main-content" class="container allContent-section py-6" style="margin-left:20%">
+        <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Post', 'Comment'],
+            <?php
+            $getposter = "SELECT p_uni_no FROM poster";
+            $getposter_query = mysqli_query($conn, $getposter);
+
+            while ($data = mysqli_fetch_array($getposter_query)) {
+                $getcomment = "SELECT mc_p_uni_id FROM mcomments";
+                $getcomment_query = mysqli_query($conn, $getcomment);
+                foreach ($data as $datas) {
+                    $result1 = $conn->query("SELECT count(mc_p_uni_id) AS id FROM mcomments WHERE mc_p_uni_id = '$datas'");
+                    $commentCount = $result1->fetch_all(MYSQLI_ASSOC);
+                    $total = $commentCount[0]['id'];
+                }
+                ?>['<?php echo $datas; ?>', <?php echo $total; ?>],
+                <?php
+            }
+            ?>
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Comment statistic',
+                subtitle: 'Comment',
+            },
+            bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>

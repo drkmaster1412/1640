@@ -22,7 +22,7 @@
             $sql = "select * from poster";
             $results = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_array($results)) {
-            ?>
+                ?>
                 <tr>
                     <td scope="row">
                         <?php echo $row['p_id'] ?>
@@ -30,7 +30,7 @@
                     <td>
                         <?php echo $row['p_name'] ?>
                     </td>
-                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td><img src="../image/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
                     <td>
                         <?php echo $row['p_text'] ?>
                     </td>
@@ -52,7 +52,7 @@
                             </a> -->
                     </td>
                 </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>

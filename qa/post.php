@@ -1,6 +1,6 @@
 <br>
 <div id="main-content" class="container allContent-section py-6" style="margin-left:20%; width:70%;">
-    <h2>All Posts</h2>
+    <h2>All Ideas</h2>
     <hr>
     <table class="table">
         <thead>
@@ -22,7 +22,7 @@
             $sql = "select * from poster";
             $results = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_array($results)) {
-            ?>
+                ?>
                 <tr>
                     <td scope="row">
                         <?php echo $row['p_id'] ?>
@@ -30,7 +30,7 @@
                     <td>
                         <?php echo $row['p_name'] ?>
                     </td>
-                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td><img src="../image/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
                     <td>
                         <?php echo $row['p_text'] ?>
                     </td>
@@ -45,14 +45,12 @@
                     </td>
 
                     <td>
-                        <a href="<?php echo $urladmin . '?page=' . $postEdit . '&p_id=' . $row['p_id']; ?>">
-                            <span class="material-icons">drive_file_rename_outline</span>
-                            <a href="<?php echo $urladmin . '?page=' . $postDelete . '&p_id=' . $row['p_id']; ?>" onclick="return confirm('Are you sure')">
-                                <span class="material-icons">delete_outline</span>
-                            </a>
+                        <a href="" style="margin-left:45%">
+                            <span class="material-icons">visibility_outline</span>
+                        </a>
                     </td>
                 </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>

@@ -1,7 +1,10 @@
 <?php
 session_start();
 $err = "";
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'login/vendor/autoload.php';
 $conn = mysqli_connect('localhost', 'root', '', 'btwev')
     or die("Can not connect database" . mysqli_connect_error());
 
@@ -11,6 +14,7 @@ $closetime = "SELECT * FROM closesuredate WHERE Year = $year";
 $closetime_run = $conn->query($closetime);
 while ($row = mysqli_fetch_array($closetime_run)) {
     if ($row['Closesure_date'] > $time) {
+
 
 ?>
 
@@ -32,7 +36,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
             $fileName = $_FILES['file']['name'];
             $fileTmpName = $_FILES['file']['tmp_name'];
             $path = "upload/" . $fileName;
-            $imgpath = "image/" . $fileName;
+            $imgpath = "image/" . $imgName;
 
 
             if ($p_name == "") {
@@ -54,6 +58,35 @@ while ($row = mysqli_fetch_array($closetime_run)) {
                 if ($sql_run) {
                     move_uploaded_file($imgTmpName, $imgpath);
                     move_uploaded_file($fileTmpName, $path);
+                    
+                    $email = $row['email'];
+                        //Create an instance; passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
+                
+                        try {
+                            //Server settings
+                            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                            $mail->isSMTP();                                            //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                            $mail->Username   = 'ttphuong2414.work@gmail.com';                     //SMTP username
+                            $mail->Password   = 'zhtxmqfzlvzxdska';                               //SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                
+                            //Recipients
+                            $mail->setFrom('ttphuong2414.work@gmail.com');
+                            $mail->addAddress($email);
+                
+                            //Content
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'no reply';
+                            $mail->Body    = '<p>Someone has posted the new idea</p>';
+                
+                            $mail->send();
+                        } catch (Exception $e) {
+                            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                        }   
                     header("Location: http://localhost/1640/COMMENT/post.php?page=1");
                 } else {
                     $error = "Error uploading";
@@ -67,7 +100,7 @@ while ($row = mysqli_fetch_array($closetime_run)) {
         <html lang="en">
 
         <head>
-            <title>Add New Post</title>
+            <title>Add New Idea</title>
             <link rel="icon" type="image/jpg" href="./image/favicon.jpg" />
             <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

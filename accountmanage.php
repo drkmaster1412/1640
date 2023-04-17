@@ -141,7 +141,7 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
                     <td>
                         <?php echo $row['p_name'] ?>
                     </td>
-                    <td><img src="./images/<?php echo $row['p_image']; ?>" style=width:50px; height:50px"></td>
+                    <td><img src="image/<?php echo $row['p_image']; ?>" style= "width:50px; height:50px;"></td>
                     <td>
                         <?php echo $row['p_text'] ?>
                     </td>
@@ -154,9 +154,9 @@ if (!isset($_SESSION['user_name']) && !isset($_SESSION['user_uni_no'])) {
 
                     <td>
                         <a href="<?php echo './?page=post_edit.php&p_id=' . $row['p_id']; ?>">
-                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="material-icons">Edit</span>
                             <a href="<?php echo $urladmin . '?page=' . $postDelete . '&p_id=' . $row['p_id']; ?>" onclick="return confirm('Are you sure')">
-                                <span class="material-icons">delete_outline</span>
+                                <span class="material-icons">Delete</span>
                             </a>
                     </td>
                 </tr>

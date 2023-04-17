@@ -2,6 +2,7 @@
 session_start();
 
 $role = $_SESSION['Roles'];
+
 if ($role == 2) {
 ?>
 
@@ -29,7 +30,6 @@ if ($role == 2) {
         include "./adminHeader.php";
         include "./sidebar.php";
         include "./section.php";
-
         ?>
 
         <!--Footer-->

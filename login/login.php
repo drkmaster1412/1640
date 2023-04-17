@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 			} else {
-				$error_msg = "Username or Passwword are Invalid";
+				$error_msg = "Username and Passwword are Invalid";
 			}
 		} else {
 

@@ -14,12 +14,12 @@ if ($query->num_rows > 0) {
     $f = fopen('php://memory', 'w');
 
     // Set column headers 
-    $fields = array('p name', ' p user', ' like', ' dislike');
+    $fields = array('p name', ' p user', 'view', ' like', ' dislike');
     fputcsv($f, $fields, $delimiter);
 
     // Output each row of the data, format line as csv and write to file pointer 
     while ($row = $query->fetch_assoc()) {
-        $lineData = array($row['p_name'], $row['p_user'], $row['like_count'], $row['dislike_count']);
+        $lineData = array($row['p_name'], $row['p_user'], $row['view'], $row['like_count'], $row['dislike_count']);
         fputcsv($f, $lineData, $delimiter);
     }
 
